@@ -26,6 +26,7 @@ jobs:
           cd backend
           npm install express
           npm run build --if-present
+          npm install express
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
