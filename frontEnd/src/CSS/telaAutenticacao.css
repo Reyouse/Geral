@@ -71,6 +71,11 @@ button:hover{
 /* Rodapé */
 footer{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.blocoVertical{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -84,5 +89,10 @@ footer{
     font-size: x-large;
     padding: 8px;
     position: relative;
-    top: 1.2cm;
+    top: 0cm;
+}
+#btnDuvida{
+    background-color: #F7F7F7;
+    font-size: x-large;
+    
 }
