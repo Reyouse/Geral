@@ -22,7 +22,7 @@ jobs:
           node-version: '18.x'
           
       - name: Navigate to backend folder
-        run: cd path/to/backend/folder
+        run: cd backend
   
       - name: npm install, build, and test
         run: |
