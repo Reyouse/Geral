@@ -99,6 +99,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 0px 30px 0px;
+    background-color: #202020;
   }
   
   .thumbnail {
@@ -146,6 +148,81 @@ body{
     box-shadow: 0 4px 8px rgba(0,0,0,0.4); /* adiciona uma sombra mais escura */
   }
 
+  /* Estilizando o texto"Plataformas" */
+  #plataformas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #202020;
+  }
+  
+  #plataformas h1 {
+    font-size: 40px;
+    text-align: center;
+    background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
 
+/*Estilizando os cards das plataformas */
+  .cards {
+    display: flex;
+    justify-content: center;
+    background-color: #202020;
+    padding: 10px 0px 80px 0px;
+  }
+  
+  .card {
+    background-color: #202020;
+    width: 200px;
+    height: 200px;
+    margin: 0 30px;
+    border-radius: 30px;
+    border: 5px solid #f7f7f7;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: #1B2838;
+    border-color: #f7f7f7;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .card h3 {
+    font-size: 24px;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .card p {
+    font-size: 16px;
+    margin: 0 20px 20px;
+    text-align: justify;
+  }
 
+  .textoFooter{
+    color: #F7F7F7;
+    font-weight: 600;
+
+  }
+
+  #rede:hover{
+    border-color: #1B2838;
+    background-color: #F7F7F7;
+  }
   
