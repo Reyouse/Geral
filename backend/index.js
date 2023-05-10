@@ -8,21 +8,8 @@ const sql = require('./recursos/conexaoBanco.js');
 
 // AQUI ESTÃO DOIS EXEMPLO DE COMO RETORNAR APENAS UMA MENSAGEM DE TEXTO PARA O FRONT UTILIZAR:
 app.get('/', (req, res) => {
-  const mensagem = `
-    <h1>BEM VINDO AO BACKEND DA REYOUSE!</h1>
-    <h2>ROTAS OFICIAIS</h2>
-    <br>
-    <h2>ROTAS DE EXEMPLO</h2>
-    <ul>
-      <li>test: Retorna a string "Teste"</li>
-      <li>exemploconsulta: Retorna o que está dentro da tabela anúncio</li>
-      <li>exemplorecebendo(parametro1, parametro2): Retorna uma string mostrando valor do parametro1 e do parametro2</li>
-      <li>exemplocompleto(parametro): Pesquisa a tabela passada como parametro no banco e retorna o seu conteudo</li>
-    </ul>
-  `;
-
-
-  res.send(mensagem);
+  const mensagem = require('./recursos/mensagemInicial.js');
+  res.send(mensagem.EnviarMensagem());
 });
 
 app.get('/test', (req, res) => {
