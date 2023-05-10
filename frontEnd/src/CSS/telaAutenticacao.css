@@ -12,20 +12,24 @@
 }
 header, footer{
     background-color: #1B2838;
+    padding: 20px;
 }
 main{
     background-color: #171A21;
 }
 #logo{
-    width: 20%;
+    width: 12%;
 }
 
 /* Corpo */
-h2, label{
-    color: #FFFFFF;
+h2{
+    background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
 }
 h3{
-    color: #F8AF40;
     font-variant: small-caps;
 }
 .conteudoValidacao{
@@ -36,8 +40,21 @@ h3{
     gap: 1cm;
     padding: 1cm 0 1cm 0;
 }
+label{
+    font-family: 'Quicksand', sans-serif;
+}
+button{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 label, button{
     font-size: medium;
+    letter-spacing: 0.025cm;
+}
+label, h3{
+    color: #FFFFFF;
+}
+.fa-question{
+    margin: 0 7px 0 7px;
 }
 .ehCadastrado, .naoEhCadastrado{
     border: 2px solid #f7f7f7;
@@ -61,38 +78,44 @@ button{
     padding: 8px;
     border-radius: 9px;
     width: 3cm;
-    font-weight: bold;
+    font-weight: bolder;
     background-color: #F8AF40;
+    cursor: pointer;
 }
 button:hover{
-    border-color: #FFFFFF;
+    border-color: #F7F7F7;
 }   
 
 /* Rodapé */
-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 .blocoVertical{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
-.redesSociais span:nth-child(2){
+.redes{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.6cm;
+}
+.redes a:nth-child(2){
     margin: 0 1em 0 1em;
 }
-.redesSociais span{
+#socialMedia, #btnDuvida{
     background-color: #F7F7F7;
-    border-radius: 50%;
     font-size: x-large;
+    border-radius: 50%;
     padding: 8px;
-    position: relative;
-    top: 0cm;
+}
+a{
+    color: inherit;
 }
 #btnDuvida{
-    background-color: #F7F7F7;
-    font-size: x-large;
-    
+    position: relative;
+    top: 2cm;
+}
+#socialMedia:hover, #btnDuvida:hover{
+    background-color: #171A21;
+    color: #F7F7F7;
 }
