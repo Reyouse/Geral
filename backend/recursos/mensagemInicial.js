@@ -60,6 +60,7 @@ const MensagemInicial = {
         <li><span class="item-title">verifica-email(email)</span> Verifica se o email passado por parâmetro está ou não disponível (existe ou não no banco)</li>
         <li><span class="item-title">verifica-cpf(cpf)</span> Verifica se o cpf passado por parâmetro está ou não disponível (existe ou não no banco)</li>
         <li><span class="item-title">valida-cpf(cpf)</span> Verifica se o cpf passado por parâmetro é um cpf válido</li>
+        <li><span class="item-title">login(username, senha)</span> Verifica se o usuário está cadastrado e se a senha está correta e então retorna uma resposta informando se o login ocorreu ou não</li>
       </ul>
       <br>
       <h2>ROTAS DE EXEMPLO</h2>
