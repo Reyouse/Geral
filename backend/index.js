@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cadastro = require('./recursos/cadastro')
+const login = require('./recursos/login');
 
 // -------------------EXEMPLOS----------------------:
 
@@ -68,6 +69,8 @@ app.get('/verifica-email/:email/', cadastro.verificaEmail);
 app.get('/verifica-cpf/:cpf/', cadastro.verificaCPF);
 
 app.get('/valida-cpf/:cpf/', cadastro.validaCPF);
+
+app.get('/login/:username/:senha', login.login);
 
 // -------------- CRIA A PORTA DO BACKEND -----------------
 app.listen(8080, () => {
