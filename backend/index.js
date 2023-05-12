@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cadastro = require('./recursos/cadastro')
 
 // -------------------EXEMPLOS----------------------:
 
@@ -58,7 +59,15 @@ app.get('/exemplocompleto/:parametro', (req, res) => {
 
 
 // -------------- ROTAS DO BACKEND -----------------
+app.get('/cadastro/:username/:email/:senha/:nome/:cpf/:celular/:sexo', cadastro.cadastrar);
 
+app.get('/verifica-username/:username/', cadastro.verificaUsername);
+
+app.get('/verifica-email/:email/', cadastro.verificaEmail);
+
+app.get('/verifica-cpf/:cpf/', cadastro.verificaCPF);
+
+app.get('/valida-cpf/:cpf/', cadastro.validaCPF);
 
 // -------------- CRIA A PORTA DO BACKEND -----------------
 app.listen(8080, () => {

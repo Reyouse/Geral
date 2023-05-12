@@ -54,6 +54,13 @@ const MensagemInicial = {
     
       <h1>BEM VINDO AO BACKEND DA REYOUSE!</h1>
       <h2>ROTAS OFICIAIS</h2>
+      <ul>
+        <li><span class="item-title">cadastro(username, email, senha, nome, cpf, celular, sexo):</span> Cadastra o usuário informado nos parâmetros no banco de dados</li>
+        <li><span class="item-title">verifica-username(username)</span> Verifica se o username passado por parâmetro está ou não disponível (existe ou não no banco)</li>
+        <li><span class="item-title">verifica-email(email)</span> Verifica se o email passado por parâmetro está ou não disponível (existe ou não no banco)</li>
+        <li><span class="item-title">verifica-cpf(cpf)</span> Verifica se o cpf passado por parâmetro está ou não disponível (existe ou não no banco)</li>
+        <li><span class="item-title">valida-cpf(cpf)</span> Verifica se o cpf passado por parâmetro é um cpf válido</li>
+      </ul>
       <br>
       <h2>ROTAS DE EXEMPLO</h2>
       <ul>
