@@ -8,7 +8,7 @@ async function verificaUsername(request, response){
         const consulta = `SELECT * FROM Usuario WHERE nomeUsuario = '${username}'`;
         const result = await sql.Query(consulta);
         
-        if (result.length > 0) {
+        if (result.recordset.length > 0) {
           response.send('Nome de usuário já registrado');
         } else {
           response.send('Nome de usuário disponível');
@@ -25,7 +25,7 @@ async function verificaEmail(request, response){
         const consulta = `SELECT * FROM Usuario WHERE email = '${email}'`;
         const result = await sql.Query(consulta);
         
-        if (result.length > 0) {
+        if (result.recordset.length > 0) {
           response.send('Email já registrado');
         } else {
           response.send('Email disponível');
@@ -42,7 +42,7 @@ async function verificaCPF(request, response){
         const consulta = `SELECT * FROM Usuario WHERE cpf = '${cpf}'`;
         const result = await sql.Query(consulta);
         
-        if (result.length > 0) {
+        if (result.recordset.length > 0) {
           response.send('CPF já registrado');
         } else {
           response.send('CPF disponível');
