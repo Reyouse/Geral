@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const destaques = require('./recursos/destaques');
+const catalogo = require('./recursos/catalogo');
 
 // -------------------EXEMPLOS----------------------:
 
@@ -60,6 +61,7 @@ app.get('/exemplocompleto/:parametro', (req, res) => {
 
 // -------------- ROTAS DO BACKEND -----------------
 app.get('/destaques', destaques.destaques);
+app.get('/catalogo/:plataforma', catalogo.catalogo);
 
 // -------------- CRIA A PORTA DO BACKEND -----------------
 app.listen(8080, () => {
