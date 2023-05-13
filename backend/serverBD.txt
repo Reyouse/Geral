@@ -1,1 +1,0 @@
-reyouse.database.windows.net
