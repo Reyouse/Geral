@@ -54,6 +54,10 @@ const MensagemInicial = {
     
       <h1>BEM VINDO AO BACKEND DA REYOUSE!</h1>
       <h2>ROTAS OFICIAIS</h2>
+      <ul>
+        <li><span class="item-title">destaques:</span> Retorna os 5 anúncios mais baratos da plataforma</li>
+        <li><span class="item-title">catalogo(plataforma)</span> Retorna todos os anúncios da plataforma</li>
+      </ul>
       <br>
       <h2>ROTAS DE EXEMPLO</h2>
       <ul>
