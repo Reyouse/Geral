@@ -1,0 +1,102 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #202020;
+}
+
+/*Definindo largura correta para a logo */
+#logo_Reyouse{
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar{
+    background-color: #1B2838;
+    width: 100%;
+}
+/* Deixando o icone de pesquisa branco e sem a caixa em volta*/
+.navbar-collapse form[role="search"] button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #f7f7f7;
+}
+/* Alterando as propriedadas da barra de pesquisa*/
+.form-control {
+    border-radius: 20px;
+    width: 300px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+/*Definindo display-flex*/
+.navbar-header, .navbar-form, .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /*Estilizando os icones de user e carrinho */
+  .navbar-icon {
+    font-size: 24px; /* tamanho do ícone */
+    color: #fff; /* cor do ícone */
+    margin-right: 10px;
+  }
+
+    /* Estilizando o texto"Catálogo" */
+    #catalogo {
+        margin-top: 30px;
+        display: grid;
+        align-items: center;
+        height: 100px;
+        background-color: #202020;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 40px;
+      }
+      
+      #catalogo h1 {
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        text-align: center;
+        background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        
+    }
+
+    /*Estilizando o dropdown */
+    .dropdown{
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        
+    }
+    #dropdownMenuButton{
+        font-weight: 600;
+    }
+    .dropdown-item{
+        font-weight: 600;
+        background-color: #F7F7F7;
+    }
+
+/*Estilo dos cards dos produtos */
+#jogosCatalogo{
+    display: grid;
+}
+.card-personalizado {
+    width: 300px;
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
+
+  

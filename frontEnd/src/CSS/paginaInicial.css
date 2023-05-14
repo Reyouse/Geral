@@ -1,5 +1,6 @@
 body{
     background-color: #1B2838;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /*Definindo largura correta para a logo */
@@ -158,13 +159,13 @@ body{
   }
   
   #plataformas h1 {
-    font-size: 40px;
+    font-size: 45px;
     text-align: center;
     background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 /*Estilizando os cards das plataformas */
@@ -207,7 +208,13 @@ body{
   }
   
   
-  /*Propriedades do rodapé */
+   /*Propriedades do rodapé */
+   footer{
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+
   .textoFooter{
     color: #F7F7F7;
     font-weight: 600;
@@ -219,3 +226,60 @@ body{
     background-color: #F7F7F7;
   }
   
+
+/*Botão de ajuda ao lado esquerdo do rodapé*/
+  .botao-ajuda {
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #F8AF40;
+    font-size: 20px;
+    color: #1B2838;
+    font-weight: 800;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    display: block;
+  }
+  
+.botao-ajuda:hover{
+  color: #1B2838;
+  background-color: #f7f7f7;
+}
+
+/*Alterações na logo do rodapé */
+.logoRodape{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+
+
+/*Modal ajuda */
+#modalAjuda h1{
+  font-family: 'Quicksand', sans-serif;
+  color: #F8AF40;
+  font-size: 30px;
+  font-weight: 800;
+}
+.btnOpcoes{
+  background-color: #F7F7F7;
+  color: #1B2838;
+  font-family: 'Quicksand', sans-serif;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.btn-close{
+  background-color: #F7F7F7;
+}
+.modal-content {
+  background-color: #202020;
+}

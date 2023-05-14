@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function changeImage(card) {
     var cardImage = card.querySelector('.card-image');
         if (cardImage.src.includes('logotipo-do-xbox.png')){
-            cardImage.src = '/Geral/frontEnd/src/imgs/logotipo-do-xbox-black.png';
+            cardImage.src = '../imgs/logotipo-do-xbox-black.png';
         }
         else if (cardImage.src.includes('logotipo-do-playstation.png')) {
-            cardImage.src = '/Geral/frontEnd/src/imgs/logotipo-do-playstation-black.png';
+            cardImage.src = '../imgs/logotipo-do-playstation-black.png';
         }
         else if (cardImage.src.includes('pc.png')) {
-            cardImage.src = '/Geral/frontEnd/src/imgs/pc-black.png';
+            cardImage.src = '../imgs/pc-black.png';
         }
 }
 
@@ -35,14 +35,16 @@ function changeImage(card) {
 function restoreImage(card) {
     var cardImage = card.querySelector('.card-image');
     if (cardImage.src.includes('logotipo-do-xbox-black.png')){
-        cardImage.src = '/Geral/frontEnd/src/imgs/logotipo-do-xbox.png';
+        cardImage.src = '../imgs/logotipo-do-xbox.png';
     }
     else if (cardImage.src.includes('logotipo-do-playstation-black.png')) {
-        cardImage.src = '/Geral/frontEnd/src/imgs/logotipo-do-playstation.png';
+        cardImage.src = '../imgs/logotipo-do-playstation.png';
     }
     else if (cardImage.src.includes('pc-black.png')) {
-        cardImage.src = '/Geral/frontEnd/src/imgs/pc.png';
+        cardImage.src = '../imgs/pc.png';
     }
   }
+
+  
 
 
