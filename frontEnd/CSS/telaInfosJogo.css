@@ -1,0 +1,62 @@
+/* 
+    Amarelo: #F8AF40
+    Azul: #1B2838
+    Preto: #171A21
+    Branco: #F7F7F7
+    Cinza: #202020
+*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header, footer{
+    background-color: #1B2838;
+    padding: 20px;
+}
+main{
+    background-color: #171A21;
+}
+#logo{
+    width: 12%;
+}
+
+/* Corpo */
+
+
+/* Rodapé */
+.blocoVertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.redes{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.6cm;
+}
+.redes a:nth-child(2){
+    margin: 0 1em 0 1em;
+}
+#socialMedia, #btnDuvida{
+    background-color: #F7F7F7;
+    font-size: x-large;
+    border-radius: 50%;
+    padding: 8px;
+}
+#btnDuvida{
+    position: relative;
+    top: 2cm;
+}
+#socialMedia:hover, #btnDuvida:hover{
+    background-color: #171A21;
+    color: #F7F7F7;
+}
+.fa-question{
+    margin: 0 7px 0 7px;
+}
+a{
+    color: inherit;
+}
