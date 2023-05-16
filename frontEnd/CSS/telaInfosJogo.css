@@ -22,7 +22,39 @@ main{
 }
 
 /* Corpo */
-
+main{
+    padding: 1.5cm;
+}
+.infosJogo{
+    padding: 0 20px 20px 20px;
+    border: 2px solid #FFF;
+    color: #F7F7F7;
+    display: flex;
+    text-align: justify;
+    width: 75%;
+    margin: 0 auto;
+}
+.infosJogo p{
+    margin-bottom: 0.4cm;
+    font-size: medium;
+    width: 60%;
+}
+.infosJogo span{
+    font-size: x-large;
+}
+.infosJogo i{
+   font-size: xx-large;
+   position: relative;
+   left: 9.5cm;
+   cursor: pointer;
+}
+#imgJogo{
+    width: 20%;
+    border-radius: 15px;
+    position: relative;
+    top: 6.7cm;
+    left: 4.8cm;
+}
 
 /* Rodapé */
 .blocoVertical{
