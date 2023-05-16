@@ -27,13 +27,11 @@ main{
     padding: 1.5cm;
 }
 .infosJogo{
-    padding: 0 20px 20px 20px;
+    height: min-content;
     border: 2px solid #FFF;
     color: #F7F7F7;
     display: flex;
     text-align: justify;
-    width: 75%;
-    margin: 0 auto;
 }
 .infosJogo p{
     margin-bottom: 0.4cm;
@@ -48,13 +46,21 @@ main{
    position: relative;
    left: 9.5cm;
    cursor: pointer;
+   margin-bottom: 0.5cm;
 }
 #imgJogo{
     width: 20%;
     border-radius: 15px;
     position: relative;
-    top: 6.7cm;
-    left: 4.8cm;
+    left: 7cm;
+    bottom: 1.4cm;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1cm;
+    border: 1px solid red;
 }
 
 /* Rodapé */
