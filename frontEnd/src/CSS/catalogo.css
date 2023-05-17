@@ -101,13 +101,21 @@ body{
       border-radius: 15px;
     }
     .card-title {
-      color: #1B2838;
-      height: 3rem; /* altura de 3 rem (48 pixels) */
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #202020;
+      font-weight: 600;
+      font-size: 21px;
+      height: 4rem; /* altura de 3 rem (48 pixels) */
       overflow: hidden; /* esconde qualquer conteúdo adicional que possa ultrapassar a altura definida */
     }
     .card-price {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
       font-weight: bolder;
-      color: #1B2838;
+      color: #202020;
+    }
+    .fa-shopping-cart{
+      font-size: 20px ;
     }
     .card-text {
       margin-bottom: 0.5rem;
@@ -121,19 +129,110 @@ body{
       position: relative;
       
     }
-    .wide-card .card-img-top {
-      height: auto;
-      max-width: 100%;
-      margin-top: -50px; /*Borda da imagem do jogo para fora do card */
-      margin-bottom: -10px; /* Diminui o espaçamento entre a capa do jogo e o conteúdo do card*/
-    }
     .wide-card .card-body {
-       padding: 0.75rem;
+       padding: 0.6rem;
     }
-   
+   #conteudoCard{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+   }
+   .zoom-img {
+    position: relative;
+    overflow: hidden;
+    margin-top: -50px;
+    border-radius: 15px;
+    
+  }
   
+  .zoom-img img {
+    transition: transform 0.3s ease;
+  }
+  
+  .zoom-img:hover img {
+    transform: scale(1.04);
+    transform-origin: center center;
+  }
 
 
+
+    /*Propriedades do rodapé */
+    footer{
+      padding: 20px 0px 0px 0px;
+      margin-top: 50px;
+      margin-bottom: 15px;
+      background-color: #1B2838;
+    }
+  
+  
+    .textoFooter{
+      color: #F7F7F7;
+      font-weight: 600;
+  
+    }
+  
+    #rede:hover{
+      border-color: #1B2838;
+      background-color: #F7F7F7;
+    }
+    
+  
+  /*Botão de ajuda ao lado esquerdo do rodapé*/
+    .botao-ajuda {
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: #F8AF40;
+      font-size: 20px;
+      color: #1B2838;
+      font-weight: 800;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      display: block;
+    }
+    
+  .botao-ajuda:hover{
+    color: #1B2838;
+    background-color: #f7f7f7;
+  }
+  
+  /*Alterações na logo do rodapé */
+  .logoRodape{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  
+  }
+  
+  
+  /*Modal ajuda */
+  #modalAjuda h1{
+    font-family: 'Quicksand', sans-serif;
+    color: #F8AF40;
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .btnOpcoes{
+    background-color: #F7F7F7;
+    color: #1B2838;
+    font-family: 'Quicksand', sans-serif;
+    width: 50%;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .btn-close{
+    background-color: #F7F7F7;
+  }
+  .modal-content {
+    background-color: #202020;
+  }
 
 
   
