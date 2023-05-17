@@ -10,42 +10,48 @@ body{
 }
 
 /*Definindo cor para a navbar */
-.navbar{
-    background-color: #1B2838;
-    width: 100%;
+.navbar {
+  background-color: #1B2838;
+  width: 100%;
 }
-/* Deixando o icone de pesquisa branco e sem a caixa em volta*/
+
 .navbar-collapse form[role="search"] button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #f7f7f7;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #f7f7f7;
 }
-/* Alterando as propriedadas da barra de pesquisa*/
+
 .form-control {
-    border-radius: 20px;
-    width: 300px;
-    outline: none;
-    box-shadow: none;
-  }
-  
-  .form-control:focus {
-    border-color: transparent;
-    box-shadow: none;
-  }
+  border-radius: 20px;
+  width: 300px;
+  outline: none;
+  box-shadow: none;
+}
 
-/*Definindo display-flex*/
-.navbar-header, .navbar-form, .navbar-right {
-    display: flex;
-    align-items: center;
-  }
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
 
-  /*Estilizando os icones de user e carrinho */
-  .navbar-icon {
-    font-size: 24px; /* tamanho do ícone */
-    color: #fff; /* cor do ícone */
-    margin-right: 10px;
-  }
+.navbar-header,
+.navbar-form,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.navbar-collapse form[role="search"] {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
 
     /* Estilizando o texto"Catálogo" */
     #catalogo {
@@ -102,12 +108,34 @@ body{
     }
     .card-title {
       font-family: 'IBM Plex Sans', sans-serif;
-      color: #202020;
+      color: #1B2838;
       font-weight: 600;
-      font-size: 21px;
-      height: 4rem; /* altura de 3 rem (48 pixels) */
+      font-size: 22px;
+      height: 3.4rem; /* altura de 3 rem (48 pixels) */
       overflow: hidden; /* esconde qualquer conteúdo adicional que possa ultrapassar a altura definida */
     }
+
+    /*Estilização dos icones SVG das plataformas de videogame */
+    .game-card_cardIcon {
+    
+      display: flex !important;
+  }
+  
+  .game-card_cardIconWrapper__382_2 {
+    display: -moz-box;
+    display: flex;
+    width: auto;
+    height: 18px;
+    -moz-box-align: center;
+    align-items: center;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .mr-10 {
+    margin-right: 10px; /*Espaçamento dos icones das plataformas do jogo */
+  }
+
+
     .card-price {
       font-family: 'Quicksand', sans-serif;
       font-size: 18px;
@@ -121,7 +149,7 @@ body{
       margin-bottom: 0.5rem;
     }
     .add-to-cart {
-      color: #F8AF40;
+      color: #1B2838;
       cursor: pointer;
     }
     .wide-card {
@@ -233,6 +261,3 @@ body{
   .modal-content {
     background-color: #202020;
   }
-
-
-  
