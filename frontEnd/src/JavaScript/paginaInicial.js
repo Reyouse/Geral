@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const carousel = document.querySelector('#carouselExampleCaptions');
                 
                 // move o carrossel para o slide clicado
-                const carouselBS = bootstrap.Carousel.getInstance(carousel);
+                const carouselBS = new bootstrap.Carousel(carousel);
                 carouselBS.to(index);
             });
         });
