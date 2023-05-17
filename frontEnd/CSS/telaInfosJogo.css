@@ -10,6 +10,9 @@
     margin: 0;
     padding: 0;
 }
+a{
+    color: inherit;
+}
 header, footer{
     background-color: #1B2838;
     padding: 20px;
@@ -18,8 +21,37 @@ main{
     background-color: #171A21;
     overflow-x: hidden;
 }
-#logo{
-    width: 12%;
+
+/* Cabeçalho */
+#cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header #logo{
+    width: 42%;
+}
+.campoPesquisa i{
+    color: #171A21;
+    font-size: large;
+    border-radius: 50%;
+    background-color: #F7F7F7;
+    padding: 5px;
+}
+.cartUser i{
+    color: #171A21;
+    font-size: large;
+    border-radius: 50%;
+    background-color: #F7F7F7;
+    padding: 5px;
+}
+input{
+    border-radius: 12px;
+    height: 0.7cm;
+}
+.campoPesquisa{
+    display: flex;
+    gap: 0.1cm;
 }
 
 /* Corpo */
@@ -30,11 +62,12 @@ main{
     height: min-content;
     border: 2px solid #FFF;
     color: #F7F7F7;
-    display: flex;
     text-align: justify;
+    position: relative;
+    right: 1.8cm;
+    width: 87%;
 }
 .infosJogo p{
-    margin-bottom: 0.4cm;
     font-size: medium;
     width: 60%;
 }
@@ -44,7 +77,7 @@ main{
 .infosJogo i{
    font-size: xx-large;
    position: relative;
-   left: 9.5cm;
+   left: 9.2cm;
    cursor: pointer;
    margin-bottom: 0.5cm;
 }
@@ -52,15 +85,14 @@ main{
     width: 20%;
     border-radius: 15px;
     position: relative;
-    left: 7cm;
-    bottom: 1.4cm;
+    left: 4.9cm;
+    bottom: 1.23cm;
+    z-index: 1;
 }
-.row{
+.container{
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-top: 1cm;
-    border: 1px solid red;
 }
 
 /* Rodapé */
@@ -96,6 +128,6 @@ main{
 .fa-question{
     margin: 0 7px 0 7px;
 }
-a{
-    color: inherit;
+footer #logo{
+    width: 12%;
 }
