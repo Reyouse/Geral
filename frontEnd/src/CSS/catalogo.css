@@ -87,15 +87,52 @@ body{
     }
 
 /*Estilo dos cards dos produtos */
-#jogosCatalogo{
-    display: grid;
-}
-.card-personalizado {
-    width: 300px;
-    height: 400px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+    #jogosCatalogo{
+    margin-top: 70px;
+    }
+    .card {
+      border-radius: 0px;
+      background-color: #f7f7f7;
+    }
+    .card-img-overlay {
+      position: relative;
+    }
+    .card-img-top{
+      border-radius: 15px;
+    }
+    .card-title {
+      color: #1B2838;
+      height: 3rem; /* altura de 3 rem (48 pixels) */
+      overflow: hidden; /* esconde qualquer conteúdo adicional que possa ultrapassar a altura definida */
+    }
+    .card-price {
+      font-weight: bolder;
+      color: #1B2838;
+    }
+    .card-text {
+      margin-bottom: 0.5rem;
+    }
+    .add-to-cart {
+      color: #F8AF40;
+      cursor: pointer;
+    }
+    .wide-card {
+      width: 16rem;  /* Largura do card*/
+      position: relative;
+      
+    }
+    .wide-card .card-img-top {
+      height: auto;
+      max-width: 100%;
+      margin-top: -50px; /*Borda da imagem do jogo para fora do card */
+      margin-bottom: -10px; /* Diminui o espaçamento entre a capa do jogo e o conteúdo do card*/
+    }
+    .wide-card .card-body {
+       padding: 0.75rem;
+    }
+   
+  
+
 
 
 
