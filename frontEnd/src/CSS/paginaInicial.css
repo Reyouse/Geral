@@ -105,7 +105,7 @@ body{
   }
   
   .thumbnail {
-    width: 250px;
+    width: 240px;
     height: 145px;
     opacity: 0.5;
     cursor: pointer;
