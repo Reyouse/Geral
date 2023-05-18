@@ -95,6 +95,9 @@ input{
 main{
     padding: 1.5cm;
 }
+h2{
+    font-variant: small-caps;
+}
 .infosJogo{
     height: min-content;
     border: 2px solid #F7F7F7;
@@ -107,6 +110,7 @@ main{
 .infosJogo p{
     font-size: medium;
     width: 60%;
+    font-family: 'Quicksand', sans-serif;
 }
 .infosJogo span{
     font-size: x-large;
@@ -125,7 +129,7 @@ main{
     border-radius: 15px;
     position: relative;
     left: 4.9cm;
-    bottom: 1.23cm;
+    bottom: 1cm;
     z-index: 1;
 }
 .container{
