@@ -1,0 +1,92 @@
+/* 
+    Amarelo: #F8AF40
+    Azul: #1B2838
+    Preto: #171A21
+    Branco: #F7F7F7
+    Cinza: #202020
+*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header, footer{
+    background-color: #1B2838;
+}
+#logo{
+    width: 20%;
+}
+
+/* Cabeçalho */
+
+
+/* Corpo */
+main{
+    background-color: #171A21;
+}
+.conteudoCadastro{
+    border: 1px solid #F7F7F7;
+    border-radius: 12px;
+    padding: 15px;
+    
+}
+label{
+    color: #F7F7F7;
+    font-family: 'Quicksand', sans-serif;
+}
+h2{
+    background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-variant: small-caps;
+    text-align: center;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+}
+.doisCampos{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Rodapé */
+.blocoVertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.redes{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.6cm;
+}
+.redes a:nth-child(2){
+    margin: 0 1em 0 1em;
+}
+#socialMedia, #btnDuvida{
+    background-color: #F7F7F7;
+    font-size: x-large;
+    border-radius: 50%;
+    padding: 8px;
+}
+#btnDuvida{
+    position: relative;
+    top: 2cm;
+}
+#socialMedia:hover, #btnDuvida:hover{
+    background-color: #171A21;
+    color: #F7F7F7;
+}
+.fa-question{
+    margin: 0 7px 0 7px;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
