@@ -1,0 +1,212 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #202020;
+}
+
+/*Definindo largura correta para a logo */
+#logo_Reyouse{
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+  background-color: #1B2838;
+  width: 100%;
+}
+
+.navbar-collapse form[role="search"] button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #f7f7f7;
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 300px;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-header,
+.navbar-form,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.navbar-collapse form[role="search"] {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+
+
+  /* Carrinho*/
+  .carrinhoEPagamento{
+    
+  }
+
+  #itemCarrinho{
+    background-color: #f7f7f7;
+    color: #1B2838;
+    border: 0px;
+  }
+  #bannerJogo{
+    width: 140px;
+  }
+  #conteudoJogo, h5{
+    font-weight: 600;
+    color: #202020;
+  }
+  #pagamento{
+    background-color: #1B2838;
+    font-family: 'Quicksand', sans-serif;
+   
+  }
+  #pagamento h5{
+    color: #F8AF40;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+
+  }
+  #valorProduto h5{
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1B2838;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  #quantityValue {
+    font-size: 16PX;
+  }
+  #decrementBtn, #incrementBtn{
+    background-color: #1B2838;
+    color: #f7f7f7;
+  }
+  #btnFinalizarCompra{
+    background-color: #F8AF40;
+    color: #1B2838;
+    font-weight: 800;
+  }
+  .cvv-input {
+    width: 100px;
+    font-size: 16px;
+  }
+
+  /*Estilização dos icones SVG das plataformas de videogame */
+  .game-card_cardIcon {
+    
+    display: flex !important;
+}
+
+.game-card_cardIconWrapper__382_2 {
+  display: -moz-box;
+  display: flex;
+  width: auto;
+  height: 18px;
+  -moz-box-align: center;
+  align-items: center;
+  float: left;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+
+
+ 
+    /*Propriedades do rodapé */
+    footer{
+      padding: 20px 0px 0px 0px;
+      background-color: #1B2838;
+    }
+  
+  
+    .textoFooter{
+      color: #F7F7F7;
+      font-weight: 600;
+  
+    }
+  
+    #rede:hover{
+      border-color: #1B2838;
+      background-color: #F7F7F7;
+    }
+    
+  
+  /*Botão de ajuda ao lado esquerdo do rodapé*/
+    .botao-ajuda {
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: #F8AF40;
+      font-size: 20px;
+      color: #1B2838;
+      font-weight: 800;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      display: block;
+    }
+    
+  .botao-ajuda:hover{
+    color: #1B2838;
+    background-color: #f7f7f7;
+  }
+  
+  /*Alterações na logo do rodapé */
+  .logoRodape{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  
+  }
+  
+  
+  /*Modal ajuda */
+  #modalAjuda h1{
+    font-family: 'Quicksand', sans-serif;
+    color: #F8AF40;
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .btnOpcoes{
+    background-color: #F7F7F7;
+    color: #1B2838;
+    font-family: 'Quicksand', sans-serif;
+    width: 50%;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .btn-close{
+    background-color: #F7F7F7;
+  }
+  .modal-content {
+    background-color: #202020;
+  }
+
+  
