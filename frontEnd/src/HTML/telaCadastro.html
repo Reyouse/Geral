@@ -21,28 +21,28 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-5">
                     <div class="conteudoCadastro">
                         <h2>Dados para acesso</h2>
                         <fieldset>
                             <div class="doisCampos">
                                 <div class="campo">
-                                    <label for="username">Nome do usuário</label>
-                                    <input type="text" name="username" id="username">
+                                    <label for="username">Nome do usuário <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="text" name="username" id="username" required>
                                 </div>
                                 <div class="campo">
-                                    <label for="email">E-mail</label>
-                                    <input type="email" name="email" id="email">
+                                    <label for="email">E-mail <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="email" name="email" id="email" required>
                                 </div>
                             </div>
                             <div class="doisCampos">
                                 <div class="campo">
-                                    <label for="senha">Senha</label>
-                                    <input type="password" name="senha" id="senha">
+                                    <label for="senha">Senha <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="password" name="senha" id="senha" required>
                                 </div>
                                 <div class="campo">
-                                    <label for="confirmarSenha">Confirmar senha</label>
-                                    <input type="password" name="confirmarSenha" id="confirmarSenha">
+                                    <label for="confirmarSenha">Confirmar senha <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="password" name="confirmarSenha" id="confirmarSenha" required>
                                 </div>
                             </div>
 
@@ -50,28 +50,35 @@
                         <fieldset>
                             <div class="doisCampos">
                                 <div class="campo">
-                                    <label for="nomeCompleto">Nome completo</label>
-                                    <input type="text" name="nomeCompleto" id="nomeCompleto">
+                                    <label for="nomeCompleto">Nome completo <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="text" name="nomeCompleto" id="nomeCompleto" required>
                                 </div>
                                 <div class="campo">
-                                    <label for="cpf">CPF</label>
-                                    <input type="text" name="cpf" id="cpf">
+                                    <label for="cpf">CPF <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="text" name="cpf" id="cpf" required>
                                 </div>
                             </div>
                             <div class="doisCampos">
                                 <div class="campo">
-                                    <label for="celular">Celular</label>
-                                    <input type="tel" name="celular" id="celular">
+                                    <label for="celular">Celular <span style="color: rgb(255, 0, 0);">*</span></label>
+                                    <input type="tel" name="celular" id="celular" required>
                                 </div>
-                                <div style="border: 1px solid red; display: flex; align-items: center;">
-                                    <select name="sexoUsuario" id="sexoUsuario">
-                                        <option value="" disabled selected>Escolha uma opção</option>
-                                        <option value="masculino">Masculino</option>
-                                        <option value="feminino">Feminino</option>
-                                    </select>
+                                <div class="doisCampos">
+                                    <div class="campo">
+                                        <label for="sexoUsuario">Sexo <span style="color: rgb(255, 0, 0);">*</span></label>
+                                        <select name="sexoUsuario" id="sexoUsuario" required>
+                                            <option value="" disabled selected>Escolha uma opção</option>
+                                            <option value="masculino">Masculino</option>
+                                            <option value="feminino">Feminino</option>
+                                            <option value="naoInformado">Prefiro não informar</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </fieldset>
+                        <div class="btnCadastrar">
+                            <button type="submit">Criar conta</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +87,29 @@
 
     <!-- Rodapé -->
     <footer>
-        <a href="#"><span id="btnDuvida"><i class="fa-solid fa-question"></i></span></a>
+        <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-question"></i></a>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="conteudoModal">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="blocoVertical">
             <div class="redes">
                 <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
@@ -93,6 +122,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/756d230ae4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../JavaScript/telaCadastro.js"></script>
 </body>
 </html>

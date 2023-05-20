@@ -24,11 +24,30 @@ header, footer{
 main{
     background-color: #171A21;
 }
+.row, .btnCadastrar, .doisCampos{
+    display: flex;
+    justify-content: center;
+}
 .conteudoCadastro{
     border: 1px solid #F7F7F7;
     border-radius: 12px;
     padding: 15px;
-    
+    margin: 1.5cm 0;
+}
+.btnCadastrar button{
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 2px solid #1B2838;
+    width: 3.5cm;
+    background-color: #F8AF40;
+    color: #1B2838;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.btnCadastrar button:hover{
+    border-color: #F7F7F7;
 }
 label{
     color: #F7F7F7;
@@ -48,9 +67,14 @@ h2{
     flex-direction: column;
 }
 .doisCampos{
-    display: flex;
-    justify-content: center;
     gap: 10px;
+    margin-bottom: 8px;
+}
+#sexoUsuario{
+    width: 99%;
+    height: 0.7cm;
+    position: relative;
+    margin-right: 1.4em;
 }
 
 /* Rodapé */
@@ -58,26 +82,30 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+}
+footer #logo{
+    position: relative;
+    bottom: 0.5cm;
 }
 .redes{
     position: relative;
-    z-index: 1;
-    margin-bottom: 0.6cm;
+    z-index: 999;
+    top: 0.7cm;
 }
 .redes a:nth-child(2){
     margin: 0 1em 0 1em;
 }
 #socialMedia, #btnDuvida{
     background-color: #F7F7F7;
+    color: #171A21;
     font-size: x-large;
     border-radius: 50%;
     padding: 8px;
 }
 #btnDuvida{
     position: relative;
-    top: 2cm;
+    top: 3.5cm;
+    left: 1cm;
 }
 #socialMedia:hover, #btnDuvida:hover{
     background-color: #171A21;
@@ -86,7 +114,9 @@ h2{
 .fa-question{
     margin: 0 7px 0 7px;
 }
-a{
-    color: inherit;
-    text-decoration: none;
+#conteudoModal{
+    background-color: #1B2838;
+}
+#btnFechar{
+    background-color: #F7F7F7;
 }
