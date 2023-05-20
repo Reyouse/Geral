@@ -31,12 +31,16 @@ a:visited{
 header #logo{
     width: 42%;
 }
+.dropdown button{
+    background-color: transparent;
+    border: none;
+}
 .cartUser{
     margin-right: 1em;
+    display: flex;
 }
 .cartUser i{
     color: #171A21;
-    font-size: x-large;
     border-radius: 50%;
     padding: 8px;
     margin-left: 12px;
@@ -45,6 +49,9 @@ header #logo{
     border-radius: 7px;
     border: 1px solid #1B2838;
     margin-right: 2px;
+}
+.dropdown-item, .infosJogo p{
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Corpo */
@@ -66,14 +73,15 @@ h2{
 .infosJogo p{
     font-size: medium;
     width: 90%;
-    font-family: 'Quicksand', sans-serif;
 }
-.infosJogo span{
+.infosJogo span, #socialMedia, #btnDuvida, .cartUser i{
     font-size: x-large;
 }
-.infosJogo i{
-   font-size: xx-large;
+.infosJogo i, .fa-magnifying-glass{
    cursor: pointer;
+}
+.infosJogo i{
+    font-size: xx-large;
 }
 #imgJogo{
     width: 80%;
@@ -100,7 +108,6 @@ h2{
     margin: 0 1em 0 1em;
 }
 #socialMedia, #btnDuvida{
-    font-size: x-large;
     border-radius: 50%;
     padding: 8px;
 }
