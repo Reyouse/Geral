@@ -10,26 +10,25 @@
     margin: 0;
     padding: 0;
 }
-header, footer, #conteudoModal{
-    background-color: #1B2838;
-    padding: 25px;
-}
+
 main, .cartUser svg:hover, #socialMedia:hover, #btnDuvida:hover{
-    background-color: #171A21;
+    background-color: #202020;
 }
 a:visited{
     color: inherit;
     text-decoration: none;
 }
 
+
 /* Cabeçalho */
-#cabecalho{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 header #logo{
     width: 42%;
+}
+#btnPesquisar{
+    border: none;
+    background-color: #1B2838;
+    color: #F7F7F7;
 }
 .dropdown button{
     background-color: transparent;
@@ -53,41 +52,171 @@ header #logo{
 .dropdown-item, .infosJogo p{
     font-family: 'Quicksand', sans-serif;
 }
+/*Definindo largura correta para a logo */
+#logo_Reyouse{
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+  background-color: #1B2838;
+  width: 100%;
+}
+
+.navbar-collapse form[role="search"] button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #f7f7f7;
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 300px;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-header,
+.navbar-form,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+  border: none;
+  background-color: #1B2838;
+}
+.custom-search-form {
+  
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-collapse .d-flex.justify-content-center {
+    flex: 1;
+  }
+  .form-control{
+    border-radius: 20px !important;
+  }
+
 
 /* Corpo */
 .row{
     display: flex;
     justify-content: center;
 }
-h2{
-    font-variant: small-caps;
-}
+
 .infosJogo{
     display: flex;
     align-items: center;
-    border: 2px solid #F7F7F7;
     text-align: justify;
-    margin: 3cm 0cm 2cm 0cm;
+    margin: 3cm 0cm 4cm 0cm;
     height: 8cm
 }
-.infosJogo p{
-    font-size: medium;
-    width: 90%;
+#bannerJogo{
+    
+    background-color: #F7F7F7;  
+}
+#conteudosJogo{
+    background-color: #F7F7F7;
+    padding: 20px 0px 10px 0px;
+    font-family: 'Quicksand', sans-serif;
+
+}
+#conteudosJogo h5{
+    color: #1B2838;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bolder;
+    font-size: 34px;
+    
+}
+#conteudosJogo p{
+    color: #202020;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+#precoJogo{
+    color: #202020;
+    font-weight: 600;
+}
+
+.infosJogo h5, p{
+    padding: 0px 50px 0px 60px;
+} 
+#precoECarrinho{
+    padding: 22px 0px 22px 60px;
 }
 .infosJogo span{
     font-size: x-large;
 }
+
+
+/* Estilo para a linha dos ícones de plataforma */
+.plataformas h2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #202020;
+    font-weight: bolder;
+    font-size: 25px;
+    
+}
+#btnPlataforma{
+    border: none;
+    background-color: #F7F7F7;
+}
+.estadoJogo{
+    padding: 0px 0px 0px 0px;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 0;
+}
+.estadoJogo p{
+    font-size: 18px;
+    font-weight: 600;
+   
+    
+}
+
+#plataformas {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0px 0px 0px 60px;
+  }
+
+
 #cartAdd, #cartCheck, .bi-search, #btnDuvida{
    cursor: pointer;
 }
 #imgJogo{
-    width: 80%;
+    margin-top: -20px;
+    width: 100%;
+    min-width: 350px;
+    min-height: 500px;
     border-radius: 15px;
     position: relative;
-    left: 1cm;
+    left: 0.8cm;
     bottom: 1cm;
 }
-
+.sombra-img {
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.432);
+  }
+  
+  .sombra-img img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 /* Rodapé */
 .blocoVertical{
     display: flex;
@@ -115,12 +244,74 @@ h2{
     position: relative;
     top: 2cm;
 }
-#conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo, #cartAdd, #cartCheck, .cartUser svg:hover{
+
+#conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo,.cartUser svg:hover{
     color: #F7F7F7;
 }
+
 #btnFechar, #socialMedia, #btnDuvida, .cartUser svg{
     background-color: #F7F7F7;
 }
 footer #logo{
     width: 12%;
 }
+
+
+.card{
+    background-color: #202020;
+    outline: none;
+}
+
+#carouselExampleControls{
+    background-color: #202020;
+    padding-bottom: 50px;
+    padding-top: 20px;
+
+}
+#btnAnterior, #btnProximo{
+    background-color: #202020;
+    border-radius: 50%;
+    padding: 5px 10px 5px 10px;
+}
+  .card-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+  }
+
+  .card-wrapper .card {
+   
+    margin-right: 30px;
+    border-radius: 20px;
+    border: none !important;
+    background-color: #202020;
+  }
+  .card-wrapper .card:first-child {
+
+    margin-left: 0;
+  }
+  .card-wrapper .card:last-child {
+    margin-right: 0;
+  }
+  .card-img-top {
+   
+    height: 250px; /* Defina a altura desejada */
+    object-fit: cover; /* Para manter a proporção da imagem */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    
+  }
+  .zoom-image {
+    transition: transform 0.5s;
+    
+  }
+  
+  .zoom-image:hover {
+    transform: translateY(-5px);
+  }
+
+  footer{
+    background-color: #1B2838;
+  }
