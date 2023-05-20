@@ -17,15 +17,9 @@
         <div>
             <img src="../imgs/logo.png" alt="Logo Reyouse" id="logo">
         </div>
-        <div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <form class="d-flex caixaPesquisa" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                  <button type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </form>
-              </div>
+        <div style="color: #F7F7F7; margin-right: 5cm;">
+            <input id="caixaPesquisa" type="text">
+            <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div>
             <div class="cartUser">
@@ -37,35 +31,44 @@
     
     <!-- Corpo -->
     <main>
-        <div class="container">
-            <img src="../imgs/bannner.png" alt="Banner de teste" id="imgJogo">
-            <div class="row">
-                <div class="col-12 infosJogo">
-                    <div style="position: relative; left: 7.5cm;">
-                        <h2>Nome do jogo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit temporibus commodi velit id cum ea neque. Sunt vitae, dolore quas tempore, sint animi magnam labore est earum vel nihil non delectus cum ab hic ut? Accusamus vero libero, dolore asperiores labore non rerum modi ea incidunt quia ipsam tempore in error voluptates numquam distinctio quos omnis laboriosam itaque qui?</p>
-                        <span><b>R$ 50,00</b></span>
-                        <a href="#"><i class="fa-sharp fa-solid fa-cart-plus"></i></a>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-10">
+            <div class="infosJogo">
+              <div>
+                <img src="../imgs/bannner.png" alt="Banner de teste" id="imgJogo">
+              </div>
+              <div>
+                <h2>Nome do jogo</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit temporibus commodi velit id cum ea neque. Sunt vitae, dolore quas tempore, sint animi magnam labore est earum vel nihil non delectus cum ab hic ut? Accusamus vero libero, dolore asperiores labore non rerum modi ea incidunt quia ipsam tempore in error voluptates numquam distinctio quos omnis laboriosam itaque qui?</p>
+                <div style="display: flex; justify-content: space-between; padding-right: 1.8cm;">
+                  <span><b>R$ 50,00</b></span>
+                  <a href="#"><i class="fa-sharp fa-solid fa-cart-plus"></i></a>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <!-- Rodapé -->
     <footer>
-            <a href="#" class="openModal"><span id="btnDuvida"><i class="fa-solid fa-question"></i></span></a>
-            
+            <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-question" style="margin: 0 7px 0 7px;"></i></a>
+
             <!-- Modal -->
-            <div class="modal" tabindex="-1">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" id="conteudoModal">
                   <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    ...
+                  </div>
+                  <div class="modal-body">
+                    ...
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

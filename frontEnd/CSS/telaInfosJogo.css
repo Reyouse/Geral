@@ -10,21 +10,12 @@
     margin: 0;
     padding: 0;
 }
-body{
-    position: relative;
-    z-index: 0;
-}
-footer{
-    position: relative!important;
-    z-index: 999!important;
-}
-header, footer{
+header, footer, #conteudoModal{
     background-color: #1B2838;
     padding: 25px;
 }
-main{
+main, .cartUser i:hover, #socialMedia:hover, #btnDuvida:hover{
     background-color: #171A21;
-    overflow-x: hidden;
 }
 a:visited{
     color: inherit;
@@ -40,76 +31,41 @@ a:visited{
 header #logo{
     width: 42%;
 }
-.campoPesquisa i{
-    color: #171A21;
-    font-size: large;
-    border-radius: 50%;
-    background-color: #F7F7F7;
-    padding: 5px;
+.cartUser{
+    margin-right: 1em;
 }
 .cartUser i{
     color: #171A21;
     font-size: x-large;
     border-radius: 50%;
-    background-color: #F7F7F7;
     padding: 8px;
     margin-left: 12px;
 }
-.cartUser i:hover{
-    background-color: #171A21;
-    color: #F7F7F7;
-}
-input{
-    border-radius: 12px;
-    height: 0.7cm;
-}
-.campoPesquisa{
-    display: flex;
-    gap: 0.1cm;
-}
-/* Deixando o icone de pesquisa branco e sem a caixa em volta*/
-.navbar-collapse form[role="search"] button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #f7f7f7;
-}
-/* Alterando as propriedadas da barra de pesquisa*/
-.form-control {
-    border-radius: 20px;
-    width: 300px;
-    outline: none;
-    box-shadow: none;
-  }
-  
-.form-control:focus {
-    border-color: transparent;
-    box-shadow: none;
-}
-.caixaPesquisa{
-    display: flex;
-    gap: 8px;
+#caixaPesquisa{
+    border-radius: 7px;
+    border: 1px solid #1B2838;
+    margin-right: 2px;
 }
 
 /* Corpo */
-main{
-    padding: 1.5cm;
+.row{
+    display: flex;
+    justify-content: center;
 }
 h2{
     font-variant: small-caps;
 }
 .infosJogo{
-    height: min-content;
+    display: flex;
+    align-items: center;
     border: 2px solid #F7F7F7;
-    color: #F7F7F7;
     text-align: justify;
-    position: relative;
-    right: 1.8cm;
-    width: 87%;
+    margin: 3cm 0cm 2cm 0cm;
+    height: 8cm
 }
 .infosJogo p{
     font-size: medium;
-    width: 60%;
+    width: 90%;
     font-family: 'Quicksand', sans-serif;
 }
 .infosJogo span{
@@ -117,25 +73,14 @@ h2{
 }
 .infosJogo i{
    font-size: xx-large;
-   position: relative;
-   left: 9.2cm;
    cursor: pointer;
-   margin-bottom: 0.5cm;
-   color: #F7F7F7;
 }
-
 #imgJogo{
-    width: 20%;
+    width: 80%;
     border-radius: 15px;
     position: relative;
-    left: 4.9cm;
+    left: 1cm;
     bottom: 1cm;
-    z-index: 1;
-}
-.container{
-    display: flex;
-    align-items: center;
-    margin-top: 1cm;
 }
 
 /* Rodapé */
@@ -155,7 +100,6 @@ h2{
     margin: 0 1em 0 1em;
 }
 #socialMedia, #btnDuvida{
-    background-color: #F7F7F7;
     font-size: x-large;
     border-radius: 50%;
     padding: 8px;
@@ -164,12 +108,11 @@ h2{
     position: relative;
     top: 2cm;
 }
-#socialMedia:hover, #btnDuvida:hover{
-    background-color: #171A21;
+#conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo, .infosJogo i, .cartUser i:hover{
     color: #F7F7F7;
 }
-.fa-question{
-    margin: 0 7px 0 7px;
+#btnFechar, #socialMedia, #btnDuvida, .cartUser i{
+    background-color: #F7F7F7;
 }
 footer #logo{
     width: 12%;
