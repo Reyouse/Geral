@@ -83,15 +83,6 @@
                               </div>
                             </div>
                               <div class="d-flex flex-row align-items-center">
-                                <div style="width: 40px;">
-                                  <button id="decrementBtn" class="btn btn-sm">-</button>
-                                </div>
-                                <div style="width: 20px;">
-                                  <h5 id="quantityValue" class="mb-0">2</h5>
-                                </div>
-                                <div style="width: 40px;">
-                                  <button id="incrementBtn" class="btn btn-sm">+</button>
-                                </div>
                                 <div id="valorProduto" style="width: 120px;">
                                   <h5 class="mb-0">R$ 50,00</h5>
                                 </div>
@@ -122,15 +113,6 @@
                               </div>
                             </div>
                               <div class="d-flex flex-row align-items-center">
-                                <div style="width: 40px;">
-                                  <button id="decrementBtn" class="btn btn-sm">-</button>
-                                </div>
-                                <div style="width: 20px;">
-                                  <h5 id="quantityValue" class="mb-0">2</h5>
-                                </div>
-                                <div style="width: 40px;">
-                                  <button id="incrementBtn" class="btn btn-sm">+</button>
-                                </div>
                                 <div id="valorProduto" style="width: 120px;">
                                   <h5 class="mb-0">R$ 100,00</h5>
                                 </div>
@@ -159,15 +141,6 @@
                               </div>
                             </div>
                               <div class="d-flex flex-row align-items-center">
-                                <div style="width: 40px;">
-                                  <button id="decrementBtn" class="btn btn-sm">-</button>
-                                </div>
-                                <div style="width: 20px;">
-                                  <h5 id="quantityValue" class="mb-0">2</h5>
-                                </div>
-                                <div style="width: 40px;">
-                                  <button id="incrementBtn" class="btn btn-sm">+</button>
-                                </div>
                                 <div id="valorProduto" style="width: 120px;">
                                   <h5 class="mb-0">R$ 90,00</h5>
                                 </div>
@@ -185,13 +158,22 @@
                         <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center mb-4">
                             <h5 class="mb-0">Informações de pagamento</h5>
-                          </div>
-                  
+                            <div class="dropdown">
+                                <button class="btn  dropdown-toggle" type="button" id="dropdownCartoesCadastrados" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cartões cadastrados
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownCartoesCadastrados">
+                                    <li> <a class="dropdown-item" href="#">  <i class="fab fa-cc-mastercard fa-1x me-2"></i> Crédito Inter Mastercard</a></li>
+                                    <li> <a class="dropdown-item" href="#">  <i class="fab fa-cc-visa fa-1x me-2"></i> Crédito Caixa Visa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                
                           <p class="small mb-2">Bandeiras aceitas</p>
-                          <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-amex fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                          <a href="https://www.mastercard.com.br/pt-br.html" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                          <a href="https://www.visa.com.br" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
+                          <a href="https://www.americanexpress.com/pt-br/network/" type="submit" class="text-white"><i class="fab fa-cc-amex fa-2x me-2"></i></a>
+                          <a href="https://www.paypal.com/br/home" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
                   
                           <form class="mt-4">
                             <div class="form-outline form-white mb-4">
@@ -217,6 +199,13 @@
                                   <label style="margin-left: 5px;" class="form-label" for="typeText">CVV</label>
                                 </div>
                               </div>
+                              <div style="margin-top: 10px;" class="col-md-12">
+                              <button id="btnSalvarFormaDePagamento" type="button" class="btn btn-block btn-small">
+                                <div class="d-flex justify-content-between">
+                                  <span>Salvar forma de pagamento</span>
+                                </div>
+                              </button>
+                            </div>
                             </div>
                           </form>
                   
