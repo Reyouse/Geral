@@ -8,130 +8,122 @@ function pesquisaCatalogo(catalogo) {
     .then(response => response.json())
     .then(data => {
 
-      function criarEstrutura(parentId) {
+      function criarEstrutura() {
 
-        var jogosCatalogo = document.createElement("div");
-        jogosCatalogo.setAttribute("id", "jogosCatalogo");
-        jogosCatalogo.setAttribute("class", "container");
+        for (var j = 0; j < Math.ceil(data.length / 4); j++) {
+          var jogosCatalogo = document.createElement("div");
+          jogosCatalogo.setAttribute("id", "jogosCatalogo");
+          jogosCatalogo.setAttribute("class", "container");
       
-        // Cria o elemento div com a classe "row"
-        var row = document.createElement("div");
-        row.setAttribute("class", "row");
+          var row = document.createElement("div");
+          row.setAttribute("class", "row");
       
-        // Cria as colunas e cartões
-        for (var i = 1; i <= data.length; i++) {
-          // Cria a coluna com a classe "col"
-          var col = document.createElement("div");
-          col.setAttribute("class", "col");
-      
-          // Cria o cartão com a classe "wide-card"
-          var card = document.createElement("div");
-          card.setAttribute("class", "card wide-card");
-      
-          // Cria a sobreposição da imagem do cartão
-          var cardImgOverlay = document.createElement("div");
-          cardImgOverlay.setAttribute("class", "card-img-overlay");
-      
-          // Cria a div para aplicar o efeito de zoom na imagem
-          var zoomImg = document.createElement("div");
-          zoomImg.setAttribute("class", "zoom-img");
-      
-          // Cria a imagem do cartão
-          var img = document.createElement("img");
-          img.setAttribute("src", "");
-          img.setAttribute("class", "card-img-top");
-          img.setAttribute("alt", "Produto " + i);
-      
-          // Adiciona a imagem à div de zoom
-          zoomImg.appendChild(img);
-      
-          // Adiciona a div de zoom à sobreposição da imagem do cartão
-          cardImgOverlay.appendChild(zoomImg);
-      
-          // Adiciona a sobreposição da imagem do cartão ao cartão
-          card.appendChild(cardImgOverlay);
-      
-          // Cria o corpo do cartão
-          var cardBody = document.createElement("div");
-          cardBody.setAttribute("class", "card-body");
-      
-          // Cria a div para o título do cartão
-          var titleDiv = document.createElement("div");
-          titleDiv.setAttribute("class", "d-flex justify-content-between align-items-start");
-      
-          // Cria o título do cartão
-          var title = document.createElement("h5");
-          title.setAttribute("id", "tituloCard");
-          title.setAttribute("class", "card-title card-title-single-line");
-      
-          // Adiciona o título à div do título do cartão
-          titleDiv.appendChild(title);
-      
-          // Adiciona a div do título do cartão ao corpo do cartão
-          cardBody.appendChild(titleDiv);
-      
-          // Cria a div para os ícones do cartão
-          var iconDiv = document.createElement("div");
-          iconDiv.setAttribute("class", "game-card_cardIcon align-items-start mt-10 d-flex");
-      
-          // Adiciona a div dos ícones ao corpo do cartão
-          cardBody.appendChild(iconDiv);
-      
-          // Cria a div para o conteúdo do cartão
-          var contentDiv = document.createElement("div");
-          contentDiv.setAttribute("id", "conteudoCard");
-          contentDiv.setAttribute("class", "d-flex justify-content-between align-items-center");
-      
-          // Cria o preço do cartão
-          var price = document.createElement("p");
-          price.setAttribute("class", "card-price card-text");
-          price.setAttribute("id", "cardPreco");
-          price.setAttribute("style", "margin-bottom: 0;");
-      
-          // Adiciona o preço à div de conteúdo do cartão
-          contentDiv.appendChild(price);
-      
-          // Cria o ícone do carrinho
-          var cartIcon = document.createElement("i");
-          cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
-      
-          // Adiciona o ícone do carrinho à div de conteúdo do cartão
-          contentDiv.appendChild(cartIcon);
-      
-          // Adiciona a div de conteúdo do cartão ao corpo do cartão
-          cardBody.appendChild(contentDiv);
-      
-          // Adiciona o corpo do cartão ao cartão
-          card.appendChild(cardBody);
-      
-          // Adiciona o cartão à coluna
-          col.appendChild(card);
-      
-          // Adiciona a coluna à linha
-          row.appendChild(col);
+          // Cria as colunas e cartões
+          for (var i = j * 4; i < (j * 4) + 4 && i < data.length; i++) {
+            var col = document.createElement("div");
+            col.setAttribute("class", "col");
+        
+            // Cria o cartão com a classe "wide-card"
+            var card = document.createElement("div");
+            card.setAttribute("class", "card wide-card");
+        
+            // Cria a sobreposição da imagem do cartão
+            var cardImgOverlay = document.createElement("div");
+            cardImgOverlay.setAttribute("class", "card-img-overlay");
+        
+            // Cria a div para aplicar o efeito de zoom na imagem
+            var zoomImg = document.createElement("div");
+            zoomImg.setAttribute("class", "zoom-img");
+        
+            // Cria a imagem do cartão
+            var img = document.createElement("img");
+            img.setAttribute("src", "");
+            img.setAttribute("class", "card-img-top");
+            img.setAttribute("alt", "Produto " + i);
+        
+            // Adiciona a imagem à div de zoom
+            zoomImg.appendChild(img);
+        
+            // Adiciona a div de zoom à sobreposição da imagem do cartão
+            cardImgOverlay.appendChild(zoomImg);
+        
+            // Adiciona a sobreposição da imagem do cartão ao cartão
+            card.appendChild(cardImgOverlay);
+        
+            // Cria o corpo do cartão
+            var cardBody = document.createElement("div");
+            cardBody.setAttribute("class", "card-body");
+        
+            // Cria a div para o título do cartão
+            var titleDiv = document.createElement("div");
+            titleDiv.setAttribute("class", "d-flex justify-content-between align-items-start");
+        
+            // Cria o título do cartão
+            var title = document.createElement("h5");
+            title.setAttribute("id", "tituloCard");
+            title.setAttribute("class", "card-title card-title-single-line");
+        
+            // Adiciona o título à div do título do cartão
+            titleDiv.appendChild(title);
+        
+            // Adiciona a div do título do cartão ao corpo do cartão
+            cardBody.appendChild(titleDiv);
+        
+            // Cria a div para os ícones do cartão
+            var iconDiv = document.createElement("div");
+            iconDiv.setAttribute("class", "game-card_cardIcon align-items-start mt-10 d-flex");
+        
+            // Adiciona a div dos ícones ao corpo do cartão
+            cardBody.appendChild(iconDiv);
+        
+            // Cria a div para o conteúdo do cartão
+            var contentDiv = document.createElement("div");
+            contentDiv.setAttribute("id", "conteudoCard");
+            contentDiv.setAttribute("class", "d-flex justify-content-between align-items-center");
+        
+            // Cria o preço do cartão
+            var price = document.createElement("p");
+            price.setAttribute("class", "card-price card-text");
+            price.setAttribute("id", "cardPreco");
+            price.setAttribute("style", "margin-bottom: 0;");
+        
+            // Adiciona o preço à div de conteúdo do cartão
+            contentDiv.appendChild(price);
+        
+            // Cria o ícone do carrinho
+            var cartIcon = document.createElement("i");
+            cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
+        
+            // Adiciona o ícone do carrinho à div de conteúdo do cartão
+            contentDiv.appendChild(cartIcon);
+        
+            // Adiciona a div de conteúdo do cartão ao corpo do cartão
+            cardBody.appendChild(contentDiv);
+        
+            // Adiciona o corpo do cartão ao cartão
+            card.appendChild(cardBody);
+        
+            // Adiciona o cartão à coluna
+            col.appendChild(card);
+        
+            // Adiciona a coluna à linha
+            row.appendChild(col);
+            }
+
+            var elementoReferencia = document.getElementById("rodape");
+
+            if (!elementoReferencia) {
+              console.error("Elemento de referência não encontrado.");
+              return;
+            }
+
+            elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
+            jogosCatalogo.appendChild(row);
         }
-        var elementoReferencia = document.getElementById("rodape");
-
-        if (!elementoReferencia) {
-          console.error("Elemento de referência não encontrado.");
-          return;
-        }
-
-        // Insere o elemento principal imediatamente antes do elemento de referência
-        elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
-      
-        // Insere o elemento principal imediatamente após o elemento de referência
-        // Adiciona a linha ao div principal
-        jogosCatalogo.appendChild(row);
-      
-        // Adiciona o div principal ao corpo da página ou a qualquer outro elemento desejado
       }
-      
-      // Chamada da função para criar a estrutura
-      for (var i = 0; i < (data.length / 4); i++) {
-        criarEstrutura("catalogo");
+      console.log(data.length/4);
 
-      } 
+      criarEstrutura("catalogo");
 
       const cardImg = document.querySelectorAll(".card-img-top");
       const cardTitle = document.querySelectorAll("#tituloCard");
