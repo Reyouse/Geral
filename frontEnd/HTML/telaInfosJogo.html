@@ -7,76 +7,164 @@
     <link rel="stylesheet" href="../CSS/telaInfosJogo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/eed385e274.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins&family=Quicksand:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
+    <title>Call Of Duty: Modern Warfare</title>
 </head>
 <body>
+
     <!-- Cabeçalho -->
-    <header id="cabecalho">
-        <div>
-            <img src="../imgs/logo.png" alt="Logo Reyouse" id="logo">
+    
+      
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png" alt="Reyouse"></a>
         </div>
-        <div style="display: flex; align-items: center; gap: 2.5px; color: #F7F7F7; margin-right: 5cm; ">
-            <input id="caixaPesquisa" type="text">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
+    
+        <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+          <div class="d-flex justify-content-center">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+              <button id="btnPesquisar" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+          </div>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <button class="navbar-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i style="color: #fff;" class="fas fa-user navbar-icon"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Minha conta</a></li>
+                <li><a class="dropdown-item" href="#">Anunciar</a></li>
+                <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
+                <li><a class="dropdown-item" href="#">Sair</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <button class="navbar-icon" type="button" aria-expanded="false">
+                <i style="color: #fff; " class="fas fa-shopping-cart navbar-icon"></i>
+              </button>
+            </li>
+          </ul>
         </div>
-        <div>
-            <div class="cartUser">
-                <!-- Dropdown -->
-                <div class="dropdown">
-                  <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Minha conta</a></li>
-                    <li><a class="dropdown-item" href="#">Anunciar</a></li>
-                    <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
-                    <li><a class="dropdown-item" href="#">Sair</a></li>
-                  </ul>
-                </div>
-                <div>
-                  <a style="display: flex;" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>
-                  </a>
-                </div>
-            </div>
-        </div>
-    </header>
+      </div>
+    </nav>
     
     <!-- Corpo -->
     <main>
+
+
       <div class="container">
         <div class="row">
-          <div class="col-10">
+          <div class="col-10" style="margin-top: 90px;">
             <div class="infosJogo">
-              <div>
-                <img src="../imgs/bannner.png" alt="Banner de teste" id="imgJogo">
+              <div  id="bannerJogo">
+                <img class="sombra-img" src="../imgs/codCatalogo.jpg" alt="Banner de teste" id="imgJogo">
               </div>
-              <div>
-                <h2>Nome do jogo</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit temporibus commodi velit id cum ea neque. Sunt vitae, dolore quas tempore, sint animi magnam labore est earum vel nihil non delectus cum ab hic ut? Accusamus vero libero, dolore asperiores labore non rerum modi ea incidunt quia ipsam tempore in error voluptates numquam distinctio quos omnis laboriosam itaque qui?</p>
-                <div style="display: flex; justify-content: space-between; padding-right: 1.8cm;">
-                  <span><b>R$ 50,00</b></span>
-                  <svg id="cartAdd" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                  </svg>
-                  <svg id="cartCheck" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
-                    <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                  </svg>
+              <div id="conteudosJogo">
+                <h5>Call Of Duty: Modern Warfare</h5>
+                
+                <p>
+                  Prepare-se para ficar no escuro, Modern Warfare está de volta!
+    
+                  Os riscos nunca foram tão altos, pois os jogadores assumem o papel de operadores letais da Tier One em uma saga emocionante que afetará o equilíbrio global de poder. Call of Duty: Modern Warfare envolve os fãs em uma narrativa incrivelmente crua, intensa e provocativa, que traz uma intensidade incomparável e lança luz sobre a natureza em constante mudança da guerra moderna.
+                  
+                  Os jogadores serão lançados em uma narrativa imersiva que abrange todo o jogo.
+                </p>
+                <!-- Quando for midia fisica esse escrito deverá ser substituido por "Tipo de mídia digital" -->
+                <div id="estadoJogo">
+                  <div class="estadoJogo">
+                    <p>Estado de conservação:</p> <p style="align-items: flex-start; margin-left: -100px;">Bom</p>
+                  </div>
+                </div>
+                
+                <div id="plataformas">
+                  <div class="plataformas">
+                    <h2>Selecione a plataforma:</h2>
+                  </div>
+                  <div style="margin-right: 15px; margin-left: 15px;" class="plataforma align-items-start">
+                    <button id="btnPlataforma">
+                      <svg width="30px" heigth="30px" fill="#7E838A" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>playstation</title> <path d="M3.262 24.248c-2.374-0.681-2.767-2.084-1.69-2.899 0.776-0.51 1.668-0.954 2.612-1.288l0.087-0.027 7.017-2.516v2.89l-5.030 1.839c-0.881 0.339-1.031 0.79-0.299 1.032 0.365 0.093 0.783 0.147 1.214 0.147 0.615 0 1.204-0.109 1.749-0.308l-0.035 0.011 2.422-0.882v2.592c-0.15 0.037-0.32 0.055-0.487 0.091-0.775 0.136-1.667 0.214-2.577 0.214-1.778 0-3.486-0.298-5.078-0.846l0.11 0.033zM18.049 24.544l7.868-2.843c0.893-0.322 1.032-0.781 0.307-1.022-0.363-0.089-0.779-0.14-1.208-0.14-0.622 0-1.22 0.108-1.774 0.305l0.037-0.011-5.255 1.874v-2.983l0.3-0.106c1.050-0.349 2.284-0.62 3.557-0.761l0.083-0.008c0.468-0.050 1.010-0.078 1.559-0.078 1.877 0 3.677 0.331 5.343 0.939l-0.108-0.035c2.309 0.751 2.549 1.839 1.969 2.589-0.559 0.557-1.235 0.998-1.988 1.282l-0.039 0.013-10.677 3.883v-2.869zM12.231 4.248v21.927l4.892 1.576v-18.39c0-0.862 0.38-1.438 0.992-1.238 0.795 0.225 0.95 1.017 0.95 1.881v7.342c3.050 1.491 5.451-0.003 5.451-3.939 0-4.045-1.407-5.842-5.546-7.282-1.785-0.648-4.040-1.294-6.347-1.805l-0.389-0.072z"></path> </g></svg>
+                    </button>
+                  </div>
+                  <div style="margin-right: 15px;" class="plataforma">
+                    <button id="btnPlataforma">
+                      <svg width="25px" heigth="25px" fill="#7E838A" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
+                    </button>
+                  </div>
+                  <div style="margin-right: 15px;" class="plataforma">
+                    <button id="btnPlataforma">
+                      <svg width="25px" heigth="25px" fill="#7E838A" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1863.53 1016.437c31.171 0 56.47 25.299 56.47 56.47v790.589c0 16.376-7.115 31.849-19.313 42.465-10.39 9.149-23.605 14.005-37.158 14.005-2.484 0-5.082-.113-7.567-.452l-903.53-123.331c-28.008-3.84-48.903-27.784-48.903-56.02v-667.256c0-31.171 25.3-56.47 56.471-56.47Zm-1129.412 0c31.171 0 56.47 25.299 56.47 56.47v634.504c0 16.376-7.115 31.85-19.426 42.579-10.39 9.035-23.491 13.891-37.044 13.891-2.485 0-5.196-.113-7.68-.564L48.79 1669.35C20.78 1665.51 0 1641.68 0 1613.444v-540.537c0-31.171 25.299-56.47 56.47-56.47Zm-7.726-859.855c16.151-2.372 32.415 2.597 44.725 13.327 12.424 10.73 19.426 26.315 19.426 42.579V846.99c0 31.285-25.186 56.47-56.47 56.47H56.424c-31.171 0-56.47-25.185-56.47-56.47V306.455c0-28.123 20.781-52.066 48.79-55.906ZM1855.974.474c16.15-2.033 32.414 2.71 44.724 13.44 12.198 10.73 19.313 26.203 19.313 42.466v790.588c0 31.285-25.299 56.471-56.47 56.471H960.01c-31.171 0-56.47-25.186-56.47-56.47V179.711c0-28.235 20.78-52.066 48.903-55.906Z" fill-rule="evenodd"></path> </g></svg>
+                    </button>
+                  </div>
+                </div>
+                
+                
+                <div id="precoECarrinho" style="display: flex; justify-content: space-between; padding-right: 1.8cm;">
+                  <span id="precoJogo"><b>R$ 50,00</b></span>
+                  <button id="cartAdd" style="border: none; background-color: #F7F7F7;">
+                    <i style="font-size: 30px; color:  #1B2838;" class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button id="cartCheck" style="border: none; background-color: #F7F7F7; display: none;">
+                    <i style="font-size: 30px; color:  #1B2838;" class="fa-solid fa-check"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-wrapper">
+              <div class="card">
+                <img src="../imgs/codCarrossel1.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel2.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel3.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel4.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card-wrapper">
+              <div class="card">
+                <img src="../imgs/codCarrossel1.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel2.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel3.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+              <div class="card">
+                <img src="../imgs/codCarrossel4.png" class="card-img-top zoom-image" alt="..." onclick="openFullscreen(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev custom-carousel-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span id="btnAnterior" class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next custom-carousel-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span id="btnProximo" class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    
     </main>
 
     <!-- Rodapé -->
@@ -135,6 +223,7 @@
             </div>
     </footer>
     
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="../JavaScript/telaInfosJogo.js"></script>
