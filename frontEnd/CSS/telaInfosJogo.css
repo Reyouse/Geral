@@ -14,7 +14,7 @@ header, footer, #conteudoModal{
     background-color: #1B2838;
     padding: 25px;
 }
-main, .cartUser i:hover, #socialMedia:hover, #btnDuvida:hover{
+main, .cartUser svg:hover, #socialMedia:hover, #btnDuvida:hover{
     background-color: #171A21;
 }
 a:visited{
@@ -39,10 +39,10 @@ header #logo{
     margin-right: 1em;
     display: flex;
 }
-.cartUser i{
+.cartUser svg{
     color: #171A21;
     border-radius: 50%;
-    padding: 8px;
+    padding: 2px;
     margin-left: 12px;
 }
 #caixaPesquisa{
@@ -74,14 +74,11 @@ h2{
     font-size: medium;
     width: 90%;
 }
-.infosJogo span, #socialMedia, #btnDuvida, .cartUser i{
+.infosJogo span{
     font-size: x-large;
 }
-.infosJogo i, .fa-magnifying-glass{
+#cartAdd, #cartCheck, .bi-search, #btnDuvida{
    cursor: pointer;
-}
-.infosJogo i{
-    font-size: xx-large;
 }
 #imgJogo{
     width: 80%;
@@ -109,16 +106,19 @@ h2{
 }
 #socialMedia, #btnDuvida{
     border-radius: 50%;
-    padding: 8px;
+    padding: 10px;
+}
+#socialMedia{
+    display: inline-flex;
 }
 #btnDuvida{
     position: relative;
     top: 2cm;
 }
-#conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo, .infosJogo i, .cartUser i:hover{
+#conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo, #cartAdd, #cartCheck, .cartUser svg:hover{
     color: #F7F7F7;
 }
-#btnFechar, #socialMedia, #btnDuvida, .cartUser i{
+#btnFechar, #socialMedia, #btnDuvida, .cartUser svg{
     background-color: #F7F7F7;
 }
 footer #logo{
