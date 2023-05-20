@@ -116,6 +116,12 @@ button:hover{
 .fa-question{
     margin: 0 7px 0 7px;
 }
+#conteudoModal{
+    background-color: #1B2838;
+}
+#btnFechar{
+    background-color: #F7F7F7;
+}
 a{
     color: inherit;
 }
