@@ -1,0 +1,226 @@
+body{
+    background-color: #202020;
+}
+
+header #logo{
+    width: 42%;
+}
+#btnPesquisar{
+    border: none;
+    background-color: #1B2838;
+    color: #F7F7F7;
+}
+.dropdown button{
+    background-color: transparent;
+    border: none;
+}
+.cartUser{
+    margin-right: 1em;
+    display: flex;
+}
+.cartUser svg{
+    color: #171A21;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 12px;
+}
+#caixaPesquisa{
+    border-radius: 7px;
+    border: 1px solid #1B2838;
+    margin-right: 2px;
+}
+.dropdown-item, .infosJogo p{
+    font-family: 'Quicksand', sans-serif;
+}
+/*Definindo largura correta para a logo */
+#logo_Reyouse{
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+  background-color: #1B2838;
+  width: 100%;
+}
+
+.navbar-collapse form[role="search"] button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #f7f7f7;
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 300px;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-header,
+.navbar-form,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+  border: none;
+  background-color: #1B2838;
+}
+.custom-search-form {
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-collapse .d-flex.justify-content-center {
+    flex: 1;
+  }
+  .form-control{
+    border-radius: 20px !important;
+  }
+
+
+
+/*Estilizando os containers */
+#welcome{
+  cursor:default;
+  color: #1B2838;
+  border-radius: 30px;
+  font-size: 21px;
+}
+.rectangle {
+    width: 220px;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #F8AF40;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    padding: 10px 20px 0px 20px;
+    color: #202020;
+    font-weight: 600;
+    font-size: 19px;
+    align-items: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .dadosLista{
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: -30px;
+  }
+  .container-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  .container-box .active {
+    background-color: #e9ecef;
+  }
+
+  .content-container {
+    display: none;
+  }
+
+  .content-container.active {
+    display: block;
+  }
+
+  .box-container {
+    border: 1px solid #F7F7F7;
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  #my-account-container{
+    font-family: 'Quicksand', sans-serif;
+    color: #f7f7f7;
+  }
+  #anuncio-container{
+    font-family: 'Quicksand', sans-serif;
+  }
+  .zoom-effect {
+    transition: transform 0.4s ease;
+  }
+  
+  .zoom-effect:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+  #jogoDigital img{
+    background-image: url(../imgs/theLastOfUsBanner.png);
+    background-size:unset;
+    background-attachment: fixed;
+  }
+  #boxAnuncio{
+    border: none !important;
+    color: #F7F7F7;
+  }
+  #btnDados{ 
+    font-size: 14px;
+    background-color: #202020;
+    color: #F7F7F7;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+    margin-right: 10px;
+    border: 1px solid #F7F7F7;
+  }
+  #btnDados:hover{
+    background-color: #202020;
+    color: #F8AF40;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+    margin-right: 10px;
+    border: 1px solid #F8AF40;
+  }
+
+  #meusPedidos{
+    background-color: #202020;
+    color: #f7f7f7;
+    border: 1px solid #F7F7F7;
+    cursor: pointer;
+  }
+  #bannerJogo{
+    width: 140px;
+  }
+  #conteudoPedido, h5{
+    font-weight: 600;
+    color: #f7f7f7;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  #conteudoPedido, p{
+    font-weight: 600;
+    color: #f7f7f7;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+  }
+  #my-orders-container{
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .game-card_cardIcon {
+    
+    display: flex !important;
+}
+
+.game-card_cardIconWrapper__382_2 {
+  display: -moz-box;
+  display: flex;
+  width: auto;
+  height: 18px;
+  -moz-box-align: center;
+  align-items: center;
+  float: left;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
