@@ -168,7 +168,7 @@ body{
    .zoom-img {
     position: relative;
     overflow: hidden;
-    margin-top: -50px;
+    margin-top: -60px;
     border-radius: 15px;
     
   }
@@ -261,5 +261,3 @@ body{
   .modal-content {
     background-color: #202020;
   }
-
-  
