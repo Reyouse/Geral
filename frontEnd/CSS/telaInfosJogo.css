@@ -120,23 +120,20 @@ header #logo{
     align-items: center;
     text-align: justify;
     margin: 3cm 0cm 4cm 0cm;
-    height: 8cm
+    height: 8cm;
 }
-#bannerJogo{
-    background-color: #F7F7F7;  
+#bannerJogo, #conteudosJogo, #btnPlataforma{
+    background-color: #F7F7F7;
 }
 #conteudosJogo{
-    background-color: #F7F7F7;
     padding: 20px 0px 10px 0px;
     font-family: 'Quicksand', sans-serif;
-
 }
 #conteudosJogo h5{
     color: #1B2838;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: bolder;
     font-size: 34px;
-    
 }
 #conteudosJogo p{
     color: #202020;
@@ -170,7 +167,6 @@ header #logo{
 }
 #btnPlataforma{
     border: none;
-    background-color: #F7F7F7;
 }
 .estadoJogo{
     padding: 0px 0px 0px 0px;
