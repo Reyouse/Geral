@@ -125,3 +125,29 @@ button:hover{
 a{
     color: inherit;
 }
+
+/* Estilizando modal */
+#conteudoModal{
+    background-color: #171A21;
+}
+#conteudoModal h1{
+    color: #F8AF40;
+}
+#btnFechar, .campoModal{
+    background-color: #F7F7F7;
+}
+.campoModal{
+    border-radius: 10px;
+    padding: 7px;
+}
+.modal-header, .campoModal{
+    margin-bottom: 15px;
+}
+.campoModal a{
+    text-decoration: none;
+    text-align: center;
+}
+#conteudoModal .row{
+    display: flex;
+    justify-content: center;
+}
