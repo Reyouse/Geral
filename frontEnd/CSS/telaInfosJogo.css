@@ -98,7 +98,6 @@ header #logo{
   background-color: #1B2838;
 }
 .custom-search-form {
-  
     align-items: center;
     justify-content: center;
   }
@@ -124,7 +123,6 @@ header #logo{
     height: 8cm
 }
 #bannerJogo{
-    
     background-color: #F7F7F7;  
 }
 #conteudosJogo{
@@ -242,7 +240,8 @@ header #logo{
 }
 #btnDuvida{
     position: relative;
-    top: 2cm;
+    top: 2.8cm;
+    left: 0.8cm;
 }
 
 #conteudoModal, #socialMedia:hover, #btnDuvida:hover, .infosJogo,.cartUser svg:hover{
@@ -254,6 +253,7 @@ header #logo{
 }
 footer #logo{
     width: 12%;
+    margin-bottom: 1cm;
 }
 
 
@@ -315,3 +315,28 @@ footer #logo{
   footer{
     background-color: #1B2838;
   }
+
+/* Estilizando modal */
+#conteudoModal{
+  background-color: #171A21;
+}
+#conteudoModal h1{
+  color: #F8AF40;
+}
+#btnFechar, .campoModal{
+  background-color: #F7F7F7;
+}
+.campoModal{
+  border-radius: 10px;
+  padding: 7px;
+}
+.modal-header, .campoModal{
+  margin-bottom: 15px;
+}
+.campoModal a{
+  text-decoration: none;
+  text-align: center;
+}
+h5{
+  color: #171A21;
+}
