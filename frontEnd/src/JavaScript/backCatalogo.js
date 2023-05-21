@@ -14,114 +14,113 @@ function pesquisaCatalogo(catalogo) {
           var jogosCatalogo = document.createElement("div");
           jogosCatalogo.setAttribute("id", "jogosCatalogo");
           jogosCatalogo.setAttribute("class", "container");
-      
+
           var row = document.createElement("div");
           row.setAttribute("class", "row");
-      
+
           // Cria as colunas e cartões
           for (var i = j * 4; i < (j * 4) + 4 && i < data.length; i++) {
             var col = document.createElement("div");
             col.setAttribute("class", "col");
-        
+
             // Cria o cartão com a classe "wide-card"
             var card = document.createElement("div");
             card.setAttribute("class", "card wide-card");
-        
+
             // Cria a sobreposição da imagem do cartão
             var cardImgOverlay = document.createElement("div");
             cardImgOverlay.setAttribute("class", "card-img-overlay");
-        
+
             // Cria a div para aplicar o efeito de zoom na imagem
             var zoomImg = document.createElement("div");
             zoomImg.setAttribute("class", "zoom-img");
-        
+
             // Cria a imagem do cartão
             var img = document.createElement("img");
             img.setAttribute("src", "");
             img.setAttribute("class", "card-img-top");
             img.setAttribute("alt", "Produto " + i);
-        
+
             // Adiciona a imagem à div de zoom
             zoomImg.appendChild(img);
-        
+
             // Adiciona a div de zoom à sobreposição da imagem do cartão
             cardImgOverlay.appendChild(zoomImg);
-        
+
             // Adiciona a sobreposição da imagem do cartão ao cartão
             card.appendChild(cardImgOverlay);
-        
+
             // Cria o corpo do cartão
             var cardBody = document.createElement("div");
             cardBody.setAttribute("class", "card-body");
-        
+
             // Cria a div para o título do cartão
             var titleDiv = document.createElement("div");
             titleDiv.setAttribute("class", "d-flex justify-content-between align-items-start");
-        
+
             // Cria o título do cartão
             var title = document.createElement("h5");
             title.setAttribute("id", "tituloCard");
             title.setAttribute("class", "card-title card-title-single-line");
-        
+
             // Adiciona o título à div do título do cartão
             titleDiv.appendChild(title);
-        
+
             // Adiciona a div do título do cartão ao corpo do cartão
             cardBody.appendChild(titleDiv);
-        
+
             // Cria a div para os ícones do cartão
             var iconDiv = document.createElement("div");
             iconDiv.setAttribute("class", "game-card_cardIcon align-items-start mt-10 d-flex");
-        
+
             // Adiciona a div dos ícones ao corpo do cartão
             cardBody.appendChild(iconDiv);
-        
+
             // Cria a div para o conteúdo do cartão
             var contentDiv = document.createElement("div");
             contentDiv.setAttribute("id", "conteudoCard");
             contentDiv.setAttribute("class", "d-flex justify-content-between align-items-center");
-        
+
             // Cria o preço do cartão
             var price = document.createElement("p");
             price.setAttribute("class", "card-price card-text");
             price.setAttribute("id", "cardPreco");
             price.setAttribute("style", "margin-bottom: 0;");
-        
+
             // Adiciona o preço à div de conteúdo do cartão
             contentDiv.appendChild(price);
-        
+
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
-        
+
             // Adiciona o ícone do carrinho à div de conteúdo do cartão
             contentDiv.appendChild(cartIcon);
-        
+
             // Adiciona a div de conteúdo do cartão ao corpo do cartão
             cardBody.appendChild(contentDiv);
-        
+
             // Adiciona o corpo do cartão ao cartão
             card.appendChild(cardBody);
-        
+
             // Adiciona o cartão à coluna
             col.appendChild(card);
-        
+
             // Adiciona a coluna à linha
             row.appendChild(col);
-            }
+          }
 
-            var elementoReferencia = document.getElementById("rodape");
+          var elementoReferencia = document.getElementById("rodape");
 
-            if (!elementoReferencia) {
-              console.error("Elemento de referência não encontrado.");
-              return;
-            }
+          if (!elementoReferencia) {
+            console.error("Elemento de referência não encontrado.");
+            return;
+          }
 
-            elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
-            jogosCatalogo.appendChild(row);
+          elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
+          jogosCatalogo.appendChild(row);
         }
       }
-      console.log(data.length/4);
 
       criarEstrutura("catalogo");
 
@@ -133,7 +132,7 @@ function pesquisaCatalogo(catalogo) {
         if (data[index]) {
           title.textContent = data[index].titulo;
 
-          return fetch ('https://reyouseback.azurewebsites.net/plataformasdojogo/' + data[index].idAnuncio)
+          return fetch('https://reyouseback.azurewebsites.net/plataformasdojogo/' + data[index].idAnuncio)
             .then(resposta => resposta.json())
             .then(date => {
               date.forEach(item => {
@@ -144,11 +143,12 @@ function pesquisaCatalogo(catalogo) {
 
                 } else if (item.nome === "PC") {
                   const pcElement = createPCElement();
-
                   const parentElement = document.querySelectorAll('.d-flex.justify-content-between.align-items-start')[index];
                   parentElement.parentNode.insertBefore(pcElement, parentElement.nextSibling);
-                  const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                  criarDiv2(divPai);
+                  if (date.length === 1) {
+                    const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
+                    criarDiv2(divPai);
+                  }
 
                 } else if (item.nome === "Playstation") {
 
@@ -173,7 +173,7 @@ function pesquisaCatalogo(catalogo) {
           preco.textContent = precoFormatado;
         }
       });
-      
+
     })
     .catch(error => {
       console.error('Ocorreu um erro:', error);
@@ -249,13 +249,13 @@ function criarDiv(divPai) {
 
   var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', 'M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z');
-  
+
   g3.appendChild(title);
   g3.appendChild(path);
   svg.appendChild(g1);
   svg.appendChild(g2);
   svg.appendChild(g3);
-  
+
   divInterna1.appendChild(svg);
   divFilha.appendChild(divInterna1);
 
@@ -297,13 +297,13 @@ function criarDiv2(divPai) {
 
   var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', '');
-  
+
   g3.appendChild(title);
   g3.appendChild(path);
   svg.appendChild(g1);
   svg.appendChild(g2);
   svg.appendChild(g3);
-  
+
   divInterna1.appendChild(svg);
   divFilha.appendChild(divInterna1);
 
