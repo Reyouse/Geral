@@ -169,10 +169,11 @@ function pesquisaCatalogo(catalogo) {
 
       cardProco.forEach((preco, index) => {
         if (data[index]) {
-          const precoFormatado = "R$ " + data[index].preco.toString().replace('.', ',');
+          const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString().replace('.', ',');
           preco.textContent = precoFormatado;
         }
       });
+      
     })
     .catch(error => {
       console.error('Ocorreu um erro:', error);
