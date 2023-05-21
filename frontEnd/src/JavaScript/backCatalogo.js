@@ -16,7 +16,7 @@ function pesquisaCatalogo(catalogo) {
           jogosCatalogo.setAttribute("class", "container");
 
           var row = document.createElement("div");
-          row.setAttribute("class", "row");
+          row.setAttribute("class", "row row-cols-md-4");
 
           // Cria as colunas e cartões
           for (var i = j * 4; i < (j * 4) + 4 && i < data.length; i++) {
