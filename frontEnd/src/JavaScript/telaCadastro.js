@@ -1,7 +1,5 @@
-const campoCpf = document.getElementById('cpf');
-const campoCel = document.getElementById('celular');
-
 // Deixando CPF no formato correto
+const campoCpf = document.getElementById('cpf');
 campoCpf.addEventListener('input', function () {
   let cpf = campoCpf.value;
 
@@ -15,6 +13,7 @@ campoCpf.addEventListener('input', function () {
 });
 
 // Deixando número de telefone no formato correto
+const campoCel = document.getElementById('celular');
 campoCel.addEventListener('input', function(){
     let cel = campoCel.value;
 
@@ -25,4 +24,27 @@ campoCel.addEventListener('input', function(){
     cel = cel.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
 
     campoCel.value = cel;
+});
+
+// Salvando dados no LocalStorage
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const senha = document.getElementById('senha');
+const confirmarSenha = document.getElementById('confirmarSenha');
+const nomeCompleto = document.getElementById('nomeCompleto');
+const cpf = document.getElementById('cpf');
+const celular = document.getElementById('celular');
+const sexoUsuario = document.getElementById('sexoUsuario');
+const btnConfirmar = document.getElementById('botao');
+
+btnConfirmar.addEventListener('click', ()=>{
+  alert('a')
+  localStorage.setItem('nome de usuário', username.value);
+  localStorage.setItem('e-mail', email.value);
+  localStorage.setItem('senha', senha.value);
+  localStorage.setItem('senha confirmada', senha.value);
+  localStorage.setItem('nome completo', nomeCompleto.value);
+  localStorage.setItem('cpf', cpf.value);
+  localStorage.setItem('celular', celular.value);
+  localStorage.setItem('sexo usuário', sexoUsuario.value);
 });
