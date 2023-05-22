@@ -94,7 +94,6 @@ function pesquisaCatalogo(catalogo) {
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
             cartIcon.setAttribute("id", "numProduto");
-
             // Adiciona o ícone do carrinho à div de conteúdo do cartão
             contentDiv.appendChild(cartIcon);
 
@@ -129,6 +128,7 @@ function pesquisaCatalogo(catalogo) {
       const cardTitle = document.querySelectorAll("#tituloCard");
       const cardProco = document.querySelectorAll("#cardPreco");
       const cardCart = document.querySelectorAll("#numProduto");
+
 
       cardTitle.forEach((title, index) => {
         if (data[index]) {
@@ -347,10 +347,10 @@ function createGameCard(divPai) {
 
   divPai.appendChild(divFilha);
 }
-
 function handleClick(valor) {
   localStorage.setItem('produto', valor)
   window.location.href = './telaInfosJogo.html';
 }
+
 
 pesquisaCatalogo(catalogo);
