@@ -176,6 +176,7 @@ body{
     padding: 10px 0px 80px 0px;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
   }
   
   .card {
