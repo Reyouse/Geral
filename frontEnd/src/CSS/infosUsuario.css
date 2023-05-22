@@ -142,7 +142,7 @@ header #logo{
     font-family: 'Quicksand', sans-serif;
     color: #f7f7f7;
   }
-  #anuncio-container{
+  #anuncio-container, #my-adverts-container{
     font-family: 'Quicksand', sans-serif;
   }
   .zoom-effect {
@@ -208,6 +208,12 @@ header #logo{
     
     display: flex !important;
 }
+.bi-trash{
+  color: red;
+  position: relative;
+  left: 20.5cm;
+  bottom: 0.5cm;
+}
 
 .game-card_cardIconWrapper__382_2 {
   display: -moz-box;
@@ -263,7 +269,7 @@ footer #logo{
 footer{
   margin-top: 1.5cm;
 }
-h5{
+footer h5{
   color: #202020;
 }
 #conteudoModal{
