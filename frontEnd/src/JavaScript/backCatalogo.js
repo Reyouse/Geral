@@ -93,7 +93,7 @@ function pesquisaCatalogo(catalogo) {
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
-
+            cartIcon.setAttribute("id", "numProduto");
             // Adiciona o ícone do carrinho à div de conteúdo do cartão
             contentDiv.appendChild(cartIcon);
 
@@ -127,6 +127,8 @@ function pesquisaCatalogo(catalogo) {
       const cardImg = document.querySelectorAll(".card-img-top");
       const cardTitle = document.querySelectorAll("#tituloCard");
       const cardProco = document.querySelectorAll("#cardPreco");
+      const cardCart = document.querySelectorAll("#numProduto");
+
 
       cardTitle.forEach((title, index) => {
         if (data[index]) {
@@ -171,6 +173,15 @@ function pesquisaCatalogo(catalogo) {
         if (data[index]) {
           const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString().replace('.', ',');
           preco.textContent = precoFormatado;
+        }
+      });
+
+      cardCart.forEach((carinho, index) => {
+        if (data[index]) {
+          carinho.id = data[index].idAnuncio;
+          carinho.addEventListener("click", function() {
+            handleClick(carinho.id);
+          });
         }
       });
 
@@ -335,6 +346,10 @@ function createGameCard(divPai) {
   divFilha.appendChild(divInterna1);
 
   divPai.appendChild(divFilha);
+}
+function handleClick(valor) {
+  localStorage.setItem('produto', valor)
+  window.location.href = './telaInfosJogo.html';
 }
 
 
