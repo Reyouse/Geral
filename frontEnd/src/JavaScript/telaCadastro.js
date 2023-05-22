@@ -25,26 +25,3 @@ campoCel.addEventListener('input', function(){
 
     campoCel.value = cel;
 });
-
-// Salvando dados no LocalStorage
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const senha = document.getElementById('senha');
-const confirmarSenha = document.getElementById('confirmarSenha');
-const nomeCompleto = document.getElementById('nomeCompleto');
-const cpf = document.getElementById('cpf');
-const celular = document.getElementById('celular');
-const sexoUsuario = document.getElementById('sexoUsuario');
-const btnConfirmar = document.getElementById('botao');
-
-btnConfirmar.addEventListener('click', ()=>{
-  alert('a')
-  localStorage.setItem('nome de usuário', username.value);
-  localStorage.setItem('e-mail', email.value);
-  localStorage.setItem('senha', senha.value);
-  localStorage.setItem('senha confirmada', senha.value);
-  localStorage.setItem('nome completo', nomeCompleto.value);
-  localStorage.setItem('cpf', cpf.value);
-  localStorage.setItem('celular', celular.value);
-  localStorage.setItem('sexo usuário', sexoUsuario.value);
-});
