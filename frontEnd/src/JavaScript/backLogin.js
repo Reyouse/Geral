@@ -36,7 +36,7 @@ function irCadastro() {
     }
     else {
         localStorage.setItem('email', email)
-        window.location.href = '../HTML/index.html';
+        window.location.href = '../HTML/telaCadastro.html';
     }
 }
 
