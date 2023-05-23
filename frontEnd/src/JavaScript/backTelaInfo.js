@@ -15,13 +15,10 @@ function infoJogo(produto) {
 
             titulo.innerText = data[0].titulo
 
-            if (data[0].descricao.length <= 531) {
+            if (data[0].descricao.length <= 533) {
                 paragrafo.textContent = data[0].descricao;
-
-                
-
             } else {
-                paragrafo.textContent = data[0].descricao.substring(0, 531) + "...";
+                paragrafo.textContent = data[0].descricao.substring(0, 533) + "...";
             }
             
             var preco = parseFloat(data[0].preco);
@@ -36,21 +33,8 @@ function infoJogo(produto) {
                 elementoEstado.innerText = data[0].estadoDeConservacao;
             }
             else {
-                var divEstadoJogo = document.querySelector('.estadoJogo');
-                divEstadoJogo.remove();
+                elementoEstado.innerText = "Sem Informações!"
             }
-
-            var paddingBottom = elemento.style.paddingBottom;
-            var paddingTop = elemento.style.paddingTop;
-            console.log(elemento.scrollHeight + paddingBottom + paddingTop)
-            var aux = 1
-            while((elemento.scrollHeight + paddingBottom + paddingTop) < 480)
-            {
-                elemento.style.paddingBottom = aux + "px"
-                aux++
-            }
-            
-            console.log(elemento.scrollHeight + paddingBottom + paddingTop)
 
         })
         .catch(error => {
