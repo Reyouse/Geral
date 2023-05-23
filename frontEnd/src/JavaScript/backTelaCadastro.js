@@ -115,9 +115,7 @@ function validarCampos() {
                         .then(response => response.text())
                         .then(data => {
                             if (data === `Usuário ${username} cadastrado com sucesso.`) {
-                                alert("Sucesso")
-                                localStorage.setItem('username', username);
-                                //window.location.href = '../HTML/index.html';
+                                window.location.href = '../HTML/telaAutentificacao.html';
                             }
                             else {
                                 alert(data)
