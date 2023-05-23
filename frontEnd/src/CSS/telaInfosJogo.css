@@ -228,8 +228,17 @@ header #logo{
     margin: 0 1em 0 1em;
 }
 #socialMedia, #btnDuvida{
-    border-radius: 50%;
-    padding: 10px;
+  background-color: #F7F7F7;
+  color: #171A21;
+  font-size: x-large;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
 }
 #socialMedia{
     display: inline-flex;
