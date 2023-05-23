@@ -130,6 +130,9 @@ header #logo{
 
   .content-container.active {
     display: block;
+    justify-content: center;
+    align-items: center;
+    
   }
 
   .box-container {
@@ -185,6 +188,26 @@ header #logo{
     color: #f7f7f7;
     border: 1px solid #F7F7F7;
     cursor: pointer;
+  }
+  #anuncio-fisico, #anuncio-digital{
+    padding: 0px 150px 0px 150px;
+  }
+  .box-anuncio{
+    padding: 20px 30px 20px 30px !important;
+  }
+  #conservacao{
+    font-family: 'Quicksand', sans-serif;
+    color: #f7f7f7;
+    font-size: 18px;
+  }
+  #infosAnuncio{
+    color: #F7F7F7;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 22px;
+    align-items: center !important;
+    align-content: center !important;
+    justify-content:  center !important;
+
   }
   #bannerJogo{
     width: 140px;

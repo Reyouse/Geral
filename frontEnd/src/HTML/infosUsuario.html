@@ -89,33 +89,89 @@
                 <button id="btnDados" class="btn">Editar Dados Cadastrais</button>
                 <button id="btnDados" class="btn">Sair</button>
               </div>
-              <div class="box-container" style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;"><i class="fa-sharp fa-solid fa-location-dot"></i> <b>Endereço</b></h3>
-                <ul>
-                  <li class="dadosLista" style="list-style: none;"><b>Logradouro:</b> Rua Rio Comprido, 144</li>
-                  <li class="dadosLista" style="list-style: none;"><b>Bairro:</b> Cinco &nbsp; <b>Cidade/UF:</b> Contagem/MG </li>
-                  <li class="dadosLista" style="list-style: none;"><b>CEP:</b> 34012-678</li>
-                  <li class="dadosLista" style="list-style: none;"><b>País:</b> Brasil</li>
-                </ul>
-                
-              </div>
-              <div class="buttons-container" style="margin-top: 30px; margin-bottom: 30px;">
-                <button id="btnDados" class="btn">Editar Endereço</button>
-              </div>
+              
+              
             </div>
 
-            <div class="content-container" id="anuncio-container">
+            <div class="content-container " id="anuncio-container">
                 <h1 style="color: #F8AF40; margin-bottom: 20px;"><b>Anunciar</b></h1>
                 <div class="row">
                   <div class="col-md-6">
-                    <div id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/jogoFisico.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
+                    <div  onclick="showContainer('anuncio-fisico')" id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/jogoFisico.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
                     <h3 style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;"><b>Mídia Física</b></h3>
                   </div>
                   <div  class="col-md-6">
-                    <div id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/theLastOfUsBanner.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
+                    <div  onclick="showContainer('anuncio-digital')" id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/theLastOfUsBanner.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
                     <h3 style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;"><b>Mídia Digital</b></h3>
                   </div>
                 </div>
+              </div>
+
+              <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-fisico">
+                <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Física</h1>
+                <form class="box-container boxx-anuncio">
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
+                    <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
+                  </div>
+            
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
+                    <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
+                    <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+                  </div>
+            
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="estado_conservacao" class="form-label">Estado de Conservação:</label><br>
+                    <div class="form-check form-check">
+                      <input type="radio" id="excelente" class="form-check-input" name="estado_conservacao" value="excelente">
+                      <label id="conservacao" for="excelente" class="form-check-label">Excelente</label>
+                    </div>
+                    <div class="form-check form-check">
+                      <input type="radio" id="muito_bom" class="form-check-input" name="estado_conservacao" value="muito_bom">
+                      <label id="conservacao" for="muito_bom" class="form-check-label">Muito Bom</label>
+                    </div>
+                    <div class="form-check form-check">
+                      <input type="radio" id="bom" class="form-check-input" name="estado_conservacao" value="bom">
+                      <label id="conservacao" for="bom" class="form-check-label">Bom</label>
+                    </div>
+                    <div class="form-check form-check">
+                      <input type="radio" id="regular" class="form-check-input" name="estado_conservacao" value="regular">
+                      <label id="conservacao" for="regular" class="form-check-label">Regular</label>
+                    </div>
+                  </div>
+            
+                  <button id="btnDados" type="submit" class="btn">Anunciar</button>
+                </form>
+              </div>
+
+              <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-digital">
+                <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Digital</h1>
+                <form class="box-container boxx-anuncio">
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
+                    <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
+                  </div>
+            
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
+                    <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
+                    <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <h4 style="color: #F8AF40;">Informações de acesso:</h4>
+                    <label id="infosAnuncio" for="preco" class="form-label">E-mail</label>
+                    <input type="email" id="email" class="form-control" name="email">
+                    <small class="form-text text-muted">Formato esperado: xxxx@xxxx.com</small>
+                  </div>
+                  <div class="mb-3">
+                    <label id="infosAnuncio" for="preco" class="form-label">Senha</label>
+                    <input type="text" id="senha" class="form-control" name="senha">
+                  </div>
+            
+                  <button id="btnDados" type="submit" class="btn">Anunciar</button>
+                </form>
               </div>
             
             <div class="content-container" id="my-orders-container">
@@ -162,6 +218,8 @@
                             <h5>Dead Island 2</h5>
                             <p class=" mb-0">Tipo de mídia: Digital</p>
                             <p class=" mb-0">Vendedor: João Pontes</p>
+                             <!-- O acesso deverá estar disponível apenas nas midias digitais -->
+                            <p class=" mb-0">Acesso: E-mail: joao@gmail.com / Senha: 1234teste</p>
                             <p class=" mb-0">Data da compra: 15/02/2023</p>
                             <div class="game-card_cardIcon align-items-start mt-10 d-flex">
                               <div class="game-card_cardIconWrapper__382_2 mr-10">
