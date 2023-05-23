@@ -18,12 +18,10 @@ function infoJogo(produto) {
             if (data[0].descricao.length <= 531) {
                 paragrafo.textContent = data[0].descricao;
 
-                
-
             } else {
                 paragrafo.textContent = data[0].descricao.substring(0, 531) + "...";
             }
-            
+
             var preco = parseFloat(data[0].preco);
             var precoFormatado = preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             precoFormatado = "R$ " + precoFormatado.replace('.', ',');
@@ -44,13 +42,10 @@ function infoJogo(produto) {
             var paddingTop = elemento.style.paddingTop;
             console.log(elemento.scrollHeight + paddingBottom + paddingTop)
             var aux = 1
-            while((elemento.scrollHeight + paddingBottom + paddingTop) < 480)
-            {
+            while ((elemento.scrollHeight + paddingBottom + paddingTop) < 480) {
                 elemento.style.paddingBottom = aux + "px"
                 aux++
             }
-            
-            console.log(elemento.scrollHeight + paddingBottom + paddingTop)
 
         })
         .catch(error => {
@@ -359,7 +354,7 @@ function createCardDiv(imageSrc, onclickAction) {
 //     // Criar a segunda div do carousel-item
 //     var itemDiv2 = document.createElement("div");
 //     itemDiv2.className = "carousel-item d-flex justify-content-center align-items-center";
-    
+
 
 //     // Criar a div do card-wrapper
 //     var cardWrapperDiv2 = document.createElement("div");
