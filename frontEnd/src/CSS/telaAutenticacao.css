@@ -17,8 +17,11 @@ header, footer{
 main{
     background-color: #171A21;
 }
-#logo{
-    width: 12%;
+
+/* Cabeçalho */
+header #logo{
+    width: 90px;
+    height: 90px;
 }
 
 /* Corpo */
@@ -94,16 +97,23 @@ button:hover{
 .redes{
     position: relative;
     z-index: 1;
-    margin-bottom: 0.6cm;
+    margin-bottom: 0.8cm;
 }
 .redes a:nth-child(2){
     margin: 0 1em 0 1em;
 }
 #socialMedia, #btnDuvida{
     background-color: #F7F7F7;
+    color: #171A21;
     font-size: x-large;
     border-radius: 50%;
     padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-decoration: none;
 }
 #btnDuvida{
     position: relative;
@@ -124,6 +134,9 @@ button:hover{
 }
 a{
     color: inherit;
+}
+footer #logo{
+    width: 12%;
 }
 
 /* Estilizando modal */
