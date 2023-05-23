@@ -24,12 +24,12 @@
                 <div class="col-5 ehCadastrado">
                     <h2>JÁ SOU CADASTRADO</h2>
                     <div>
-                        <label for="email">E-mail</label><br>
-                        <input type="text" name="email"><br>
+                        <label for="nome">Username</label><br>
+                        <input type="nome" name="nome" id="nome" required><br>
                         <label for="senha">Senha</label><br>
                         <input type="password" name="senha"><br>
                     </div>
-                    <button>Entrar</button>
+                    <button onclick="login()">Entrar</button>
                 </div>
             
                 <div class="col-5 naoEhCadastrado">
@@ -39,7 +39,7 @@
                         <label for="novoEmail">E-mail</label><br>
                         <input type="text" name="novoEmail"><br>
                     </div>
-                    <button>Prosseguir</button>
+                    <button onclick="irCadastro()">Prosseguir</button>
                 </div>
             </div>
         </div>
@@ -89,6 +89,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/756d230ae4.js" crossorigin="anonymous"></script>
-    <script src="../JavaScript/telaAutenticacao.js"></script>
+    <script src="../JavaScript/backLogin.js"></script>
 </body>
 </html>
