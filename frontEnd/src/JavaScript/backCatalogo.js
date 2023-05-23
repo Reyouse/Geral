@@ -26,8 +26,6 @@ function pesquisaCatalogo(catalogo) {
             // Cria o cartão com a classe "wide-card"
             var card = document.createElement("div");
             card.setAttribute("class", "card wide-card");
-            card.setAttribute("id", "numProduto")
-            card.style.cursor = "pointer";
 
             // Cria a sobreposição da imagem do cartão
             var cardImgOverlay = document.createElement("div");
@@ -92,19 +90,12 @@ function pesquisaCatalogo(catalogo) {
             // Adiciona o preço à div de conteúdo do cartão
             contentDiv.appendChild(price);
 
-            var aICon = document.createElement("a");
-            aICon.setAttribute("href", "./carrinho.html");
-
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
-            cartIcon.setAttribute("id", "cardCart")
-            cartIcon.style.cursor = "auto";
-
-            aICon.appendChild(cartIcon)
-
+            cartIcon.setAttribute("id", "numProduto");
             // Adiciona o ícone do carrinho à div de conteúdo do cartão
-            contentDiv.appendChild(aICon);
+            contentDiv.appendChild(cartIcon);
 
             // Adiciona a div de conteúdo do cartão ao corpo do cartão
             cardBody.appendChild(contentDiv);
@@ -136,7 +127,8 @@ function pesquisaCatalogo(catalogo) {
       const cardImg = document.querySelectorAll(".card-img-top");
       const cardTitle = document.querySelectorAll("#tituloCard");
       const cardProco = document.querySelectorAll("#cardPreco");
-      const cardClick = document.querySelectorAll("#numProduto");
+      const cardCart = document.querySelectorAll("#numProduto");
+
 
       cardTitle.forEach((title, index) => {
         if (data[index]) {
@@ -184,11 +176,11 @@ function pesquisaCatalogo(catalogo) {
         }
       });
 
-      cardClick.forEach((fullCard, index) => {
+      cardCart.forEach((carinho, index) => {
         if (data[index]) {
-          fullCard.id = data[index].idAnuncio;
-          fullCard.addEventListener("click", function () {
-            handleClick(fullCard.id);
+          carinho.id = data[index].idAnuncio;
+          carinho.addEventListener("click", function() {
+            handleClick(carinho.id);
           });
         }
       });
@@ -198,6 +190,7 @@ function pesquisaCatalogo(catalogo) {
       console.error('Ocorreu um erro:', error);
     });
 }
+
 
 function createPCElement() {
   // Cria o elemento div principal
