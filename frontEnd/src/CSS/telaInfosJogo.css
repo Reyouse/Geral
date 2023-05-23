@@ -126,7 +126,7 @@ header #logo{
     background-color: #F7F7F7;
 }
 #conteudosJogo{
-    padding: 30px 0px 10px 0px;
+    padding: 30px 0px 9px 0px;
     font-family: 'Quicksand', sans-serif;
 }
 #conteudosJogo h5{
@@ -239,7 +239,12 @@ header #logo{
   width: 45px;
   height: 45px;
   text-decoration: none;
+
 }
+#socialMedia{
+    display: inline-flex;
+}
+
 #btnDuvida{
     position: relative;
     top: 2.8cm;

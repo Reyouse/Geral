@@ -44,7 +44,3 @@ function restoreImage(card) {
         cardImage.src = '../imgs/pc.png';
     }
   }
-
-  
-
-
