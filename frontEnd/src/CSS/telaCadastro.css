@@ -5,36 +5,44 @@
     Branco: #F7F7F7
     Cinza: #202020
 */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-header, footer{
+
+header,
+footer {
     background-color: #1B2838;
+    padding: 20px;
 }
 
 /* Cabeçalho */
-header #logo{
+header #logo {
     width: 90px;
     height: 90px;
 }
 
 /* Corpo */
-main{
+main {
     background-color: #171A21;
 }
-.row, .btnCadastrar, .doisCampos{
+
+.row,
+.btnCadastrar,
+.doisCampos {
     display: flex;
     justify-content: center;
 }
-.conteudoCadastro{
+
+.conteudoCadastro {
     border: 1px solid #F7F7F7;
     border-radius: 12px;
     padding: 15px;
     margin: 1.5cm 0;
 }
-#botao{
+
+#botao {
     padding: 8px;
     margin: 10px 0;
     border-radius: 12px;
@@ -46,14 +54,17 @@ main{
     font-size: 18px;
     font-weight: bolder;
 }
-#botao:hover{
+
+#botao:hover {
     border-color: #F7F7F7;
 }
-label{
+
+label {
     color: #F7F7F7;
     font-family: 'Quicksand', sans-serif;
 }
-h2{
+
+h2 {
     background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -62,15 +73,18 @@ h2{
     font-variant: small-caps;
     text-align: center;
 }
-.campo{
+
+.campo {
     display: flex;
     flex-direction: column;
 }
-.doisCampos{
+
+.doisCampos {
     gap: 10px;
     margin-bottom: 8px;
 }
-#sexoUsuario{
+
+#sexoUsuario {
     width: 99%;
     height: 0.7cm;
     position: relative;
@@ -78,24 +92,26 @@ h2{
 }
 
 /* Rodapé */
-.blocoVertical{
+.blocoVertical {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
-footer #logo{
+
+.redes {
     position: relative;
-    bottom: 0.5cm;
+    z-index: 1;
+    margin-bottom: 0.8cm;
 }
-.redes{
-    position: relative;
-    z-index: 999;
-    top: 0.8cm;
-}
-.redes a:nth-child(2){
+
+.redes a:nth-child(2) {
     margin: 0 1em 0 1em;
 }
-#socialMedia, #btnDuvida{
+
+#socialMedia,
+#btnDuvida {
     background-color: #F7F7F7;
     color: #171A21;
     font-size: x-large;
@@ -108,41 +124,68 @@ footer #logo{
     height: 45px;
     text-decoration: none;
 }
-#btnDuvida{
+
+#btnDuvida {
     position: relative;
-    top: 3.5cm;
-    left: 1cm;
+    top: 2cm;
 }
-#socialMedia:hover, #btnDuvida:hover{
+
+#socialMedia:hover,
+#btnDuvida:hover {
     background-color: #171A21;
     color: #F7F7F7;
 }
-.fa-question{
+
+.fa-question {
     margin: 0 7px 0 7px;
 }
-footer #logo{
-    width: 20%;
+
+#conteudoModal {
+    background-color: #1B2838;
+}
+
+#btnFechar {
+    background-color: #F7F7F7;
+}
+
+a {
+    color: inherit;
+}
+
+footer #logo {
+    width: 12%;
 }
 
 /* Estilizando modal */
-#conteudoModal{
+#conteudoModal {
     background-color: #171A21;
 }
-#conteudoModal h1{
+
+#conteudoModal h1 {
     color: #F8AF40;
 }
-#btnFechar, .campoModal{
+
+#btnFechar,
+.campoModal {
     background-color: #F7F7F7;
 }
-.campoModal{
+
+.campoModal {
     border-radius: 10px;
     padding: 7px;
 }
-.modal-header, .campoModal{
+
+.modal-header,
+.campoModal {
     margin-bottom: 15px;
 }
-.campoModal a{
-    color: inherit;
+
+.campoModal a {
     text-decoration: none;
     text-align: center;
+}
+
+#conteudoModal .row {
+    display: flex;
+    justify-content: center;
 }

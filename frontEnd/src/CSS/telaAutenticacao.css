@@ -5,37 +5,42 @@
     Branco: #F7F7F7
     Cinza: #202020
 */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-header, footer{
+
+header,
+footer {
     background-color: #1B2838;
     padding: 20px;
 }
-main{
+
+main {
     background-color: #171A21;
 }
 
 /* Cabeçalho */
-header #logo{
+header #logo {
     width: 90px;
     height: 90px;
 }
 
 /* Corpo */
-h2{
+h2 {
     background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
 }
-h3{
+
+h3 {
     font-variant: small-caps;
 }
-.conteudoValidacao{
+
+.conteudoValidacao {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -43,20 +48,28 @@ h3{
     gap: 1cm;
     padding: 1cm 0 1cm 0;
 }
-label{
+
+label {
     font-family: 'Quicksand', sans-serif;
 }
-button{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-label, button{
+
+label,
+button {
     font-size: medium;
     letter-spacing: 0.025cm;
 }
-label, h3{
+
+label,
+h3 {
     color: #FFFFFF;
 }
-.ehCadastrado, .naoEhCadastrado{
+
+.ehCadastrado,
+.naoEhCadastrado {
     border: 2px solid #f7f7f7;
     padding: 15px;
     border-radius: 12px;
@@ -66,14 +79,19 @@ label, h3{
     align-items: center;
     height: 8cm;
 }
-.naoEhCadastrado h3{
+
+.naoEhCadastrado h3 {
     text-align: center;
     margin-top: 0;
 }
-.naoEhCadastrado input, .ehCadastrado input[type="password"], button{
+
+.naoEhCadastrado input,
+.ehCadastrado input[type="password"],
+button {
     margin-bottom: 0.7cm;
 }
-button{
+
+button {
     border: 2px solid #171A21;
     padding: 8px;
     border-radius: 9px;
@@ -82,27 +100,32 @@ button{
     background-color: #F8AF40;
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     border-color: #F7F7F7;
-}   
+}
 
 /* Rodapé */
-.blocoVertical{
+.blocoVertical {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
 }
-.redes{
+
+.redes {
     position: relative;
     z-index: 1;
     margin-bottom: 0.8cm;
 }
-.redes a:nth-child(2){
+
+.redes a:nth-child(2) {
     margin: 0 1em 0 1em;
 }
-#socialMedia, #btnDuvida{
+
+#socialMedia,
+#btnDuvida {
     background-color: #F7F7F7;
     color: #171A21;
     font-size: x-large;
@@ -115,52 +138,68 @@ button:hover{
     height: 45px;
     text-decoration: none;
 }
-#btnDuvida{
+
+#btnDuvida {
     position: relative;
     top: 2cm;
 }
-#socialMedia:hover, #btnDuvida:hover{
+
+#socialMedia:hover,
+#btnDuvida:hover {
     background-color: #171A21;
     color: #F7F7F7;
 }
-.fa-question{
+
+.fa-question {
     margin: 0 7px 0 7px;
 }
-#conteudoModal{
+
+#conteudoModal {
     background-color: #1B2838;
 }
-#btnFechar{
+
+#btnFechar {
     background-color: #F7F7F7;
 }
-a{
+
+a {
     color: inherit;
 }
-footer #logo{
+
+footer #logo {
     width: 12%;
 }
 
 /* Estilizando modal */
-#conteudoModal{
+#conteudoModal {
     background-color: #171A21;
 }
-#conteudoModal h1{
+
+#conteudoModal h1 {
     color: #F8AF40;
 }
-#btnFechar, .campoModal{
+
+#btnFechar,
+.campoModal {
     background-color: #F7F7F7;
 }
-.campoModal{
+
+.campoModal {
     border-radius: 10px;
     padding: 7px;
 }
-.modal-header, .campoModal{
+
+.modal-header,
+.campoModal {
     margin-bottom: 15px;
 }
-.campoModal a{
+
+.campoModal a {
     text-decoration: none;
     text-align: center;
 }
-#conteudoModal .row{
+
+#conteudoModal .row {
     display: flex;
     justify-content: center;
 }
