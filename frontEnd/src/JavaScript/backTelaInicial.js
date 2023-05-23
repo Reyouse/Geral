@@ -10,23 +10,33 @@ function atualizarImagens() {
 
             // Iterar sobre as imagens e atualizar o atributo src
             thumbnails.forEach((imagem, index) => {
-                imagem.src = data[index].banner;
+                if (data[index]) {
+                    imagem.src = data[index].banner;
+                }
             });
 
             capas.forEach((imagem, index) => {
-                imagem.src = data[index].banner;
+                if (data[index]) {
+                    imagem.src = data[index].banner;
+                }
             });
 
             titulosCarrossel.forEach((titulos, index) => {
-                titulos.textContent = data[index].titulo;
+                if (data[index]) {
+                    titulos.textContent = data[index].titulo;
+                }
             });
 
             carrossel.forEach((desc, index) => {
-                desc.textContent = data[index].descricao.substring(0, 500) + "...";
+                if (data[index]) {
+                    desc.textContent = data[index].descricao.substring(0, 500) + "...";
+                }
             });
 
             botoes.forEach((botaos, index) => {
-                botaos.id = data[index].idAnuncio
+                if (data[index]) {
+                    botaos.id = data[index].idAnuncio
+                }
             })
         })
         .catch(error => {
