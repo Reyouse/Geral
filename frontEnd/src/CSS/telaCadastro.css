@@ -13,12 +13,12 @@
 header, footer{
     background-color: #1B2838;
 }
-#logo{
-    width: 20%;
-}
 
 /* Cabeçalho */
-
+header #logo{
+    width: 90px;
+    height: 90px;
+}
 
 /* Corpo */
 main{
@@ -90,7 +90,7 @@ footer #logo{
 .redes{
     position: relative;
     z-index: 999;
-    top: 0.7cm;
+    top: 0.8cm;
 }
 .redes a:nth-child(2){
     margin: 0 1em 0 1em;
@@ -101,6 +101,12 @@ footer #logo{
     font-size: x-large;
     border-radius: 50%;
     padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-decoration: none;
 }
 #btnDuvida{
     position: relative;
@@ -113,6 +119,9 @@ footer #logo{
 }
 .fa-question{
     margin: 0 7px 0 7px;
+}
+footer #logo{
+    width: 20%;
 }
 
 /* Estilizando modal */
