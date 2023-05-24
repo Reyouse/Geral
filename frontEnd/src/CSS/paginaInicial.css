@@ -171,7 +171,6 @@ body {
 
 /* Rodapé */
 footer{
-  margin-top: 10px;
   background-color: #1B2838;
 }
 .blocoVertical {
@@ -184,7 +183,7 @@ footer{
 .redes {
   position: relative;
   z-index: 1;
-  margin-bottom: 0.8cm;
+  top: 0.9cm;
 }
 .redes a:nth-child(2) {
   margin: 0 1em 0 1em;
@@ -205,7 +204,7 @@ footer{
 }
 #btnDuvida {
   position: relative;
-  top: 2.9cm;
+  top: 3.4cm;
   left: 1cm;
 }
 #socialMedia:hover,
@@ -226,8 +225,9 @@ a {
   color: inherit;
 }
 footer #logo {
-  width: 12%;
-  margin-bottom: 50px;
+  width: 18%;
+  position: relative;
+  bottom: 10px;
 }
 
 /* Estilizando modal */
