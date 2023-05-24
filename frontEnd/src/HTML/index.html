@@ -31,7 +31,7 @@
         <a href="#" style="margin-right: 100px;"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png"
             alt="Reyouse"></a>
         <div id="loginOuCadastro" class="navbar-right">
-          <a href="./telaAutenticacao.html" class="btn" style="color: #f7f7f7;">Faça seu login <br> ou cadastre-se</a>
+          <a href="./telaAutenticacao.html" class="btn" style="color: #f7f7f7;">Faça seu login <br> ou <span style="color: #F8AF40;">cadastre-se</span></a>
         </div>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -139,27 +139,58 @@
     </div>
   </section>
 
-  
+  <!-- Rodapé -->
+  <footer>
+    <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="fa-solid fa-question"></i></a>
 
-  <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Precisa de ajuda?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="conteudoModal">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Precisa de ajuda?</h1>
+                    <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 campoModal">
+                            <a href="#">
+                                <h5>FAQ</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 campoModal">
+                            <a href="#">
+                                <h5>Entre em Contato</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 campoModal" style="margin-bottom: 0.8cm;">
+                            <a href="#">
+                                <h5>Suporte</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body text-center">
-          <button class="btnOpcoes" type="button">FAQ</button>
-          <button class="btnOpcoes" type="button">Entre em Contato</button>
-          <button class="btnOpcoes" type="button">Suporte</button>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <div class="blocoVertical">
+        <div class="redes">
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-instagram"></i></span></a>
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-discord"></i></span></a>
+        </div>
+        <img src="../imgs/logo.png" alt="Logo Reyouse" id="logo">
+    </div>
+</footer>
 
   <script src="../JavaScript/backTelaInicial.js"></script>
   <script src="../JavaScript/atualizarUser.js"></script>
-
 </body>
-
 </html>
