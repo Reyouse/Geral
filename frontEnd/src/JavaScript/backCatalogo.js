@@ -4,7 +4,7 @@ var elementoTitulo = document.getElementById("catalogoTit");
 elementoTitulo.innerText = catalogo;
 
 function pesquisaCatalogo(catalogo) {
-  return fetch('https://reyouseback.azurewebsites.net/catalogo/' + catalogo)
+  fetch('https://reyouseback.azurewebsites.net/catalogo/' + catalogo)
     .then(response => response.json())
     .then(data => {
 
@@ -354,10 +354,250 @@ function createGameCard(divPai) {
 
   divPai.appendChild(divFilha);
 }
+
 function handleClick(valor) {
   localStorage.setItem('produto', valor)
   window.location.href = './telaInfosJogo.html';
 }
 
+function pesquisaValor() {
+  fetch(`https://reyouseback.azurewebsites.net/pesquisa/${catalogo}`)
+    .then(response => response.json())
+    .then(data => {
 
-pesquisaCatalogo(catalogo);
+      if (data.length <= 0) {
+        var card = document.createElement("div");
+
+        // Define as propriedades do card
+        card.style.width = "300px";
+        card.style.height = "200px";
+        card.style.background = "white";
+        card.style.border = "1px solid #ccc";
+        card.style.borderRadius = "5px";
+        card.style.display = "flex";
+        card.style.alignItems = "center";
+        card.style.justifyContent = "center";
+        card.style.position = "relative"; // Alterado para position: relative
+        card.style.top = "50%"; // Ajuste a posição vertical
+        card.style.margin = "0 auto"; // Centraliza horizontalmente
+
+        // Cria o elemento de mensagem dentro do card
+        var mensagem = document.createElement("p");
+        mensagem.innerText = "Não foi possível encontrar jogos relacionados";
+        mensagem.style.color = "darkred";
+        mensagem.style.margin = "0";
+        mensagem.style.padding = "10px";
+        mensagem.style.textAlign = "center";
+        mensagem.style.fontWeight = "bold"; // Define o texto em negrito
+        mensagem.style.fontSize = "20px";
+
+        // Adiciona a mensagem ao card
+        card.appendChild(mensagem);
+
+        // Obtém a div "catalogo"
+        var catalogoDiv = document.getElementById("catalogo");
+
+        // Insere o card de aviso abaixo da div "catalogo"
+        catalogoDiv.parentNode.insertBefore(card, catalogoDiv.nextSibling);
+      }
+
+      function criarEstrutura() {
+
+        for (var j = 0; j < Math.ceil(data.length / 4); j++) {
+          var jogosCatalogo = document.createElement("div");
+          jogosCatalogo.setAttribute("id", "jogosCatalogo");
+          jogosCatalogo.setAttribute("class", "container");
+
+          var row = document.createElement("div");
+          row.setAttribute("class", "row row-cols-md-4");
+
+          // Cria as colunas e cartões
+          for (var i = j * 4; i < (j * 4) + 4 && i < data.length; i++) {
+            var col = document.createElement("div");
+            col.setAttribute("class", "col");
+
+            // Cria o cartão com a classe "wide-card"
+            var card = document.createElement("div");
+            card.setAttribute("class", "card wide-card");
+            card.setAttribute("id", "numProduto")
+            card.style.cursor = "pointer";
+
+            // Cria a sobreposição da imagem do cartão
+            var cardImgOverlay = document.createElement("div");
+            cardImgOverlay.setAttribute("class", "card-img-overlay");
+
+            // Cria a div para aplicar o efeito de zoom na imagem
+            var zoomImg = document.createElement("div");
+            zoomImg.setAttribute("class", "zoom-img");
+
+            // Cria a imagem do cartão
+            var img = document.createElement("img");
+            img.setAttribute("src", "");
+            img.setAttribute("class", "card-img-top");
+            img.setAttribute("alt", "Produto " + i);
+
+            // Adiciona a imagem à div de zoom
+            zoomImg.appendChild(img);
+
+            // Adiciona a div de zoom à sobreposição da imagem do cartão
+            cardImgOverlay.appendChild(zoomImg);
+
+            // Adiciona a sobreposição da imagem do cartão ao cartão
+            card.appendChild(cardImgOverlay);
+
+            // Cria o corpo do cartão
+            var cardBody = document.createElement("div");
+            cardBody.setAttribute("class", "card-body");
+
+            // Cria a div para o título do cartão
+            var titleDiv = document.createElement("div");
+            titleDiv.setAttribute("class", "d-flex justify-content-between align-items-start");
+
+            // Cria o título do cartão
+            var title = document.createElement("h5");
+            title.setAttribute("id", "tituloCard");
+            title.setAttribute("class", "card-title card-title-single-line");
+
+            // Adiciona o título à div do título do cartão
+            titleDiv.appendChild(title);
+
+            // Adiciona a div do título do cartão ao corpo do cartão
+            cardBody.appendChild(titleDiv);
+
+            // Cria a div para os ícones do cartão
+            var iconDiv = document.createElement("div");
+            iconDiv.setAttribute("class", "game-card_cardIcon align-items-start mt-10 d-flex");
+
+            // Adiciona a div dos ícones ao corpo do cartão
+            cardBody.appendChild(iconDiv);
+
+            // Cria a div para o conteúdo do cartão
+            var contentDiv = document.createElement("div");
+            contentDiv.setAttribute("id", "conteudoCard");
+            contentDiv.setAttribute("class", "d-flex justify-content-between align-items-center");
+
+            // Cria o preço do cartão
+            var price = document.createElement("p");
+            price.setAttribute("class", "card-price card-text");
+            price.setAttribute("id", "cardPreco");
+            price.setAttribute("style", "margin-bottom: 0;");
+
+            // Adiciona o preço à div de conteúdo do cartão
+            contentDiv.appendChild(price);
+
+            var aICon = document.createElement("a");
+            aICon.setAttribute("href", "./carrinho.html");
+
+            // Cria o ícone do carrinho
+            var cartIcon = document.createElement("i");
+            cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
+            cartIcon.setAttribute("id", "cardCart")
+            cartIcon.style.cursor = "auto";
+
+            aICon.appendChild(cartIcon)
+
+            // Adiciona o ícone do carrinho à div de conteúdo do cartão
+            contentDiv.appendChild(aICon);
+
+            // Adiciona a div de conteúdo do cartão ao corpo do cartão
+            cardBody.appendChild(contentDiv);
+
+            // Adiciona o corpo do cartão ao cartão
+            card.appendChild(cardBody);
+
+            // Adiciona o cartão à coluna
+            col.appendChild(card);
+
+            // Adiciona a coluna à linha
+            row.appendChild(col);
+          }
+
+          var elementoReferencia = document.getElementById("rodape");
+
+          if (!elementoReferencia) {
+            console.error("Elemento de referência não encontrado.");
+            return;
+          }
+
+          elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
+          jogosCatalogo.appendChild(row);
+        }
+      }
+
+      criarEstrutura("catalogo");
+
+      const cardImg = document.querySelectorAll(".card-img-top");
+      const cardTitle = document.querySelectorAll("#tituloCard");
+      const cardProco = document.querySelectorAll("#cardPreco");
+      const cardClick = document.querySelectorAll("#numProduto");
+
+      cardTitle.forEach((title, index) => {
+        if (data[index]) {
+          title.textContent = data[index].titulo;
+
+          return fetch('https://reyouseback.azurewebsites.net/plataformasdojogo/' + data[index].idAnuncio)
+            .then(resposta => resposta.json())
+            .then(date => {
+              date.forEach(item => {
+                if (item.nome === "Xbox") {
+
+                  const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
+                  criarDiv(divPai);
+
+                } else if (item.nome === "PC") {
+                  const pcElement = createPCElement();
+                  const parentElement = document.querySelectorAll('.d-flex.justify-content-between.align-items-start')[index];
+                  parentElement.parentNode.insertBefore(pcElement, parentElement.nextSibling);
+                  if (date.length === 1) {
+                    const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
+                    criarDiv2(divPai);
+                  }
+
+                } else if (item.nome === "Playstation") {
+
+                  const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
+                  createGameCard(divPai);
+
+                }
+              });
+            });
+        }
+      });
+
+      cardImg.forEach((imagem, index) => {
+        if (data[index]) {
+          imagem.src = data[index].capa;
+        }
+      });
+
+      cardProco.forEach((preco, index) => {
+        if (data[index]) {
+          const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString().replace('.', ',');
+          preco.textContent = precoFormatado;
+        }
+      });
+
+      cardClick.forEach((fullCard, index) => {
+        if (data[index]) {
+          fullCard.id = data[index].idAnuncio;
+          fullCard.addEventListener("click", function () {
+            handleClick(fullCard.id);
+          });
+        }
+      });
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro:', error);
+    });
+}
+
+function inicio() {
+  if (catalogo == "Xbox" || catalogo == "PC" || catalogo == "Playstation") {
+    pesquisaCatalogo(catalogo);
+  }
+  else {
+    pesquisaValor()
+  }
+}
+
+inicio()
