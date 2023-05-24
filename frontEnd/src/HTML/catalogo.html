@@ -70,51 +70,56 @@
     </div>
   </div>
 
-  <footer id="rodape" class="text-center">
-    <div class="container p-3 pb-0">
-      <section id="redesSociais">
+  <!-- Rodapé -->
+  <footer id="rodape">
+    <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="fa-solid fa-question"></i></a>
 
-        <!-- Twitter -->
-        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/reyouse" role="button"><i
-            class="fab fa-whatsapp"></i></a>
-
-        <!-- Instagram -->
-        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/reyouse/"
-          role="button"><i class="fab fa-instagram"></i></a>
-
-        <!-- Github -->
-        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://github.com/Reyouse" role="button"><i
-            class="fab fa-github"></i></a>
-      </section>
-      <!-- Section: Social media -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="conteudoModal">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Precisa de ajuda?</h1>
+                    <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 campoModal">
+                            <a href="#">
+                                <h5>FAQ</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 campoModal">
+                            <a href="#">
+                                <h5>Entre em Contato</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 campoModal" style="margin-bottom: 0.8cm;">
+                            <a href="#">
+                                <h5>Suporte</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container ">
-      <!--Botão de ajuda-->
-      <a type="button" data-bs-toggle="modal" data-bs-target="#modalAjuda" id="btnDuvida" class="btn botao-ajuda"
-        href="#" role="button"><i class="fas fa-question"></i></a>
-
-      <!--Logo -->
-      <a class="logoRodape" href="./index.html"><img style=" width: 7%; background-color: #000000;"
-          src="../imgs/LogoReyouse-Azul.png" alt="logo"></a>
+    <div class="blocoVertical">
+        <div class="redes">
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-instagram"></i></span></a>
+            <a href="#"><span id="socialMedia"><i class="fa-brands fa-discord"></i></span></a>
+        </div>
+        <img src="../imgs/LogoReyouse-Azul.png" alt="Logo Reyouse" id="logo">
     </div>
   </footer>
-
-  <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Precisa de ajuda?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <button class="btnOpcoes" type="button">FAQ</button>
-          <button class="btnOpcoes" type="button">Entre em Contato</button>
-          <button class="btnOpcoes" type="button">Suporte</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="../JavaScript/backCatalogo.js"></script>
