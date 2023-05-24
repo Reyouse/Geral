@@ -1,0 +1,154 @@
+header #logo {
+    width: 42%;
+}
+
+#btnPesquisar {
+    border: none;
+    background-color: #1B2838;
+    color: #F7F7F7;
+}
+
+.dropdown button {
+    background-color: transparent;
+    border: none;
+}
+
+.cartUser {
+    margin-right: 1em;
+    display: flex;
+}
+
+.cartUser svg {
+    color: #171A21;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 12px;
+}
+
+#caixaPesquisa {
+    border-radius: 7px;
+    border: 1px solid #1B2838;
+    margin-right: 2px;
+}
+
+/*Definindo largura correta para a logo */
+#logo_Reyouse {
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+    background-color: #1B2838;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-collapse form[role="search"] button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #f7f7f7;
+}
+
+.form-control {
+    border-radius: 20px;
+    width: 300px;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.navbar-header,
+.navbar-form,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icon {
+    font-size: 24px;
+    color: #fff;
+    margin-right: 10px;
+    border: none;
+    background-color: #1B2838;
+}
+
+.custom-search-form {
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-collapse .d-flex.justify-content-center {
+    flex: 1;
+}
+
+.form-control {
+    border-radius: 20px !important;
+}
+
+/*Definindo largura correta para a logo */
+#logo_Reyouse {
+    width: 90px;
+    height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+    background-color: #1B2838;
+    width: 100%;
+}
+
+/* Deixando o icone de pesquisa branco e sem a caixa em volta*/
+.navbar-collapse form[role="search"] button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #f7f7f7;
+}
+
+/* Alterando as propriedadas da barra de pesquisa*/
+.form-control {
+    border-radius: 20px;
+    width: 300px;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/*Definindo display-flex*/
+.navbar-header,
+.navbar-form,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/*Botão de login/cadastro */
+#loginOuCadastro {
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    color: #f7f7f7;
+    transition: ease-in 0.5s;
+}
+
+#loginOuCadastro:hover {
+    border: 1px solid #F8AF40;
+}
+
+#dropdownMenuButton {
+    font-weight: 600;
+}
+
+.dropdown-item {
+    font-weight: 600;
+    background-color: #F7F7F7;
+}

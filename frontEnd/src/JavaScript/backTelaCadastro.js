@@ -1,8 +1,10 @@
 var aux = 0
+var email = localStorage.getItem('email')
+document.getElementById("email").value = email
 
 function validarCampos() {
     var username = document.getElementById("username").value;
-    var email = document.getElementById("email").value;
+    email = document.getElementById("email").value;
     var senha = document.getElementById("senha").value;
     var confirmarSenha = document.getElementById("confirmarSenha").value;
     var nomeCompleto = document.getElementById("nomeCompleto").value;
@@ -115,7 +117,7 @@ function validarCampos() {
                         .then(response => response.text())
                         .then(data => {
                             if (data === `Usuário ${username} cadastrado com sucesso.`) {
-                                window.location.href = '../HTML/telaAutentificacao.html';
+                                window.location.href = '../HTML/telaAutenticacao.html';
                             }
                             else {
                                 alert(data)

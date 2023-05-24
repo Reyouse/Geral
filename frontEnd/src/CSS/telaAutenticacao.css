@@ -17,6 +17,10 @@ footer {
     padding: 20px;
 }
 
+main {
+    background-color: #171A21;
+}
+
 /* Cabeçalho */
 header #logo {
     width: 90px;
@@ -24,71 +28,81 @@ header #logo {
 }
 
 /* Corpo */
-main {
-    background-color: #171A21;
-}
-
-.row,
-.btnCadastrar,
-.doisCampos {
-    display: flex;
-    justify-content: center;
-}
-
-.conteudoCadastro {
-    border: 1px solid #F7F7F7;
-    border-radius: 12px;
-    padding: 15px;
-    margin: 1.5cm 0;
-}
-
-#botao {
-    padding: 8px;
-    margin: 10px 0;
-    border-radius: 12px;
-    border: 2px solid #1B2838;
-    width: 3.5cm;
-    background-color: #F8AF40;
-    color: #1B2838;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 18px;
-    font-weight: bolder;
-}
-
-#botao:hover {
-    border-color: #F7F7F7;
-}
-
-label {
-    color: #F7F7F7;
-    font-family: 'Quicksand', sans-serif;
-}
-
 h2 {
     background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
-    font-variant: small-caps;
-    text-align: center;
 }
 
-.campo {
+h3 {
+    font-variant: small-caps;
+}
+
+.conteudoValidacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1cm;
+    padding: 1cm 0 1cm 0;
+}
+
+label {
+    font-family: 'Quicksand', sans-serif;
+}
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label,
+button {
+    font-size: medium;
+    letter-spacing: 0.025cm;
+}
+
+label,
+h3 {
+    color: #FFFFFF;
+}
+
+.ehCadastrado,
+.naoEhCadastrado {
+    border: 2px solid #f7f7f7;
+    padding: 15px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8cm;
 }
 
-.doisCampos {
-    gap: 10px;
-    margin-bottom: 8px;
+.naoEhCadastrado h3 {
+    text-align: center;
+    margin-top: 0;
 }
 
-#sexoUsuario {
-    width: 99%;
-    height: 0.7cm;
-    position: relative;
-    margin-right: 1.4em;
+.naoEhCadastrado input,
+.ehCadastrado input[type="password"],
+button {
+    margin-bottom: 0.7cm;
+}
+
+button {
+    border: 2px solid #171A21;
+    padding: 8px;
+    border-radius: 9px;
+    width: 3cm;
+    font-weight: bolder;
+    background-color: #F8AF40;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #F7F7F7;
 }
 
 /* Rodapé */

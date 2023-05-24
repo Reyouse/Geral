@@ -40,7 +40,6 @@ function infoJogo(produto) {
 
             var paddingBottom = elemento.style.paddingBottom;
             var paddingTop = elemento.style.paddingTop;
-            console.log(elemento.scrollHeight + paddingBottom + paddingTop)
             var aux = 1
             while ((elemento.scrollHeight + paddingBottom + paddingTop) < 480) {
                 elemento.style.paddingBottom = aux + "px"
