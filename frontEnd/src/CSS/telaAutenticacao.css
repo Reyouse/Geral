@@ -1,0 +1,205 @@
+/* 
+    Amarelo: #F8AF40
+    Azul: #1B2838
+    Preto: #171A21
+    Branco: #F7F7F7
+    Cinza: #202020
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    background-color: #1B2838;
+    padding: 20px;
+}
+
+main {
+    background-color: #171A21;
+}
+
+/* Cabeçalho */
+header #logo {
+    width: 90px;
+    height: 90px;
+}
+
+/* Corpo */
+h2 {
+    background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+h3 {
+    font-variant: small-caps;
+}
+
+.conteudoValidacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1cm;
+    padding: 1cm 0 1cm 0;
+}
+
+label {
+    font-family: 'Quicksand', sans-serif;
+}
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label,
+button {
+    font-size: medium;
+    letter-spacing: 0.025cm;
+}
+
+label,
+h3 {
+    color: #FFFFFF;
+}
+
+.ehCadastrado,
+.naoEhCadastrado {
+    border: 2px solid #f7f7f7;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8cm;
+}
+
+.naoEhCadastrado h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.naoEhCadastrado input,
+.ehCadastrado input[type="password"],
+button {
+    margin-bottom: 0.7cm;
+}
+
+button {
+    border: 2px solid #171A21;
+    padding: 8px;
+    border-radius: 9px;
+    width: 3cm;
+    font-weight: bolder;
+    background-color: #F8AF40;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #F7F7F7;
+}
+
+/* Rodapé */
+.blocoVertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.redes {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.8cm;
+}
+
+.redes a:nth-child(2) {
+    margin: 0 1em 0 1em;
+}
+
+#socialMedia,
+#btnDuvida {
+    background-color: #F7F7F7;
+    color: #171A21;
+    font-size: x-large;
+    border-radius: 50%;
+    padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-decoration: none;
+}
+
+#btnDuvida {
+    position: relative;
+    top: 2cm;
+}
+
+#socialMedia:hover,
+#btnDuvida:hover {
+    background-color: #171A21;
+    color: #F7F7F7;
+}
+
+.fa-question {
+    margin: 0 7px 0 7px;
+}
+
+#conteudoModal {
+    background-color: #1B2838;
+}
+
+#btnFechar {
+    background-color: #F7F7F7;
+}
+
+a {
+    color: inherit;
+}
+
+footer #logo {
+    width: 12%;
+}
+
+/* Estilizando modal */
+#conteudoModal {
+    background-color: #171A21;
+}
+
+#conteudoModal h1 {
+    color: #F8AF40;
+}
+
+#btnFechar,
+.campoModal {
+    background-color: #F7F7F7;
+}
+
+.campoModal {
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.modal-header,
+.campoModal {
+    margin-bottom: 15px;
+}
+
+.campoModal a {
+    text-decoration: none;
+    text-align: center;
+}
+
+#conteudoModal .row {
+    display: flex;
+    justify-content: center;
+}

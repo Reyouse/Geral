@@ -1,0 +1,191 @@
+/* 
+    Amarelo: #F8AF40
+    Azul: #1B2838
+    Preto: #171A21
+    Branco: #F7F7F7
+    Cinza: #202020
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    background-color: #1B2838;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header #logo {
+    width: 90px;
+    height: 90px;
+}
+
+/* Corpo */
+main {
+    background-color: #171A21;
+}
+
+.row,
+.btnCadastrar,
+.doisCampos {
+    display: flex;
+    justify-content: center;
+}
+
+.conteudoCadastro {
+    border: 1px solid #F7F7F7;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 1.5cm 0;
+}
+
+#botao {
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 2px solid #1B2838;
+    width: 3.5cm;
+    background-color: #F8AF40;
+    color: #1B2838;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#botao:hover {
+    border-color: #F7F7F7;
+}
+
+label {
+    color: #F7F7F7;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h2 {
+    background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.doisCampos {
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+#sexoUsuario {
+    width: 99%;
+    height: 0.7cm;
+    position: relative;
+    margin-right: 1.4em;
+}
+
+/* Rodapé */
+.blocoVertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.redes {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.8cm;
+}
+
+.redes a:nth-child(2) {
+    margin: 0 1em 0 1em;
+}
+
+#socialMedia,
+#btnDuvida {
+    background-color: #F7F7F7;
+    color: #171A21;
+    font-size: x-large;
+    border-radius: 50%;
+    padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-decoration: none;
+}
+
+#btnDuvida {
+    position: relative;
+    top: 2cm;
+}
+
+#socialMedia:hover,
+#btnDuvida:hover {
+    background-color: #171A21;
+    color: #F7F7F7;
+}
+
+.fa-question {
+    margin: 0 7px 0 7px;
+}
+
+#conteudoModal {
+    background-color: #1B2838;
+}
+
+#btnFechar {
+    background-color: #F7F7F7;
+}
+
+a {
+    color: inherit;
+}
+
+footer #logo {
+    width: 12%;
+}
+
+/* Estilizando modal */
+#conteudoModal {
+    background-color: #171A21;
+}
+
+#conteudoModal h1 {
+    color: #F8AF40;
+}
+
+#btnFechar,
+.campoModal {
+    background-color: #F7F7F7;
+}
+
+.campoModal {
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.modal-header,
+.campoModal {
+    margin-bottom: 15px;
+}
+
+.campoModal a {
+    text-decoration: none;
+    text-align: center;
+}
+
+#conteudoModal .row {
+    display: flex;
+    justify-content: center;
+}

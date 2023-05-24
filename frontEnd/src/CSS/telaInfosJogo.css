@@ -5,203 +5,275 @@
     Branco: #F7F7F7
     Cinza: #202020
 */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-main, .cartUser svg:hover, #socialMedia:hover, #btnDuvida:hover{
-    background-color: #202020;
-}
-a:visited{
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* Cabeçalho */
-
-header #logo{
-    width: 42%;
-}
-#btnPesquisar{
-    border: none;
-    background-color: #1B2838;
-    color: #F7F7F7;
-}
-.dropdown button{
-    background-color: transparent;
-    border: none;
-}
-.cartUser{
-    margin-right: 1em;
-    display: flex;
-}
-.cartUser svg{
-    color: #171A21;
-    border-radius: 50%;
-    padding: 2px;
-    margin-left: 12px;
-}
-#caixaPesquisa{
-    border-radius: 7px;
-    border: 1px solid #1B2838;
-    margin-right: 2px;
-}
-.dropdown-item, .infosJogo p{
-    font-family: 'Quicksand', sans-serif;
-}
-/*Definindo largura correta para a logo */
-#logo_Reyouse{
-    width: 90px;
-    height: 90px;
+main,
+.cartUser svg:hover,
+#socialMedia:hover,
+#btnDuvida:hover {
+  background-color: #202020;
 }
 
-/*Definindo cor para a navbar */
-.navbar {
-  background-color: #1B2838;
-  width: 100%;
+a:visited {
+  color: inherit;
+  text-decoration: none;
 }
-
-.navbar-collapse form[role="search"] button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: #f7f7f7;
-}
-
-.form-control {
-  border-radius: 20px;
-  width: 300px;
-  outline: none;
-  box-shadow: none;
-}
-
-.form-control:focus {
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.navbar-header,
-.navbar-form,
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-icon {
-  font-size: 24px;
-  color: #fff;
-  margin-right: 10px;
-  border: none;
-  background-color: #1B2838;
-}
-.custom-search-form {
-    align-items: center;
-    justify-content: center;
-  }
-  .navbar-collapse .d-flex.justify-content-center {
-    flex: 1;
-  }
-  .form-control{
-    border-radius: 20px !important;
-  }
-
 
 /* Corpo */
-.row{
-    display: flex;
-    justify-content: center;
+.row {
+  display: flex;
+  justify-content: center;
 }
 
-.infosJogo{
-    display: flex;
-    align-items: center;
-    text-align: justify;
-    margin: 3cm 0cm 4cm 0cm;
-    height: 8cm;
-}
-#bannerJogo, #conteudosJogo, #btnPlataforma{
-    background-color: #F7F7F7;
-}
-#conteudosJogo{
-    padding: 30px 0px 10px 0px;
-    font-family: 'Quicksand', sans-serif;
-}
-#conteudosJogo h5{
-    color: #1B2838;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: bolder;
-    font-size: 34px;
-}
-#conteudosJogo p{
-    color: #202020;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
+.infosJogo {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  margin: 3cm 0cm 4cm 0cm;
+  height: 8cm;
 }
 
-#precoJogo{
-    color: #202020;
-    font-weight: 600;
+#bannerJogo,
+#conteudosJogo,
+#btnPlataforma {
+  background-color: #F7F7F7;
 }
 
-.infosJogo h5, p{
-    padding: 0px 50px 0px 60px;
-} 
-#precoECarrinho{
-    padding: 50px 0px 38px 60px;
+#conteudosJogo {
+  padding: 30px 0px 9px 0px;
+  font-family: 'Quicksand', sans-serif;
 }
-.infosJogo span{
-    font-size: x-large;
+
+#conteudosJogo h5 {
+  color: #1B2838;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bolder;
+  font-size: 34px;
+}
+
+#conteudosJogo p {
+  color: #202020;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+}
+
+#precoJogo {
+  color: #202020;
+  font-weight: 600;
+}
+
+.infosJogo h5,
+p {
+  padding: 0px 50px 0px 60px;
+}
+
+#precoECarrinho {
+  padding: 50px 0px 38px 60px;
+}
+
+.infosJogo span {
+  font-size: x-large;
 }
 
 
 /* Estilo para a linha dos ícones de plataforma */
-.plataformas h2{
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: #202020;
-    font-weight: bolder;
-    font-size: 25px;
-    
+.plataformas h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #202020;
+  font-weight: bolder;
+  font-size: 25px;
+
 }
-#btnPlataforma{
-    border: none;
+
+#btnPlataforma {
+  border: none;
 }
-.estadoJogo{
-    padding: 0px 0px 0px 0px;
-    display: inline-flex;
-    vertical-align: middle;
-    margin: 0;
+
+.estadoJogo {
+  padding: 0px 0px 0px 0px;
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0;
 }
-.estadoJogo p{
-    font-size: 18px;
-    font-weight: 600;
-   
-    
+
+.estadoJogo p {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 #plataformas {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    padding: 0px 0px 0px 60px;
-  }
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0px 0px 0px 60px;
+}
 
 
-#cartAdd, #cartCheck, .bi-search, #btnDuvida{
-   cursor: pointer;
+#cartAdd,
+#cartCheck,
+.bi-search,
+#btnDuvida {
+  cursor: pointer;
 }
-#imgJogo{
-    margin-top: -20px;
-    width: 100%;
-    min-width: 350px;
-    min-height: 500px;
-    border-radius: 15px;
-    position: relative;
-    left: 0.8cm;
-    bottom: 1cm;
+
+#imgJogo {
+  margin-top: -20px;
+  width: 100%;
+  min-width: 350px;
+  min-height: 500px;
+  border-radius: 15px;
+  position: relative;
+  left: 0.8cm;
+  bottom: 1cm;
 }
+
+.sombra-img {
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.432);
+}
+
+.sombra-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Rodapé */
+.blocoVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.redes {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.6cm;
+}
+
+.redes a:nth-child(2) {
+  margin: 0 1em 0 1em;
+}
+
+#socialMedia,
+#btnDuvida {
+  background-color: #F7F7F7;
+  color: #171A21;
+  font-size: x-large;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
+}
+
+#socialMedia {
+  display: inline-flex;
+}
+
+#btnDuvida {
+  position: relative;
+  top: 2.8cm;
+  left: 0.8cm;
+}
+
+#conteudoModal,
+#socialMedia:hover,
+#btnDuvida:hover,
+.infosJogo,
+.cartUser svg:hover {
+  color: #F7F7F7;
+}
+
+#btnFechar,
+#socialMedia,
+#btnDuvida,
+.cartUser svg {
+  background-color: #F7F7F7;
+}
+
+footer #logo {
+  width: 12%;
+  margin-bottom: 1cm;
+}
+
+
+.card {
+  background-color: #202020;
+  outline: none;
+}
+
+#carouselExampleControls {
+  background-color: #202020;
+  padding-bottom: 50px;
+  padding-top: 20px;
+
+}
+
+#btnAnterior,
+#btnProximo {
+  background-color: #202020;
+  border-radius: 50%;
+  padding: 5px 10px 5px 10px;
+}
+
+.card-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+}
+
+.card-wrapper .card {
+
+  margin-right: 30px;
+  border-radius: 20px;
+  border: none !important;
+  background-color: #202020;
+}
+
+.card-wrapper .card:first-child {
+
+  margin-left: 0;
+}
+
+.card-wrapper .card:last-child {
+  margin-right: 0;
+}
+
+.card-img-top {
+
+  height: 250px;
+  /* Defina a altura desejada */
+  object-fit: cover;
+  /* Para manter a proporção da imagem */
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+}
+
+.zoom-image {
+  transition: transform 0.5s;
+
+}
+
+.zoom-image:hover {
+  transform: translateY(-5px);
+}
+
+footer {
+  background-color: #1B2838;
+}
+
 .sombra-img {
     box-shadow: 0 7px 7px rgba(0, 0, 0, 0.432);
   }
@@ -319,26 +391,34 @@ footer #logo{
   }
 
 /* Estilizando modal */
-#conteudoModal{
+#conteudoModal {
   background-color: #171A21;
 }
-#conteudoModal h1{
+
+#conteudoModal h1 {
   color: #F8AF40;
 }
-#btnFechar, .campoModal{
+
+#btnFechar,
+.campoModal {
   background-color: #F7F7F7;
 }
-.campoModal{
+
+.campoModal {
   border-radius: 10px;
   padding: 7px;
 }
-.modal-header, .campoModal{
+
+.modal-header,
+.campoModal {
   margin-bottom: 15px;
 }
-.campoModal a{
+
+.campoModal a {
   text-decoration: none;
   text-align: center;
 }
-h5{
+
+h5 {
   color: #171A21;
 }
