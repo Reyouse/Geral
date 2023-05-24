@@ -3,10 +3,75 @@ const catalogo = localStorage.getItem("catalogo");
 var elementoTitulo = document.getElementById("catalogoTit");
 elementoTitulo.innerText = catalogo;
 
-function pesquisaCatalogo(catalogo) {
-  return fetch('https://reyouseback.azurewebsites.net/catalogo/' + catalogo)
+document.getElementById("todos").addEventListener("click", funcMidiaT);
+document.getElementById("fisica").addEventListener("click", funcMidiaF);
+document.getElementById("digital").addEventListener("click", funcMidiaD);
+
+var tipo = ""
+
+function pesquisaCatalogo() {
+  var param1 = ""
+  var param2 = ""
+  var param3 = ""
+  if (catalogo == "Xbox" || catalogo == "PC" || catalogo == "Playstation") {
+    if (tipo != "") {
+      param1 = "filtro"
+      param2 = catalogo
+      param3 = `/${tipo}`
+    }
+    else {
+      param1 = "catalogo"
+      param2 = catalogo
+    }
+  } else if (tipo != "") {
+    param1 = "filtropesquisa"
+    param2 = catalogo
+    param3 = `/${tipo}`
+  } else {
+    param1 = "pesquisa"
+    param2 = catalogo
+  }
+
+  fetch(`https://reyouseback.azurewebsites.net/${param1}/${param2}${param3}`)
     .then(response => response.json())
     .then(data => {
+
+      if (data.length <= 0) {
+        var card = document.createElement("div");
+        card.id = "cardErro"
+
+        // Define as propriedades do card
+        card.style.width = "300px";
+        card.style.height = "200px";
+        card.style.background = "white";
+        card.style.border = "1px solid #ccc";
+        card.style.borderRadius = "5px";
+        card.style.display = "flex";
+        card.style.alignItems = "center";
+        card.style.justifyContent = "center";
+        card.style.position = "relative"; // Alterado para position: relative
+        card.style.top = "50%"; // Ajuste a posição vertical
+        card.style.margin = "0 auto"; // Centraliza horizontalmente
+
+        // Cria o elemento de mensagem dentro do card
+        var mensagem = document.createElement("p");
+        mensagem.innerText = "Não foi possível encontrar jogos relacionados";
+        mensagem.style.color = "darkred";
+        mensagem.style.margin = "0";
+        mensagem.style.padding = "10px";
+        mensagem.style.textAlign = "center";
+        mensagem.style.fontWeight = "bold"; // Define o texto em negrito
+        mensagem.style.fontSize = "20px";
+
+        // Adiciona a mensagem ao card
+        card.appendChild(mensagem);
+
+        // Obtém a div "catalogo"
+        var catalogoDiv = document.getElementById("catalogo");
+
+        // Insere o card de aviso abaixo da div "catalogo"
+        catalogoDiv.parentNode.insertBefore(card, catalogoDiv.nextSibling);
+      }
 
       function criarEstrutura() {
 
@@ -131,7 +196,7 @@ function pesquisaCatalogo(catalogo) {
         }
       }
 
-      criarEstrutura("catalogo");
+      criarEstrutura();
 
       const cardImg = document.querySelectorAll(".card-img-top");
       const cardTitle = document.querySelectorAll("#tituloCard");
@@ -354,10 +419,58 @@ function createGameCard(divPai) {
 
   divPai.appendChild(divFilha);
 }
+
 function handleClick(valor) {
   localStorage.setItem('produto', valor)
   window.location.href = './telaInfosJogo.html';
 }
 
+function funcMidiaT() {
+  tipo = ""
+  removerDivs()
+  pesquisaCatalogo()
+}
 
-pesquisaCatalogo(catalogo);
+function funcMidiaF() {
+  tipo = "fisica"
+  removerDivs()
+  pesquisaCatalogo()
+}
+
+function funcMidiaD() {
+  tipo = "virtual"
+  removerDivs()
+  pesquisaCatalogo()
+}
+
+function removerDivs() {
+  var divs = document.querySelectorAll('#jogosCatalogo');
+  var div2 = document.getElementById('cardErro');
+
+  if (divs.length > 0) {
+    divs.forEach(function(div) {
+      while (div.firstChild) {
+        div.firstChild.remove();
+      }
+      div.remove();
+    });
+  }
+
+  if (div2) {
+    while (div2.firstChild) {
+      div2.firstChild.remove();
+    }
+    div2.remove();
+  }
+}
+
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+const dropdownButton = document.getElementById('dropdownMenuButton');
+
+dropdownItems.forEach(item => {
+  item.addEventListener('click', () => {
+    dropdownButton.textContent = `Categoria: ${item.textContent}`;
+  });
+});
+
+pesquisaCatalogo();
