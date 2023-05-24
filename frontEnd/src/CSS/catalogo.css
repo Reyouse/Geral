@@ -165,7 +165,7 @@ footer{
 .redes {
   position: relative;
   z-index: 1;
-  top: 0.6cm;
+  top: 0.9cm;
 }
 .redes a:nth-child(2) {
   margin: 0 1em 0 1em;
@@ -186,7 +186,7 @@ footer{
 }
 #btnDuvida {
   position: relative;
-  top: 3.2cm;
+  top: 3.4cm;
   left: 1cm;
 }
 #socialMedia:hover,
@@ -209,7 +209,7 @@ a {
 footer #logo {
   width: 18%;
   position: relative;
-  bottom: 20px;
+  bottom: 10px;
 }
 
 /* Estilizando modal */
