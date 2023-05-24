@@ -1,3 +1,6 @@
+var test = document.getElementById('myInput')
+test.addEventListener('keypress', pesquisarEnter);
+
 function createNav() {
     // Cria o elemento nav
     var nav = document.createElement('nav');
@@ -39,13 +42,15 @@ function createNav() {
     input.className = 'form-control me-2';
     input.type = 'search';
     input.placeholder = 'Pesquisar';
+    input.id = 'myInput'
     input.setAttribute('aria-label', 'Search');
     form.appendChild(input);
 
     // Cria o elemento button com o id btnPesquisar
     var button = document.createElement('button');
     button.id = 'btnPesquisar';
-    button.type = 'submit';
+    button.type = 'button';
+    button.onclick = pesquisar;
 
     // Cria o elemento i com as classes fa-solid e fa-magnifying-glass
     var icon = document.createElement('i');
@@ -128,6 +133,8 @@ function createNav() {
 
     // Adiciona o nav como o primeiro filho do body
     document.body.insertBefore(nav, document.body.firstChild);
+    var test = document.getElementById('myInput')
+    test.addEventListener('keypress', pesquisarEnter);
 }
 
 function excluirNav() {
@@ -149,6 +156,22 @@ function sairUser() {
     localStorage.removeItem('idPerfil');
     localStorage.removeItem('idUsuario');
     attLogin();
+}
+
+function pesquisarEnter(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault()
+        pesquisar()
+    }
+}
+
+function pesquisar() {
+    var input = document.getElementById('myInput');
+    
+    if (input.value.length > 0 && (input.value.trim() != '')) {
+        localStorage.setItem("catalogo", input.value);
+        window.location.href = './catalogo.html';
+    }
 }
 
 attLogin();
