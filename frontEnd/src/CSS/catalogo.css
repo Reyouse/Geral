@@ -150,93 +150,89 @@ body {
   transform-origin: center center;
 }
 
-/* Rodapé */
-footer{
+
+
+/*Propriedades do rodapé */
+footer {
+  padding: 20px 0px 0px 0px;
+  margin-top: 50px;
+  margin-bottom: 15px;
   background-color: #1B2838;
-  margin-top: 10px;
-}
-.blocoVertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-.redes {
-  position: relative;
-  z-index: 1;
-  top: 0.9cm;
-}
-.redes a:nth-child(2) {
-  margin: 0 1em 0 1em;
-}
-#socialMedia,
-#btnDuvida {
-  background-color: #F7F7F7;
-  color: #171A21;
-  font-size: x-large;
-  border-radius: 50%;
-  padding: 8px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-  text-decoration: none;
-}
-#btnDuvida {
-  position: relative;
-  top: 3.4cm;
-  left: 1cm;
-}
-#socialMedia:hover,
-#btnDuvida:hover {
-  background-color: #171A21;
-  color: #F7F7F7;
-}
-.fa-question {
-  margin: 0 7px 0 7px;
-}
-#conteudoModal {
-  background-color: #1B2838;
-}
-#btnFechar {
-  background-color: #F7F7F7;
-}
-a {
-  color: inherit;
-}
-footer #logo {
-  width: 18%;
-  position: relative;
-  bottom: 10px;
 }
 
-/* Estilizando modal */
-#conteudoModal {
-  background-color: #171A21;
+
+.textoFooter {
+  color: #F7F7F7;
+  font-weight: 600;
+
 }
-#conteudoModal h1 {
-  color: #F8AF40;
-  font-weight: bold;
-}
-#btnFechar,
-.campoModal {
+
+#rede:hover {
+  border-color: #1B2838;
   background-color: #F7F7F7;
 }
-.campoModal {
-  border-radius: 10px;
-  padding: 7px;
-}
-.modal-header,
-.campoModal {
-  margin-bottom: 15px;
-}
-.campoModal a {
-  text-decoration: none;
-  text-align: center;
-}
-#conteudoModal .row {
-  display: flex;
+
+
+/*Botão de ajuda ao lado esquerdo do rodapé*/
+.botao-ajuda {
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #F8AF40;
+  font-size: 20px;
+  color: #1B2838;
+  font-weight: 800;
+  border-radius: 50%;
   justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: block;
+}
+
+.botao-ajuda:hover {
+  color: #1B2838;
+  background-color: #f7f7f7;
+}
+
+/*Alterações na logo do rodapé */
+.logoRodape {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+
+
+/*Modal ajuda */
+#modalAjuda h1 {
+  font-family: 'Quicksand', sans-serif;
+  color: #F8AF40;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.btnOpcoes {
+  background-color: #F7F7F7;
+  color: #1B2838;
+  font-family: 'Quicksand', sans-serif;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-close {
+  background-color: #F7F7F7;
+}
+
+.modal-content {
+  background-color: #202020;
+}
+
+#tipoMidia {
+  cursor: pointer;
 }
