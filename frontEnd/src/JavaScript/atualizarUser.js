@@ -92,14 +92,14 @@ function createNav() {
     for (var i = 0; i < dropdownItems.length; i++) {
         var dropdownLiItem = document.createElement('li');
         var dropdownLink = document.createElement('a');
+        dropdownLink.id = "idOpcoes"
+
         if (i === 3) {
             dropdownLink.onclick = sairUser;
-            dropdownLink.href = window.location.href;
+            dropdownLink.href = "./index.html";
         }
-        else {
-            dropdownLink.href = '#';
-        }
-        dropdownLink.className = 'dropdown-item';
+
+        dropdownLink.className = 'dropdown-item dropdown-button';
         dropdownLink.textContent = dropdownItems[i];
 
         dropdownLiItem.appendChild(dropdownLink);
@@ -119,10 +119,13 @@ function createNav() {
     cartButton.type = 'button';
 
     // Cria o elemento i com as classes fas, fa-shopping-cart e navbar-icon
+    var cartLink = document.createElement('a');
     var cartIcon = document.createElement('i');
     cartIcon.style.color = '#fff';
     cartIcon.className = 'fas fa-shopping-cart navbar-icon';
-    cartButton.appendChild(cartIcon);
+    cartLink.href = "./carrinho.html"
+    cartLink.appendChild(cartIcon);
+    cartButton.appendChild(cartLink);
     cartLi.appendChild(cartButton);
     ul.appendChild(cartLi);
 
@@ -135,6 +138,12 @@ function createNav() {
     document.body.insertBefore(nav, document.body.firstChild);
     var test = document.getElementById('myInput')
     test.addEventListener('keypress', pesquisarEnter);
+
+    var dropdownButtons = document.getElementsByClassName('dropdown-button');
+
+    for (var j = 0; j < dropdownButtons.length; j++) {
+        dropdownButtons[j].addEventListener('click', buttonClicked);
+    }
 }
 
 function excluirNav() {
@@ -167,11 +176,27 @@ function pesquisarEnter(event) {
 
 function pesquisar() {
     var input = document.getElementById('myInput');
-    
+
     if (input.value.length > 0 && (input.value.trim() != '')) {
         localStorage.setItem("catalogo", input.value);
         window.location.href = './catalogo.html';
     }
 }
+
+function buttonClicked(event) {
+    var buttonText = event.target.textContent;
+
+    if (buttonText === 'Minha conta') {
+        localStorage.setItem('opcao', 'my-account')
+        window.location.href = './infosUsuario.html';
+    } else if (buttonText === 'Anunciar') {
+        localStorage.setItem('opcao', 'anuncio')
+        window.location.href = './infosUsuario.html';
+    } else if (buttonText === 'Meus pedidos') {
+        localStorage.setItem('opcao', 'my-orders')
+        window.location.href = './infosUsuario.html';
+    }
+}
+
 
 attLogin();

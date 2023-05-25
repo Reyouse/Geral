@@ -251,78 +251,93 @@ header #logo{
 }
 
 /* Rodapé */
-.blocoVertical{
+
+footer{
+  background-color: #1B2838;
+  margin-top: 50px;
+}
+.blocoVertical {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
-footer #logo{
+.redes {
   position: relative;
-  bottom: 0.5cm;
+  z-index: 1;
+  top: 0.9cm;
 }
-.redes{
-  position: relative;
-  z-index: 999;
-  top: 0.7cm;
-}
-.redes a:nth-child(2){
+.redes a:nth-child(2) {
   margin: 0 1em 0 1em;
 }
-#socialMedia, #btnDuvida{
+#socialMedia,
+#btnDuvida {
   background-color: #F7F7F7;
   color: #171A21;
   font-size: x-large;
   border-radius: 50%;
   padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
 }
-#btnDuvida{
+#btnDuvida {
   position: relative;
-  top: 3.5cm;
+  top: 3.4cm;
   left: 1cm;
 }
-#socialMedia:hover, #btnDuvida:hover{
+#socialMedia:hover,
+#btnDuvida:hover {
   background-color: #171A21;
   color: #F7F7F7;
 }
-.fa-question{
+.fa-question {
   margin: 0 7px 0 7px;
+}
+#conteudoModal {
+  background-color: #1B2838;
+}
+#btnFechar {
+  background-color: #F7F7F7;
+}
+a {
+  color: inherit;
+}
+footer #logo {
+  width: 18%;
+  position: relative;
+  bottom: 10px;
 }
 
 /* Estilizando modal */
-footer{
-  margin-top: 1.5cm;
-}
-footer h5{
-  color: #202020;
-}
-#conteudoModal{
+#conteudoModal {
   background-color: #171A21;
 }
-#conteudoModal .row{
-  display: flex;
-  justify-content: center;
-}
-#conteudoModal h1{
+#conteudoModal h1 {
   color: #F8AF40;
+  font-weight: bold;
 }
-#btnFechar, .campoModal{
+#btnFechar,
+.campoModal {
   background-color: #F7F7F7;
 }
-.campoModal{
+.campoModal {
   border-radius: 10px;
   padding: 7px;
 }
-.modal-header, .campoModal{
+.modal-header,
+.campoModal {
   margin-bottom: 15px;
 }
-.campoModal a{
-  color: inherit;
+.campoModal a {
   text-decoration: none;
   text-align: center;
 }
-footer, .navbar-icon, #btnPesquisar, .navbar{
-  background-color: #1B2838;
-}
-#logo{
-  width: 20%;
+#conteudoModal .row {
+  display: flex;
+  justify-content: center;
 }
