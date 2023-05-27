@@ -78,12 +78,18 @@ function imagensJogo(produto) {
         .then(response => response.json())
         .then(data => {
 
-            if (data.length >= 4) {
-                var mainElement = document.querySelector("main");
-                var carouselDiv = createCarouselDiv2(data);
-                mainElement.appendChild(carouselDiv);
+            var numImg = data.length
 
-            } else if (data.length > 0) {
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].endereco == null) {
+                    numImg--
+                }
+            }
+            
+            if (numImg > 3) {
+                createCarousel(data, numImg)
+
+            } else if (numImg > 0) {
                 createCarouselDiv(data)
             }
         })
@@ -312,125 +318,101 @@ function createCardDiv(imageSrc, onclickAction) {
     return cardDiv;
 }
 
-// function createCarouselDiv2(data) {
-//     // Criar a div principal
-//     var div = document.createElement("div");
-//     div.id = "carouselExampleControls";
-//     div.className = "carousel carousel-dark slide";
-//     div.setAttribute("data-bs-ride", "carousel");
+function createCarousel(data, numImg) {
+    // Cria a div do carousel
+    var carouselDiv = document.createElement("div");
+    carouselDiv.id = "carouselExampleControls";
+    carouselDiv.className = "carousel carousel-dark slide";
+    carouselDiv.setAttribute("data-bs-ride", "carousel");
 
-//     // Criar a div do carousel-inner
-//     var innerDiv = document.createElement("div");
-//     innerDiv.className = "carousel-inner";
+    // Cria a div do carousel-inner
+    var carouselInnerDiv = document.createElement("div");
+    carouselInnerDiv.className = "carousel-inner";
 
-//     // Criar a primeira div do carousel-item
-//     var itemDiv1 = document.createElement("div");
-//     itemDiv1.className = "carousel-item active";
-//     itemDiv1.style.position = "absolute";
+    var imgIndex = 0;
 
-//     // Criar a div do card-wrapper
-//     var cardWrapperDiv1 = document.createElement("div");
-//     cardWrapperDiv1.className = "card-wrapper";
-//     console.log(data[0].endereco)
-//     // Criar as divs dos cards e imagens
-//     for (var i = 0; i < 4; i++) {
-//         var cardDiv = document.createElement("div");
-//         cardDiv.className = "card";
+    while (imgIndex < numImg) {
+        // Cria um novo carousel-item
+        var carouselItemDiv = document.createElement("div");
+        carouselItemDiv.className = "carousel-item";
 
-//         var img = document.createElement("img");
-//         img.src = data[0].endereco;
-//         img.className = "card-img-top zoom-image";
-//         img.alt = "...";
-//         img.setAttribute("onclick", "openFullscreen(this)");
+        if (imgIndex === 0) {
+            carouselItemDiv.classList.add("active");
+        }
 
-//         cardDiv.appendChild(img);
-//         cardWrapperDiv1.appendChild(cardDiv);
-//     }
+        // Cria a div do card-wrapper
+        var cardWrapperDiv = document.createElement("div");
+        cardWrapperDiv.className = "card-wrapper d-flex justify-content-center align-items-center";
 
-//     itemDiv1.appendChild(cardWrapperDiv1);
-//     innerDiv.appendChild(itemDiv1);
+        // Cria os três cards com as respectivas imagens
+        for (var i = 0; i < 3 && imgIndex < numImg; i++) {
+            var cardDiv = document.createElement("div");
+            cardDiv.className = "card";
 
-//     // Criar a segunda div do carousel-item
-//     var itemDiv2 = document.createElement("div");
-//     itemDiv2.className = "carousel-item d-flex justify-content-center align-items-center";
+            var img = document.createElement("img");
+            img.src = data[imgIndex].endereco;
+            img.className = "card-img-top zoom-image";
+            img.alt = "...";
+            img.setAttribute("onclick", "openFullscreen(this)");
 
+            cardDiv.appendChild(img);
+            cardWrapperDiv.appendChild(cardDiv);
 
-//     // Criar a div do card-wrapper
-//     var cardWrapperDiv2 = document.createElement("div");
-//     cardWrapperDiv2.className = "card-wrapper";
+            imgIndex++;
+        }
 
-//     // Criar as divs dos cards e imagens (mesmo conteúdo da primeira div)]
-//     var aux
-//     if(data.length - 4 > 4) {
-//         aux = 4
-//     }
-//     else {
-//         aux = data.length - 4
-//     }
-//     for (var i = 4; i < 6; i++) {
-//         var cardDiv = document.createElement("div");
-//         cardDiv.className = "card";
+        carouselItemDiv.appendChild(cardWrapperDiv);
+        carouselInnerDiv.appendChild(carouselItemDiv);
+    }
 
-//         var img = document.createElement("img");
-//         img.src = data[0].endereco
-//         img.className = "card-img-top zoom-image";
-//         img.alt = "...";
-//         img.setAttribute("onclick", "openFullscreen(this)");
+    carouselDiv.appendChild(carouselInnerDiv);
 
-//         cardDiv.appendChild(img);
-//         cardWrapperDiv2.appendChild(cardDiv);
-//     }
+    // Cria o botão de controle "Previous"
+    var prevButton = document.createElement("button");
+    prevButton.className = "carousel-control-prev custom-carousel-btn";
+    prevButton.type = "button";
+    prevButton.setAttribute("data-bs-target", "#carouselExampleControls");
+    prevButton.setAttribute("data-bs-slide", "prev");
 
-//     itemDiv2.appendChild(cardWrapperDiv2);
-//     innerDiv.appendChild(itemDiv2);
+    var prevButtonIcon = document.createElement("span");
+    prevButtonIcon.id = "btnAnterior";
+    prevButtonIcon.className = "carousel-control-prev-icon";
+    prevButtonIcon.setAttribute("aria-hidden", "true");
 
-//     div.appendChild(innerDiv);
+    var prevButtonLabel = document.createElement("span");
+    prevButtonLabel.className = "visually-hidden";
+    prevButtonLabel.textContent = "Previous";
 
-//     // Criar o botão de controle "Previous"
-//     var prevButton = document.createElement("button");
-//     prevButton.className = "carousel-control-prev custom-carousel-btn";
-//     prevButton.type = "button";
-//     prevButton.setAttribute("data-bs-target", "#carouselExampleControls");
-//     prevButton.setAttribute("data-bs-slide", "prev");
+    prevButton.appendChild(prevButtonIcon);
+    prevButton.appendChild(prevButtonLabel);
+    carouselDiv.appendChild(prevButton);
 
-//     var prevButtonIcon = document.createElement("span");
-//     prevButtonIcon.id = "btnAnterior";
-//     prevButtonIcon.className = "carousel-control-prev-icon";
-//     prevButtonIcon.setAttribute("aria-hidden", "true");
+    // Cria o botão de controle "Next"
+    var nextButton = document.createElement("button");
+    nextButton.className = "carousel-control-next custom-carousel-btn";
+    nextButton.type = "button";
+    nextButton.setAttribute("data-bs-target", "#carouselExampleControls");
+    nextButton.setAttribute("data-bs-slide", "next");
 
-//     var prevButtonLabel = document.createElement("span");
-//     prevButtonLabel.className = "visually-hidden";
-//     prevButtonLabel.innerText = "Previous";
+    var nextButtonIcon = document.createElement("span");
+    nextButtonIcon.id = "btnProximo";
+    nextButtonIcon.className = "carousel-control-next-icon";
+    nextButtonIcon.setAttribute("aria-hidden", "true");
 
-//     prevButton.appendChild(prevButtonIcon);
-//     prevButton.appendChild(prevButtonLabel);
+    var nextButtonLabel = document.createElement("span");
+    nextButtonLabel.className = "visually-hidden";
+    nextButtonLabel.textContent = "Next";
 
-//     div.appendChild(prevButton);
+    nextButton.appendChild(nextButtonIcon);
+    nextButton.appendChild(nextButtonLabel);
+    carouselDiv.appendChild(nextButton);
 
-//     // Criar o botão de controle "Next"
-//     var nextButton = document.createElement("button");
-//     nextButton.className = "carousel-control-next custom-carousel-btn";
-//     nextButton.type = "button";
-//     nextButton.setAttribute("data-bs-target", "#carouselExampleControls");
-//     nextButton.setAttribute("data-bs-slide", "next");
+    // Obtém a referência ao elemento "main"
+    var mainElement = document.querySelector("main");
 
-//     var nextButtonIcon = document.createElement("span");
-//     nextButtonIcon.id = "btnProximo";
-//     nextButtonIcon.className = "carousel-control-next-icon";
-//     nextButtonIcon.setAttribute("aria-hidden", "true");
-
-//     var nextButtonLabel = document.createElement("span");
-//     nextButtonLabel.className = "visually-hidden";
-//     nextButtonLabel.innerText = "Next";
-
-//     nextButton.appendChild(nextButtonIcon);
-//     nextButton.appendChild(nextButtonLabel);
-
-//     div.appendChild(nextButton);
-
-//     // Retornar a div completa
-//     return div;
-// }
+    // Adiciona o carouselDiv como o último elemento dentro do elemento "main"
+    mainElement.appendChild(carouselDiv);
+}
 
 infoJogo(produto)
 plataformasJogo(produto)
