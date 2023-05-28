@@ -1,0 +1,260 @@
+body {
+  background-color: #1B2838;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+}
+
+/*Definindo tamanho para as imagens do carrossel */
+.carousel-item img {
+  height: 600px;
+  object-fit: cover;
+}
+
+/*Alinhando os textos do carrossel */
+.carousel-caption {
+  text-align: left;
+  padding: 0px 0px 0px 40px;
+
+}
+
+/*Deixando uma pelicula nas imagens do carrossel */
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* aumenta a largura do gradiente */
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0));
+  opacity: 1;
+}
+
+
+/* Propriedades para o botão de compra*/
+.btn_Comprar {
+  background-color: #f7f7f7;
+  border: 3px;
+  border-radius: 30px;
+  color: #1B2838;
+  font-weight: 700;
+}
+
+.btn_Comprar:hover {
+  background-color: #F8AF40;
+  border: 3px;
+  border-radius: 30px;
+  color: #1B2838;
+  font-weight: 700;
+}
+
+/* Definindo propriedades para as thumbs dos jogos*/
+#thumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px 30px 0px;
+  background-color: #202020;
+}
+
+.thumbnail {
+  width: 240px;
+  height: 145px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+#thumbnails ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+#thumbnails li {
+  margin: 0 10px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+#thumbnails li.active {
+  opacity: 1;
+}
+
+#thumbnails li:hover {
+  opacity: 1;
+
+}
+
+#thumbnails img {
+  border-radius: 5px;
+  /* adiciona bordas arredondadas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* adiciona uma sombra na parte inferior */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  /* adiciona uma transição suave ao passar o mouse */
+}
+
+#thumbnails img:hover {
+  transform: translateY(-5px);
+  /* levanta a imagem em 5 pixels ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  /* adiciona uma sombra mais escura */
+}
+
+/* Estilizando o texto"Plataformas" */
+#plataformas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #202020;
+}
+
+#plataformas h1 {
+  font-size: 45px;
+  text-align: center;
+  background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/*Estilizando os cards das plataformas */
+.cards {
+  display: flex;
+  justify-content: center;
+  background-color: #202020;
+  padding: 10px 0px 80px 0px;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.card {
+  background-color: #202020;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 30px 30px 30px;
+  margin: 0 30px;
+  border-radius: 30px;
+  border: 5px solid #f7f7f7;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background-color: #F8AF40;
+  border-color: #f7f7f7;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+/* Rodapé */
+footer{
+  background-color: #1B2838;
+}
+.blocoVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.redes {
+  position: relative;
+  z-index: 1;
+  top: 0.9cm;
+}
+.redes a:nth-child(2) {
+  margin: 0 1em 0 1em;
+}
+#socialMedia,
+#btnDuvida {
+  background-color: #F7F7F7;
+  color: #171A21;
+  font-size: x-large;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
+}
+#btnDuvida {
+  position: relative;
+  top: 3.4cm;
+  left: 1cm;
+}
+#socialMedia:hover,
+#btnDuvida:hover {
+  background-color: #171A21;
+  color: #F7F7F7;
+}
+.fa-question {
+  margin: 0 7px 0 7px;
+}
+#conteudoModal {
+  background-color: #1B2838;
+}
+#btnFechar {
+  background-color: #F7F7F7;
+}
+a {
+  color: inherit;
+}
+footer #logo {
+  width: 18%;
+  position: relative;
+  bottom: 10px;
+}
+
+/* Estilizando modal */
+#conteudoModal {
+  background-color: #171A21;
+}
+#conteudoModal h1 {
+  color: #F8AF40;
+  font-weight: bold;
+}
+#btnFechar,
+.campoModal {
+  background-color: #F7F7F7;
+}
+.campoModal {
+  border-radius: 10px;
+  padding: 7px;
+}
+.modal-header,
+.campoModal {
+  margin-bottom: 15px;
+}
+.campoModal a {
+  text-decoration: none;
+  text-align: center;
+}
+#conteudoModal .row {
+  display: flex;
+  justify-content: center;
+}

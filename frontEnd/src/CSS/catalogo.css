@@ -1,0 +1,242 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #202020;
+}
+
+/* Estilizando o texto"Catálogo" */
+#catalogo {
+  margin-top: 30px;
+  display: grid;
+  align-items: center;
+  height: 100px;
+  background-color: #202020;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 40px;
+}
+
+#catalogo h1 {
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  text-align: center;
+  background-image: linear-gradient(to right, #F8AF40, #F7F7F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+
+}
+
+/*Estilizando o dropdown */
+#dropdownCat {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+
+}
+
+#dropdownMenuButton {
+  font-weight: 600;
+}
+
+.dropdown-item {
+  font-weight: 600;
+  background-color: #F7F7F7;
+}
+
+/*Estilo dos cards dos produtos */
+#jogosCatalogo {
+  margin-top: 70px;
+}
+
+.card {
+  border-radius: 0px;
+  background-color: #f7f7f7;
+}
+
+.card-img-overlay {
+  position: relative;
+}
+
+.card-img-top {
+  border-radius: 15px;
+}
+
+.card-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #1B2838;
+  font-weight: 600;
+  font-size: 22px;
+  height: 3.4rem;
+  /* altura de 3 rem (48 pixels) */
+  overflow: hidden;
+  /* esconde qualquer conteúdo adicional que possa ultrapassar a altura definida */
+}
+
+/*Estilização dos icones SVG das plataformas de videogame */
+.game-card_cardIcon {
+
+  display: flex !important;
+}
+
+.game-card_cardIconWrapper__382_2 {
+  display: -moz-box;
+  display: flex;
+  width: auto;
+  height: 18px;
+  -moz-box-align: center;
+  align-items: center;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+  /*Espaçamento dos icones das plataformas do jogo */
+}
+
+
+.card-price {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #202020;
+}
+
+.fa-shopping-cart {
+  font-size: 20px;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.add-to-cart {
+  color: #1B2838;
+  cursor: pointer;
+}
+
+.wide-card {
+  width: 16rem;
+  /* Largura do card*/
+  position: relative;
+
+}
+
+.wide-card .card-body {
+  padding: 0.6rem;
+}
+
+#conteudoCard {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.zoom-img {
+  position: relative;
+  overflow: hidden;
+  margin-top: -60px;
+  border-radius: 15px;
+
+}
+
+.zoom-img img {
+  transition: transform 0.3s ease;
+}
+
+.zoom-img:hover img {
+  transform: scale(1.04);
+  transform-origin: center center;
+}
+
+/* Rodapé */
+footer{
+  background-color: #1B2838;
+  margin-top: 100px;
+}
+.blocoVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.redes {
+  position: relative;
+  z-index: 1;
+  top: 0.9cm;
+}
+.redes a:nth-child(2) {
+  margin: 0 1em 0 1em;
+}
+#socialMedia,
+#btnDuvida {
+  background-color: #F7F7F7;
+  color: #171A21;
+  font-size: x-large;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
+}
+#btnDuvida {
+  position: relative;
+  top: 3.4cm;
+  left: 1cm;
+}
+#socialMedia:hover,
+#btnDuvida:hover {
+  background-color: #171A21;
+  color: #F7F7F7;
+}
+.fa-question {
+  margin: 0 7px 0 7px;
+}
+#conteudoModal {
+  background-color: #1B2838;
+}
+#btnFechar {
+  background-color: #F7F7F7;
+}
+a {
+  color: inherit;
+}
+footer #logo {
+  width: 18%;
+  position: relative;
+  bottom: 10px;
+}
+
+/* Estilizando modal */
+#conteudoModal {
+  background-color: #171A21;
+}
+#conteudoModal h1 {
+  color: #F8AF40;
+  font-weight: bold;
+}
+#btnFechar,
+.campoModal {
+  background-color: #F7F7F7;
+}
+.campoModal {
+  border-radius: 10px;
+  padding: 7px;
+}
+.modal-header,
+.campoModal {
+  margin-bottom: 15px;
+}
+.campoModal a {
+  text-decoration: none;
+  text-align: center;
+}
+#conteudoModal .row {
+  display: flex;
+  justify-content: center;
+}

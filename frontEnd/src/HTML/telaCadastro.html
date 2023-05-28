@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/telaCadastro.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <a href="./index.html"><img src="../imgs/LogoReyouse-Controle.png" alt="Logo Reyouse" id="logo"></a>
+    </header>
+
+    <!-- Corpo -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <form onsubmit="return validarCampos()">
+                        <div class="conteudoCadastro">
+                            <h2>Dados para acesso</h2>
+                            <fieldset>
+                                <div class="doisCampos">
+                                    <div class="campo">
+                                        <label for="username">Nome do usuário <span
+                                                style="color: rgb(255, 0, 0);">*</span></label>
+                                        <input type="text" name="username" id="username" required>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="email">E-mail <span style="color: rgb(255, 0, 0);">*</span></label>
+                                        <input type="email" name="email" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="doisCampos">
+                                    <div class="campo">
+                                        <label for="senha">Senha <span style="color: rgb(255, 0, 0);">*</span></label>
+                                        <input type="password" name="senha" id="senha" required>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="confirmarSenha">Confirmar senha <span
+                                                style="color: rgb(255, 0, 0);">*</span></label>
+                                        <input type="password" name="confirmarSenha" id="confirmarSenha" required>
+                                    </div>
+                                </div>
+
+                                <h2>Dados pessoais</h2>
+                                <fieldset>
+                                    <div class="doisCampos">
+                                        <div class="campo">
+                                            <label for="nomeCompleto">Nome completo <span
+                                                    style="color: rgb(255, 0, 0);">*</span></label>
+                                            <input type="text" name="nomeCompleto" id="nomeCompleto" required>
+                                        </div>
+                                        <div class="campo">
+                                            <label for="cpf">CPF <span style="color: rgb(255, 0, 0);">*</span></label>
+                                            <input type="text" name="cpf" id="cpf" maxlength="11" required>
+                                        </div>
+                                    </div>
+                                    <div class="doisCampos">
+                                        <div class="campo">
+                                            <label for="celular">Celular <span
+                                                    style="color: rgb(255, 0, 0);">*</span></label>
+                                            <input type="tel" name="celular" id="celular" maxlength="11" required>
+                                        </div>
+                                        <div class="doisCampos">
+                                            <div class="campo">
+                                                <label for="sexoUsuario">Sexo <span
+                                                        style="color: rgb(255, 0, 0);">*</span></label>
+                                                <select name="sexoUsuario" id="sexoUsuario" required>
+                                                    <option value="" disabled selected>Escolha uma opção</option>
+                                                    <option value="masculino">Masculino</option>
+                                                    <option value="feminino">Feminino</option>
+                                                    <option value="naoInformado">Prefiro não informar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="btnCadastrar">
+                                    <button type="submit" id="botao">Criar conta</button>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                class="fa-solid fa-question"></i></a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="conteudoModal">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Precisa de ajuda?</h1>
+                        <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 campoModal">
+                                <a href="#">
+                                    <h5>FAQ</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 campoModal">
+                                <a href="#">
+                                    <h5>Entre em Contato</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 campoModal" style="margin-bottom: 0.8cm;">
+                                <a href="#">
+                                    <h5>Suporte</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blocoVertical">
+            <div class="redes">
+                <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
+                <a href="#"><span id="socialMedia"><i class="fa-brands fa-instagram"></i></span></a>
+                <a href="#"><span id="socialMedia"><i class="fa-brands fa-discord"></i></span></a>
+            </div>
+            <img src="../imgs/logo.png" alt="Logo Reyouse" id="logo">
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/756d230ae4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="../JavaScript/telaCadastro.js"></script>
+    <script src="../JavaScript/backTelaCadastro.js"></script>
+</body>
+
+</html>
