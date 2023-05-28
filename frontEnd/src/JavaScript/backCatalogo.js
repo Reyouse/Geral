@@ -158,13 +158,13 @@ function pesquisaCatalogo() {
             contentDiv.appendChild(price);
 
             var aICon = document.createElement("a");
-            aICon.setAttribute("href", "./carrinho.html");
+            aICon.id = 'cartAdd'
 
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
             cartIcon.setAttribute("id", "cardCart")
-            cartIcon.style.cursor = "auto";
+            cartIcon.style.cursor = "pointer";
 
             aICon.appendChild(cartIcon)
 
@@ -182,6 +182,7 @@ function pesquisaCatalogo() {
 
             // Adiciona a coluna à linha
             row.appendChild(col);
+
           }
 
           var elementoReferencia = document.getElementById("rodape");
@@ -193,6 +194,7 @@ function pesquisaCatalogo() {
 
           elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
           jogosCatalogo.appendChild(row);
+
         }
       }
 
@@ -202,6 +204,7 @@ function pesquisaCatalogo() {
       const cardTitle = document.querySelectorAll("#tituloCard");
       const cardProco = document.querySelectorAll("#cardPreco");
       const cardClick = document.querySelectorAll("#numProduto");
+      const cardCart = document.querySelectorAll('#cartAdd')
 
       cardTitle.forEach((title, index) => {
         if (data[index]) {
@@ -214,7 +217,7 @@ function pesquisaCatalogo() {
                 if (item.nome === "Xbox") {
 
                   const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                  criarDiv(divPai);
+                  createXboxElement(divPai);
 
                 } else if (item.nome === "PC") {
                   const pcElement = createPCElement();
@@ -222,17 +225,18 @@ function pesquisaCatalogo() {
                   parentElement.parentNode.insertBefore(pcElement, parentElement.nextSibling);
                   if (date.length === 1) {
                     const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                    criarDiv2(divPai);
+                    createXboxElement2(divPai);
                   }
 
                 } else if (item.nome === "Playstation") {
 
                   const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                  createGameCard(divPai);
+                  createPlayElement(divPai);
 
                 }
               });
             });
+
         }
       });
 
@@ -254,6 +258,16 @@ function pesquisaCatalogo() {
           fullCard.id = data[index].idAnuncio;
           fullCard.addEventListener("click", function () {
             handleClick(fullCard.id);
+          });
+        }
+      });
+
+      cardCart.forEach((id, index) => {
+        if (data[index]) {
+          id.id = data[index].idAnuncio;
+          id.addEventListener("click", function (event) {
+            event.stopPropagation();
+            chamarFuncao(id.id, id);
           });
         }
       });
@@ -297,7 +311,7 @@ function createPCElement() {
   return div;
 }
 
-function criarDiv(divPai) {
+function createXboxElement(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -345,7 +359,7 @@ function criarDiv(divPai) {
   divPai.appendChild(divFilha);
 }
 
-function criarDiv2(divPai) {
+function createXboxElement2(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -393,7 +407,7 @@ function criarDiv2(divPai) {
   divPai.appendChild(divFilha);
 }
 
-function createGameCard(divPai) {
+function createPlayElement(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -448,7 +462,7 @@ function removerDivs() {
   var div2 = document.getElementById('cardErro');
 
   if (divs.length > 0) {
-    divs.forEach(function(div) {
+    divs.forEach(function (div) {
       while (div.firstChild) {
         div.firstChild.remove();
       }
@@ -472,5 +486,47 @@ dropdownItems.forEach(item => {
     dropdownButton.textContent = `Categoria: ${item.textContent}`;
   });
 });
+
+function chamarFuncao(idProduto, id) {
+  var valid = true
+  const idPerfil = localStorage.getItem('idPerfil');
+  if (idPerfil) {
+    fetch(`https://reyouseback.azurewebsites.net/vercarrinho/${idPerfil}`)
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].idAnuncio == idProduto) {
+            alert('Produto já presente no carrinho')
+            valid = false
+            break
+          }
+        }
+        if (valid) {
+          fetch(`https://reyouseback.azurewebsites.net/addcarrinho/${idPerfil}/${idProduto}`)
+            .then(response => response.text())
+            .then(data => {
+              if (data == `Anúncio ${idProduto} adicionado ao carrinho.`) {
+                alert('Produto adicionado no carrinho');
+                const filho = id.querySelector('#cardCart');
+                filho.className += 'fa-solid fa-check';
+              }
+            })
+            .catch(error => {
+              console.error('Ocorreu um erro:', error);
+            });
+        }
+        else {
+          const filho = id.querySelector('#cardCart');
+            filho.className += 'fa-solid fa-check';
+        }
+      })
+      .catch(error => {
+        console.error('Ocorreu um erro:', error);
+      });
+
+  } else {
+    window.location.href = './telaAutenticacao.html'
+  }
+}
 
 pesquisaCatalogo();

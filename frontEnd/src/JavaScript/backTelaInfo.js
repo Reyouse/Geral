@@ -277,11 +277,9 @@ function createCarouselDiv(data, numImg) {
     itemDiv.className = 'carousel-item active d-flex justify-content-center align-items-center';
 
     // Cria a div "card-wrapper"
-    console.log(data)
     var cardWrapperDiv = document.createElement('div');
     cardWrapperDiv.className = 'card-wrapper';
     for (var i = 0; i < numImg; i++) {
-        console.log(data[i].endereco)
         if (data[i].endereco != null){
             var cardDiv = createCardDiv(data[i].endereco, 'openFullscreen(this)');
             cardWrapperDiv.appendChild(cardDiv);

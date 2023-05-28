@@ -2,11 +2,6 @@ $(document).ready(function() {
   $('#cartAdd').click(function() {
     $('#cartAdd').hide();
     $('#cartCheck').show();
-
-    setTimeout(function() {
-      $('#cartAdd').show();
-      $('#cartCheck').hide();
-    }, 3000); // 3 segundos (3000 milissegundos)
   });
 });
 

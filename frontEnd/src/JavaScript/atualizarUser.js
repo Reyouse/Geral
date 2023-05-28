@@ -198,5 +198,4 @@ function buttonClicked(event) {
     }
 }
 
-
 attLogin();
