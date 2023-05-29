@@ -14,14 +14,14 @@ campoCpf.addEventListener('input', function () {
 
 // Deixando número de telefone no formato correto
 const campoCel = document.getElementById('celular');
-campoCel.addEventListener('input', function(){
-    let cel = campoCel.value;
+campoCel.addEventListener('input', function () {
+  let cel = campoCel.value;
 
-    // Impedindo que o usuário digite caracteres que não sejam números
-    cel = cel.replace(/\D/g, ''); // Esses caracteres são substituídos por um espaço vazio
+  // Impedindo que o usuário digite caracteres que não sejam números
+  cel = cel.replace(/\D/g, ''); // Esses caracteres são substituídos por um espaço vazio
 
-    // Aplicando máscara para deixar o número de telefone no formato correto
-    cel = cel.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
+  // Aplicando máscara para deixar o número de telefone no formato correto
+  cel = cel.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
 
-    campoCel.value = cel;
+  campoCel.value = cel;
 });

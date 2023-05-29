@@ -1,443 +1,537 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins&family=Quicksand:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/infosUsuario.css">
-    <link rel="stylesheet" href="../CSS/headerUser.css">
-    <title>Informações do usuário</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins&family=Quicksand:wght@300;400&family=Roboto&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/infosUsuario.css">
+  <link rel="stylesheet" href="../CSS/headerUser.css">
+  <title>Informações do usuário</title>
 </head>
+
 <body>
 
 
-     <!-- Cabeçalho -->
-    
-      
-     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#" style="margin-right: 100px;"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png"
-              alt="Reyouse"></a>
-          <div id="loginOuCadastro" class="navbar-right">
-            <a href="./telaAutenticacao.html" class="btn" style="color: #f7f7f7;">Faça seu login <br> ou cadastre-se</a>
-          </div>
+  <!-- Cabeçalho -->
+
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" style="margin-right: 100px;"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png"
+            alt="Reyouse"></a>
+        <div id="loginOuCadastro" class="navbar-right">
+          <a href="./telaAutenticacao.html" class="btn" style="color: #f7f7f7;">Faça seu login <br> ou cadastre-se</a>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar" id="myInput" aria-label="Search">
-            <button type="button" onclick="pesquisar()">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" id="myInput" aria-label="Search">
+          <button type="button" onclick="pesquisar()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div style="margin-top: 60px;" class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="container-box">
+          <div class="rectangle" id="welcome">Olá, dantasgabi!</div>
+          <div class="rectangle" id="my-account" onclick="showContainer('my-account-container')">Minha Conta</div>
+          <div class="rectangle" id="anuncio" onclick="showContainer('anuncio-container')">Anunciar</div>
+          <div class="rectangle" id="my-orders" onclick="showContainer('my-orders-container')">Meus Pedidos</div>
+          <div class="rectangle" id="my-adverts" onclick="showContainer('my-adverts-container')">Meus Anúncios</div>
         </div>
       </div>
-    </nav>
+      <div class="col-9">
+        <div class="content-container" id="my-account-container">
+          <h1 style="color: #F8AF40;"><b>Minha Conta</b></h1>
+          <div class="box-container">
+            <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-address-card"></i> <b>Dados Cadastrais</b></h3>
+            <ul>
+              <li class="dadosLista" style="list-style: none;"><b>Nome de usuário:</b> dantasgabi</li>
+              <li class="dadosLista" style="list-style: none;"><b>Nome completo:</b> Gabriella Dantas</li>
+              <li class="dadosLista" style="list-style: none;"><b>Sexo:</b> Feminino</li>
+              <li class="dadosLista" style="list-style: none;"><b>E-mail:</b> gabriellaxdantas@gmail.com</li>
+              <li class="dadosLista" style="list-style: none;"><b>CPF:</b> 123.234.567.87</li>
+              <li class="dadosLista" style="list-style: none;"><b>Celular:</b> (31) 99239-9504</li>
+            </ul>
+
+          </div>
+          <div class="buttons-container" style="margin-top: 30px;">
+            <button id="btnDados" class="btn">Alterar Senha</button>
+            <button id="btnDados" class="btn">Editar Dados Cadastrais</button>
+            <button id="btnDados" class="btn">Sair</button>
+          </div>
 
 
-      <div style="margin-top: 60px;"class="container">
-        <div class="row">
-          <div class="col-3">
-            <div class="container-box">
-              <div class="rectangle" id="welcome">Olá, dantasgabi!</div>
-              <div class="rectangle" id="my-account" onclick="showContainer('my-account-container')">Minha Conta</div>
-              <div class="rectangle" id="anuncio" onclick="showContainer('anuncio-container')">Anunciar</div>
-              <div class="rectangle" id="my-orders" onclick="showContainer('my-orders-container')">Meus Pedidos</div>
-              <div class="rectangle" id="my-adverts" onclick="showContainer('my-adverts-container')">Meus Anúncios</div>
+        </div>
+
+        <div class="content-container " id="anuncio-container">
+          <h1 style="color: #F8AF40; margin-bottom: 20px;"><b>Anunciar</b></h1>
+          <div class="row">
+            <div class="col-md-6">
+              <div onclick="showContainer('anuncio-fisico')" id="boxAnuncio" class="box-container zoom-effect"
+                style="background-color: #252525; background-image: url('../imgs/jogoFisico.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;">
+              </div>
+              <h3
+                style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;">
+                <b>Mídia Física</b></h3>
+            </div>
+            <div class="col-md-6">
+              <div onclick="showContainer('anuncio-digital')" id="boxAnuncio" class="box-container zoom-effect"
+                style="background-color: #252525; background-image: url('../imgs/theLastOfUsBanner.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;">
+              </div>
+              <h3
+                style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;">
+                <b>Mídia Digital</b></h3>
             </div>
           </div>
-          <div class="col-9">
-            <div class="content-container" id="my-account-container">
-              <h1 style="color: #F8AF40;"><b>Minha Conta</b></h1>
-              <div class="box-container">
-                <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-address-card"></i> <b>Dados Cadastrais</b></h3>
-                <ul>
-                  <li class="dadosLista" style="list-style: none;"><b>Nome de usuário:</b> dantasgabi</li>
-                  <li class="dadosLista" style="list-style: none;"><b>Nome completo:</b> Gabriella Dantas</li>
-                  <li class="dadosLista" style="list-style: none;"><b>Sexo:</b> Feminino</li>
-                  <li class="dadosLista" style="list-style: none;"><b>E-mail:</b> gabriellaxdantas@gmail.com</li>
-                  <li class="dadosLista" style="list-style: none;"><b>CPF:</b> 123.234.567.87</li>
-                  <li class="dadosLista" style="list-style: none;"><b>Celular:</b> (31) 99239-9504</li>
-                </ul>
-                
-              </div>
-              <div class="buttons-container" style="margin-top: 30px;">
-                <button id="btnDados" class="btn">Alterar Senha</button>
-                <button id="btnDados" class="btn">Editar Dados Cadastrais</button>
-                <button id="btnDados" class="btn">Sair</button>
-              </div>
-              
-              
+        </div>
+
+        <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-fisico">
+          <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Física</h1>
+          <form class="box-container boxx-anuncio">
+            <div class="mb-3">
+              <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
+              <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
             </div>
 
-            <div class="content-container " id="anuncio-container">
-                <h1 style="color: #F8AF40; margin-bottom: 20px;"><b>Anunciar</b></h1>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div  onclick="showContainer('anuncio-fisico')" id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/jogoFisico.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
-                    <h3 style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;"><b>Mídia Física</b></h3>
-                  </div>
-                  <div  class="col-md-6">
-                    <div  onclick="showContainer('anuncio-digital')" id="boxAnuncio" class="box-container zoom-effect" style="background-color: #252525; background-image: url('../imgs/theLastOfUsBanner.png'); background-position: center;background-size:auto; background-repeat: no-repeat; min-height: 400px; max-width: 400px;"></div>
-                    <h3 style="text-align: center; align-items: center;margin-top: 10px; color: #f7f7f7; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: normal;"><b>Mídia Digital</b></h3>
-                  </div>
-                </div>
-              </div>
+            <div class="mb-3">
+              <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
+              <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
+              <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+            </div>
 
-              <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-fisico">
-                <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Física</h1>
-                <form class="box-container boxx-anuncio">
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
-                    <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
-                  </div>
-            
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
-                    <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
-                    <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
-                  </div>
-            
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="estado_conservacao" class="form-label">Estado de Conservação:</label><br>
-                    <div class="form-check form-check">
-                      <input type="radio" id="excelente" class="form-check-input" name="estado_conservacao" value="excelente">
-                      <label id="conservacao" for="excelente" class="form-check-label">Excelente</label>
-                    </div>
-                    <div class="form-check form-check">
-                      <input type="radio" id="muito_bom" class="form-check-input" name="estado_conservacao" value="muito_bom">
-                      <label id="conservacao" for="muito_bom" class="form-check-label">Muito Bom</label>
-                    </div>
-                    <div class="form-check form-check">
-                      <input type="radio" id="bom" class="form-check-input" name="estado_conservacao" value="bom">
-                      <label id="conservacao" for="bom" class="form-check-label">Bom</label>
-                    </div>
-                    <div class="form-check form-check">
-                      <input type="radio" id="regular" class="form-check-input" name="estado_conservacao" value="regular">
-                      <label id="conservacao" for="regular" class="form-check-label">Regular</label>
-                    </div>
-                  </div>
-            
-                  <button id="btnDados" type="submit" class="btn">Anunciar</button>
-                </form>
+            <div class="mb-3">
+              <label id="infosAnuncio" for="estado_conservacao" class="form-label">Estado de Conservação:</label><br>
+              <div class="form-check form-check">
+                <input type="radio" id="excelente" class="form-check-input" name="estado_conservacao" value="excelente">
+                <label id="conservacao" for="excelente" class="form-check-label">Excelente</label>
               </div>
+              <div class="form-check form-check">
+                <input type="radio" id="muito_bom" class="form-check-input" name="estado_conservacao" value="muito_bom">
+                <label id="conservacao" for="muito_bom" class="form-check-label">Muito Bom</label>
+              </div>
+              <div class="form-check form-check">
+                <input type="radio" id="bom" class="form-check-input" name="estado_conservacao" value="bom">
+                <label id="conservacao" for="bom" class="form-check-label">Bom</label>
+              </div>
+              <div class="form-check form-check">
+                <input type="radio" id="regular" class="form-check-input" name="estado_conservacao" value="regular">
+                <label id="conservacao" for="regular" class="form-check-label">Regular</label>
+              </div>
+            </div>
 
-              <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-digital">
-                <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Digital</h1>
-                <form class="box-container boxx-anuncio">
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
-                    <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
+            <button id="btnDados" type="submit" class="btn">Anunciar</button>
+          </form>
+        </div>
+
+        <div style="align-items: center; align-content: center;" class="content-container" id="anuncio-digital">
+          <h1 style="color: #F8AF40; margin-bottom: 20px;">Mídia Digital</h1>
+          <form class="box-container boxx-anuncio">
+            <div class="mb-3">
+              <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
+              <input type="text" id="nome_jogo" class="form-control" name="nome_jogo" required>
+            </div>
+
+            <div class="mb-3">
+              <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
+              <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
+              <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+            </div>
+
+            <div class="mb-3">
+              <h4 style="color: #F8AF40;">Informações de acesso:</h4>
+              <label id="infosAnuncio" for="preco" class="form-label">E-mail</label>
+              <input type="email" id="email" class="form-control" name="email">
+              <small class="form-text text-muted">Formato esperado: xxxx@xxxx.com</small>
+            </div>
+            <div class="mb-3">
+              <label id="infosAnuncio" for="preco" class="form-label">Senha</label>
+              <input type="text" id="senha" class="form-control" name="senha">
+            </div>
+
+            <button id="btnDados" type="submit" class="btn">Anunciar</button>
+          </form>
+        </div>
+
+        <div class="content-container" id="my-orders-container">
+          <h1 style="color: #F8AF40;"><b>Meus Pedidos</b></h1>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/codCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
                   </div>
-            
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
-                    <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
-                    <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <h4 style="color: #F8AF40;">Informações de acesso:</h4>
-                    <label id="infosAnuncio" for="preco" class="form-label">E-mail</label>
-                    <input type="email" id="email" class="form-control" name="email">
-                    <small class="form-text text-muted">Formato esperado: xxxx@xxxx.com</small>
-                  </div>
-                  <div class="mb-3">
-                    <label id="infosAnuncio" for="preco" class="form-label">Senha</label>
-                    <input type="text" id="senha" class="form-control" name="senha">
-                  </div>
-            
-                  <button id="btnDados" type="submit" class="btn">Anunciar</button>
-                </form>
-              </div>
-            
-            <div class="content-container" id="my-orders-container">
-                <h1 style="color: #F8AF40;"><b>Meus Pedidos</b></h1>
-                <div id="pedidosAnuncios" class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div class="justify-content-between align-items-start">
-                            <img id="bannerJogo" src="../imgs/codCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                          </div>
-                          <div id="conteudoPedido" class="ms-3">
-                            <h5 >Call Of Duty: Modern Warfare</h5>
-                            <p class=" mb-0">Tipo de mídia: Físico</p>
-                            <p class=" mb-0">Vendedor: Pedro Siqueira</p>
-                            <p class=" mb-0">Data da compra: 21/05/2023</p>
-                            <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                              <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                    <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>Call Of Duty: Modern Warfare</h5>
+                    <p class=" mb-0">Tipo de mídia: Físico</p>
+                    <p class=" mb-0">Vendedor: Pedro Siqueira</p>
+                    <p class=" mb-0">Data da compra: 21/05/2023</p>
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
                           </div>
                         </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div id="valorProduto" style="width: 120px;">
-                              <h5 class="mb-0">R$ 100,00</h5>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="pedidosAnuncios" class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div class="justify-content-between align-items-start">
-                            <img id="bannerJogo" src="../imgs/deadIslandCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                          </div>
-                          <div id="conteudoPedido" class="ms-3">
-                            <h5>Dead Island 2</h5>
-                            <p class=" mb-0">Tipo de mídia: Digital</p>
-                            <p class=" mb-0">Vendedor: João Pontes</p>
-                             <!-- O acesso deverá estar disponível apenas nas midias digitais -->
-                            <p class=" mb-0">Data da compra: 15/02/2023</p>
-                            
-                            <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                              <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                    <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div id="valorProduto" style="width: 120px;">
-                              <h5 class="mb-0">R$ 80,00</h5>
-                            </div>
-                          </div>
-                          
-                      </div>
-                    </div>
-
-                    <div style="margin-bottom: 20px; margin-left: 20px;" class="d-flex flex-row align-items-center">
-                      <p class=" mb-0">E-mail: joao@gmail.com <br> Senha: 1234teste</p>
-                    </div>
-                    <div style="margin-bottom: 20px; margin-left: 20px;" class="d-flex flex-row align-items-center">
-                      <button id="btnDados" type="submit" class="btn">Forma de acesso funcionou</button>
-                      <button id="btnDados" type="submit" class="btn">Forma de acesso não funcionou</button>
-                    </div>
-                  </div>
-                  <div id="pedidosAnuncios" class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div class="justify-content-between align-items-start">
-                            <img id="bannerJogo" src="../imgs/gtaCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                          </div>
-                          <div id="conteudoPedido" class="ms-3">
-                            <h5>GTA V</h5>
-                            <p class=" mb-0">Tipo de mídia: Físico</p>
-                            <p class=" mb-0">Vendedor: Nicolas Ferreira</p>
-                            <p class=" mb-0">Data da compra: 10/01/2023</p>
-                            <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                              <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                    <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div id="valorProduto" style="width: 120px;">
-                              <h5 class="mb-0">R$ 40,00</h5>
-                            </div>
-                          </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <!-- Meus anúncios -->
-                <div class="content-container" id="my-adverts-container">
-                  <h1 style="color: #F8AF40;"><b>Meus Anúncios</b></h1>
-                  <div id="pedidosAnuncios" class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="justify-content-between align-items-start">
-                              <img id="bannerJogo" src="../imgs/codCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                            </div>
-                            <div id="conteudoPedido" class="ms-3">
-                              <h5 >Call Of Duty: Modern Warfare</h5>
-                              <p class=" mb-0">Tipo de mídia: Físico</p>
-                              <p class=" mb-0">Data de anúncio: 21/05/2023</p>
-                              <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                    <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                      <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                            <div class="d-flex flex-row align-items-center">
-                              <div id="valorProduto" style="width: 120px;">
-                                <h5 class="mb-0">R$ 100,00</h5>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                      </svg>
-                    </div>
-                    <div id="pedidosAnuncios" class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="justify-content-between align-items-start">
-                              <img id="bannerJogo" src="../imgs/deadIslandCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                            </div>
-                            <div id="conteudoPedido" class="ms-3">
-                              <h5>Dead Island 2</h5>
-                              <p class=" mb-0">Tipo de mídia: Digital</p>
-                              <p class=" mb-0">Data de anúncio: 15/02/2023</p>
-                              <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                    <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                      <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                            <div class="d-flex flex-row align-items-center">
-                              <div id="valorProduto" style="width: 120px;">
-                                <h5 class="mb-0">R$ 80,00</h5>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                      </svg>
-                    </div>
-                    <div id="pedidosAnuncios" class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="justify-content-between align-items-start">
-                              <img id="bannerJogo" src="../imgs/gtaCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
-                            </div>
-                            <div id="conteudoPedido" class="ms-3">
-                              <h5>GTA V</h5>
-                              <p class=" mb-0">Tipo de mídia: Físico</p>
-                              <p class=" mb-0">Data de anúncio: 10/01/2023</p>
-                              <div class="game-card_cardIcon align-items-start mt-10 d-flex">
-                                <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                  <div class="game-card_cardIconWrapper__382_2 mr-10">
-                                    <div class="d-inline-flex justify-content-center align-items-center" style="width: 18px; height: 9px;">
-                                      <svg  width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#7E838A"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>xbox</title> <path d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z"></path> </g></svg>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                            <div class="d-flex flex-row align-items-center">
-                              <div id="valorProduto" style="width: 120px;">
-                                <h5 class="mb-0">R$ 40,00</h5>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                      </svg>
-                    </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 100,00</h5>
+                  </div>
+                </div>
               </div>
-            
+            </div>
+          </div>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/deadIslandCatalogo.jpg" class="img-fluid rounded-3"
+                      alt="Shopping item">
+                  </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>Dead Island 2</h5>
+                    <p class=" mb-0">Tipo de mídia: Digital</p>
+                    <p class=" mb-0">Vendedor: João Pontes</p>
+                    <!-- O acesso deverá estar disponível apenas nas midias digitais -->
+                    <p class=" mb-0">Data da compra: 15/02/2023</p>
+
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 80,00</h5>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="margin-bottom: 20px; margin-left: 20px;" class="d-flex flex-row align-items-center">
+              <p class=" mb-0">E-mail: joao@gmail.com <br> Senha: 1234teste</p>
+            </div>
+            <div style="margin-bottom: 20px; margin-left: 20px;" class="d-flex flex-row align-items-center">
+              <button id="btnDados" type="submit" class="btn">Forma de acesso funcionou</button>
+              <button id="btnDados" type="submit" class="btn">Forma de acesso não funcionou</button>
+            </div>
+          </div>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/gtaCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
+                  </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>GTA V</h5>
+                    <p class=" mb-0">Tipo de mídia: Físico</p>
+                    <p class=" mb-0">Vendedor: Nicolas Ferreira</p>
+                    <p class=" mb-0">Data da compra: 10/01/2023</p>
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 40,00</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meus anúncios -->
+        <div class="content-container" id="my-adverts-container">
+          <h1 style="color: #F8AF40;"><b>Meus Anúncios</b></h1>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/codCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
+                  </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>Call Of Duty: Modern Warfare</h5>
+                    <p class=" mb-0">Tipo de mídia: Físico</p>
+                    <p class=" mb-0">Data de anúncio: 21/05/2023</p>
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 100,00</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+            </svg>
+          </div>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/deadIslandCatalogo.jpg" class="img-fluid rounded-3"
+                      alt="Shopping item">
+                  </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>Dead Island 2</h5>
+                    <p class=" mb-0">Tipo de mídia: Digital</p>
+                    <p class=" mb-0">Data de anúncio: 15/02/2023</p>
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 80,00</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+            </svg>
+          </div>
+          <div id="pedidosAnuncios" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-row align-items-center">
+                  <div class="justify-content-between align-items-start">
+                    <img id="bannerJogo" src="../imgs/gtaCatalogo.jpg" class="img-fluid rounded-3" alt="Shopping item">
+                  </div>
+                  <div id="conteudoPedido" class="ms-3">
+                    <h5>GTA V</h5>
+                    <p class=" mb-0">Tipo de mídia: Físico</p>
+                    <p class=" mb-0">Data de anúncio: 10/01/2023</p>
+                    <div class="game-card_cardIcon align-items-start mt-10 d-flex">
+                      <div class="game-card_cardIconWrapper__382_2 mr-10">
+                        <div class="game-card_cardIconWrapper__382_2 mr-10">
+                          <div class="d-inline-flex justify-content-center align-items-center"
+                            style="width: 18px; height: 9px;">
+                            <svg width="40" height="40" fill="#f7f7f7" viewBox="0 0 32 32" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" stroke="#7E838A">
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <title>xbox</title>
+                                <path
+                                  d="M16 5.425c-1.888-1.125-4.106-1.922-6.473-2.249l-0.092-0.010c-0.070-0.005-0.152-0.008-0.234-0.008-0.613 0-1.188 0.16-1.687 0.441l0.017-0.009c2.357-1.634 5.277-2.61 8.426-2.61 0.008 0 0.016 0 0.024 0h0.019c0.005 0 0.011 0 0.018 0 3.157 0 6.086 0.976 8.501 2.642l-0.050-0.033c-0.478-0.272-1.051-0.433-1.662-0.433-0.085 0-0.169 0.003-0.252 0.009l0.011-0.001c-2.459 0.336-4.677 1.13-6.648 2.297l0.082-0.045zM5.554 5.268c-0.041 0.014-0.077 0.032-0.11 0.054l0.002-0.001c-2.758 2.723-4.466 6.504-4.466 10.684 0 3.584 1.256 6.875 3.353 9.457l-0.022-0.028c-1.754-3.261 4.48-12.455 7.61-16.159-3.53-3.521-5.277-4.062-6.015-4.062-0.010-0-0.021-0.001-0.032-0.001-0.115 0-0.225 0.021-0.326 0.060l0.006-0.002zM20.083 9.275c3.129 3.706 9.367 12.908 7.605 16.161 2.075-2.554 3.332-5.845 3.332-9.43 0-4.181-1.709-7.962-4.467-10.684l-0.002-0.002c-0.029-0.021-0.063-0.039-0.1-0.052l-0.003-0.001c-0.1-0.036-0.216-0.056-0.336-0.056-0.005 0-0.011 0-0.016 0h0.001c-0.741-0-2.485 0.543-6.014 4.063zM6.114 27.306c2.627 2.306 6.093 3.714 9.888 3.714s7.261-1.407 9.905-3.728l-0.017 0.015c2.349-2.393-5.402-10.901-9.89-14.29-4.483 3.39-12.24 11.897-9.886 14.29z">
+                                </path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div id="valorProduto" style="width: 120px;">
+                    <h5 class="mb-0">R$ 40,00</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer id="rodape">
+    <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+        class="fa-solid fa-question"></i></a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="conteudoModal">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Precisa de ajuda?</h1>
+            <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-6 campoModal">
+                <a href="#">
+                  <h5>FAQ</h5>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 campoModal">
+                <a href="#">
+                  <h5>Entre em Contato</h5>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 campoModal" style="margin-bottom: 0.8cm;">
+                <a href="#">
+                  <h5>Suporte</h5>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    
-      <!-- Rodapé -->
-      <footer id="rodape">
-        <a href="#" id="btnDuvida" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                class="fa-solid fa-question"></i></a>
-    
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content" id="conteudoModal">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Precisa de ajuda?</h1>
-                        <button type="button" id="btnFechar" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6 campoModal">
-                                <a href="#">
-                                    <h5>FAQ</h5>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 campoModal">
-                                <a href="#">
-                                    <h5>Entre em Contato</h5>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 campoModal" style="margin-bottom: 0.8cm;">
-                                <a href="#">
-                                    <h5>Suporte</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="blocoVertical">
-            <div class="redes">
-                <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
-                <a href="#"><span id="socialMedia"><i class="fa-brands fa-instagram"></i></span></a>
-                <a href="#"><span id="socialMedia"><i class="fa-brands fa-discord"></i></span></a>
-            </div>
-            <img src="../imgs/LogoReyouse-Azul.png" alt="Logo Reyouse" id="logo">
-        </div>
-      </footer>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/eed385e274.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-v2Iub3tY8eEBLlh+1BzJSJumNO9EHyu/hPKN+57ZLjlP6kj4w5gkPZ1hX6wR99DZw7eT/+P0AuKfJ/nqnKtxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../JavaScript/infosUsuario.js"></script>
-    <script src="../JavaScript/atualizarUser.js"></script>
-    <script src="../JavaScript/backVenda.js"></script>
+    <div class="blocoVertical">
+      <div class="redes">
+        <a href="#"><span id="socialMedia"><i class="fa-brands fa-whatsapp"></i></span></a>
+        <a href="#"><span id="socialMedia"><i class="fa-brands fa-instagram"></i></span></a>
+        <a href="#"><span id="socialMedia"><i class="fa-brands fa-discord"></i></span></a>
+      </div>
+      <img src="../imgs/LogoReyouse-Azul.png" alt="Logo Reyouse" id="logo">
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/eed385e274.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-v2Iub3tY8eEBLlh+1BzJSJumNO9EHyu/hPKN+57ZLjlP6kj4w5gkPZ1hX6wR99DZw7eT/+P0AuKfJ/nqnKtxEA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../JavaScript/infosUsuario.js"></script>
+  <script src="../JavaScript/atualizarUser.js"></script>
+  <script src="../JavaScript/backVenda.js"></script>
 </body>
+
 </html>

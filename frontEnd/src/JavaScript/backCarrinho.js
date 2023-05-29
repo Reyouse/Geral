@@ -59,6 +59,10 @@ function createShoppingItem() {
     var aTrash = document.createElement("a");
     aTrash.setAttribute("href", "#!");
     aTrash.setAttribute("style", "color: #1B2838;");
+    aTrash.setAttribute("id", "lixo")
+    aTrash.addEventListener("click", function () {
+        remover(aTrash.getAttribute("id"));
+    });
 
     var iTrash = document.createElement("i");
     iTrash.setAttribute("class", "fas fa-trash-alt");
@@ -88,21 +92,13 @@ function carregar() {
                 var item = createShoppingItem();
                 var divParent = document.querySelector(".col-lg-7");
                 divParent.appendChild(item);
-                var trashButton = document.querySelector("#itemCarrinho .fa-trash-alt");
-                trashButton.addEventListener("click", function () {
-                    // pega o item selecionado
-                    var itemCarrinho = this.closest("#itemCarrinho");
-
-                    // remove o item
-                    itemCarrinho.remove();
-                });
-
             }
 
             const imgCard = document.querySelectorAll("#bannerJogo")
             const titCard = document.querySelectorAll("#conteudoJogo h5");
             const preCard = document.querySelectorAll("#valorProduto h5")
             const tipCard = document.querySelectorAll("#conteudoJogo p");
+            const lixCard = document.querySelectorAll("#lixo");
 
             titCard.forEach((title, index) => {
                 if (data[index]) {
@@ -167,6 +163,12 @@ function carregar() {
                         });
                 }
             });
+
+            lixCard.forEach((lixo, index) => {
+                if (data[index]) {
+                    lixo.id = data[index].idAnuncio;
+                }
+            })
 
         })
         .catch(error => {
@@ -313,6 +315,20 @@ function createPlayElement(divPai) {
     divFilha.appendChild(svg);
 
     divPai.appendChild(divFilha);
+}
+
+function remover(id) {
+    fetch(`https://reyouseback.azurewebsites.net/removecarrinho/${idPerfil}/${id}`)
+        .then(response => response.text())
+        .then(data => {
+            if (data == `Anuncio ${id} removido`) {
+                alert('Item removido com sucesso')
+                window.location.reload()
+            }
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
 }
 
 carregar()

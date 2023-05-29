@@ -13,15 +13,15 @@ function login() {
             }
             else {
                 fetch(`https://reyouseback.azurewebsites.net/login/${nome}/${senha}`)
-                .then(resposta => resposta.json())
-                .then(date => {
-                    localStorage.setItem('idPerfil', date[0].idPerfil)
-                    localStorage.setItem('idUsuario', date[0].idUsuario)
-                    window.location.href = '../HTML/index.html';
-                })
-                .catch(erro => {
-                    console.error('Ocorreu um erro:', erro);
-                });
+                    .then(resposta => resposta.json())
+                    .then(date => {
+                        localStorage.setItem('idPerfil', date[0].idPerfil)
+                        localStorage.setItem('idUsuario', date[0].idUsuario)
+                        window.location.href = '../HTML/index.html';
+                    })
+                    .catch(erro => {
+                        console.error('Ocorreu um erro:', erro);
+                    });
             }
         })
         .catch(error => {
