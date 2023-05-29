@@ -102,6 +102,7 @@ function carregar() {
             const imgCard = document.querySelectorAll("#bannerJogo")
             const titCard = document.querySelectorAll("#conteudoJogo h5");
             const preCard = document.querySelectorAll("#valorProduto h5")
+            const tipCard = document.querySelectorAll("#conteudoJogo p");
 
             titCard.forEach((title, index) => {
                 if (data[index]) {
@@ -134,6 +135,7 @@ function carregar() {
                                 aux++
                             });
                         });
+
                 }
             });
 
@@ -147,6 +149,22 @@ function carregar() {
                 if (data[index]) {
                     const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString().replace('.', ',');
                     preco.textContent = precoFormatado;
+                }
+            });
+
+            tipCard.forEach((tipo, index) => {
+                if (data[index]) {
+                    return fetch('https://reyouseback.azurewebsites.net/anuncio/' + data[index].idAnuncio)
+                        .then(resposta => resposta.json())
+                        .then(datas => {
+                            if (datas[0] && datas[0].tipo) {
+                                if (datas[0].tipo == 'Fisica') {
+                                    tipo.innerText = 'Física';
+                                } else if (datas[0].tipo == 'Virtual') {
+                                    tipo.innerText = 'Digital';
+                                }
+                            }
+                        });
                 }
             });
 
