@@ -516,7 +516,7 @@ function chamarFuncao(idProduto, id) {
         }
         else {
           const filho = id.querySelector('#cardCart');
-            filho.className += 'fa-solid fa-check';
+          filho.className += 'fa-solid fa-check';
         }
       })
       .catch(error => {

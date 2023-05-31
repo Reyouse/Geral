@@ -92,57 +92,57 @@ function validarCampos() {
                 return false;
             }
             fetch('https://reyouseback.azurewebsites.net/valida-cpf/' + cpf)
-            .then(response => response.text())
-            .then(data => {
-                if (!(data === "CPF válido")) {
-                    alert("CPF inválido");
-                    return false;
-                }
-                fetch('https://reyouseback.azurewebsites.net/verifica-cpf/' + cpf)
                 .then(response => response.text())
                 .then(data => {
-                    if (!(data === "CPF disponível")) {
-                        alert("CPF indisponível");
+                    if (!(data === "CPF válido")) {
+                        alert("CPF inválido");
                         return false;
                     }
-                    fetch('https://reyouseback.azurewebsites.net/verifica-username/' + username)
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log(data);
-                        if (!(data === "Nome de usuário disponível")) {
-                            alert(data);
-                            return false;
-                        }
-                        fetch(`https://reyouseback.azurewebsites.net/cadastro/${username}/${email}/${senha}/${nomeCompleto}/${cpf}/${celular}/${sexoUsuario}`)
+                    fetch('https://reyouseback.azurewebsites.net/verifica-cpf/' + cpf)
                         .then(response => response.text())
                         .then(data => {
-                            if (data === `Usuário ${username} cadastrado com sucesso.`) {
-                                window.location.href = '../HTML/telaAutenticacao.html';
+                            if (!(data === "CPF disponível")) {
+                                alert("CPF indisponível");
+                                return false;
                             }
-                            else {
-                                alert(data)
-                            }
+                            fetch('https://reyouseback.azurewebsites.net/verifica-username/' + username)
+                                .then(response => response.text())
+                                .then(data => {
+                                    console.log(data);
+                                    if (!(data === "Nome de usuário disponível")) {
+                                        alert(data);
+                                        return false;
+                                    }
+                                    fetch(`https://reyouseback.azurewebsites.net/cadastro/${username}/${email}/${senha}/${nomeCompleto}/${cpf}/${celular}/${sexoUsuario}`)
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            if (data === `Usuário ${username} cadastrado com sucesso.`) {
+                                                window.location.href = '../HTML/telaAutenticacao.html';
+                                            }
+                                            else {
+                                                alert(data)
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.log('Ocorreu um erro:', error);
+                                        });
+
+                                })
+                                .catch(error => {
+                                    console.log('Ocorreu um erro:', error);
+                                    return false;
+                                });
                         })
                         .catch(error => {
                             console.log('Ocorreu um erro:', error);
+                            return false;
                         });
-
-                    })
-                    .catch(error => {
-                        console.log('Ocorreu um erro:', error);
-                        return false;
-                    });
                 })
                 .catch(error => {
+                    alert(error);
                     console.log('Ocorreu um erro:', error);
                     return false;
                 });
-            })
-            .catch(error => {
-                alert(error);
-                console.log('Ocorreu um erro:', error);
-                return false;
-            });
         })
         .catch(error => {
             console.log('Ocorreu um erro:', error);

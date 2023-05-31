@@ -85,7 +85,7 @@ function imagensJogo(produto) {
                     numImg--
                 }
             }
-            
+
             if (numImg > 3) {
                 createCarousel(data, numImg)
 
@@ -280,7 +280,7 @@ function createCarouselDiv(data, numImg) {
     var cardWrapperDiv = document.createElement('div');
     cardWrapperDiv.className = 'card-wrapper';
     for (var i = 0; i < numImg; i++) {
-        if (data[i].endereco != null){
+        if (data[i].endereco != null) {
             var cardDiv = createCardDiv(data[i].endereco, 'openFullscreen(this)');
             cardWrapperDiv.appendChild(cardDiv);
         }
