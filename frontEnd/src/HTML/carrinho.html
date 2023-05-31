@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="PT BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/eed385e274.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-v2Iub3tY8eEBLlh+1BzJSJumNO9EHyu/hPKN+57ZLjlP6kj4w5gkPZ1hX6wR99DZw7eT/+P0AuKfJ/nqnKtxEA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins&family=Quicksand:wght@300;400&family=Roboto&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/carrinho.css">
+  <title>Carrinho</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="./index.html"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png" alt="Reyouse"></a>
+      </div>
+
+      <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <button>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-user navbar-icon"></i>
+              </a>
+            </li>
+          </button>
+          <button class="cart-button" data-bs-toggle="cart-aside" data-bs-target="#cart-aside">
+            <li class="nav-item">
+              <i class="fas fa-shopping-cart navbar-icon"></i>
+            </li>
+          </button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="h-100 h-custom carrinhoEPagamento">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+
+          <div class="card-body p-8">
+
+            <div class="row">
+
+              <div class="col-lg-7">
+                
+                
+              </div>
+              <div class="col-lg-5">
+                <div id="pagamento" class="card text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Informações de pagamento</h5>
+                      <div class="dropdown">
+                        <button class="btn  dropdown-toggle" type="button" id="dropdownCartoesCadastrados"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Cartões cadastrados
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownCartoesCadastrados">
+                          <li> <a class="dropdown-item" href="#"> <i class="fab fa-cc-mastercard fa-1x me-2"></i>
+                              Crédito Inter Mastercard</a></li>
+                          <li> <a class="dropdown-item" href="#"> <i class="fab fa-cc-visa fa-1x me-2"></i> Crédito
+                              Caixa Visa</a></li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <p class="small mb-2">Bandeiras aceitas</p>
+                    <a href="https://www.mastercard.com.br/pt-br.html" type="submit" class="text-white"><i
+                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                    <a href="https://www.visa.com.br" type="submit" class="text-white"><i
+                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                    <a href="https://www.americanexpress.com/pt-br/network/" type="submit" class="text-white"><i
+                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                    <a href="https://www.paypal.com/br/home" type="submit" class="text-white"><i
+                        class="fab fa-cc-paypal fa-2x"></i></a>
+
+                    <form class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Nome no cartão" />
+                        <label class="form-label" for="typeName">Titular</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Número do cartão</label>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="form-outline form-white form-spacing">
+                            <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
+                              size="7" id="exp" minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Validade</label>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div style="margin-left: 10px;" class="form-outline form-white">
+                            <input type="password" id="typeText" class="form-control form-control-lg cvv-input"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label style="margin-left: 5px;" class="form-label" for="typeText">CVV</label>
+                          </div>
+                        </div>
+                        <div style="margin-top: 10px;" class="col-md-12">
+                          <button id="btnSalvarFormaDePagamento" type="button" class="btn btn-block btn-small">
+                            <div class="d-flex justify-content-between">
+                              <span>Salvar forma de pagamento</span>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">R$ 100,00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Entrega</p>
+                      <p class="mb-2">R$ 20,00</p>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div id="totalCompra" class="d-flex justify-content-between mb-4">
+                      <p style="color: #F8AF40; font-weight: 600; font-size: 19px;" class="mb-2">Total</p>
+                      <p style="color: #F8AF40; font-weight: 600; font-size: 19px;" class="mb-2">R$ 120,00</p>
+                    </div>
+
+                    <button id="btnFinalizarCompra" type="button" class="btn btn-block btn-lg">
+                      <div class="d-flex justify-content-between">
+                        <span>Finalizar compra</span>
+                      </div>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center">
+    <div class="container p-3 pb-0">
+      <section id="redesSociais">
+
+        <!-- Twitter -->
+        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/reyouse" role="button"><i
+            class="fab fa-whatsapp"></i></a>
+
+        <!-- Instagram -->
+        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/reyouse/"
+          role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Github -->
+        <a id="rede" class="btn btn-outline-light btn-floating m-1" href="https://github.com/Reyouse" role="button"><i
+            class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+
+    <div class="container ">
+      <!--Botão de ajuda-->
+      <a type="button" data-bs-toggle="modal" data-bs-target="#modalAjuda" id="btnDuvida" class="btn botao-ajuda"
+        href="#" role="button"><i class="fas fa-question"></i></a>
+
+      <!--Logo -->
+      <a class="logoRodape" href="#"><img style=" width: 7%; background-color: #000000;"
+          src="../imgs/LogoReyouse-Azul.png" alt="logo"></a>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Precisa de ajuda?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btnOpcoes" type="button">FAQ</button>
+          <button class="btnOpcoes" type="button">Entre em Contato</button>
+          <button class="btnOpcoes" type="button">Suporte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="../JavaScript/carrinho.js"></script>
+  <script src="../JavaScript/backCarrinho.js"></script>
+
+</body>
+
+</html>
