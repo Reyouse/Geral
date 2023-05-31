@@ -85,12 +85,12 @@ function imagensJogo(produto) {
                     numImg--
                 }
             }
-            
+
             if (numImg > 3) {
                 createCarousel(data, numImg)
 
             } else if (numImg > 0) {
-                createCarouselDiv(data)
+                createCarouselDiv(data, numImg)
             }
         })
         .catch(error => {
@@ -259,7 +259,7 @@ function criarEstruturaPC() {
     divPai.appendChild(divExterna);
 }
 
-function createCarouselDiv(data) {
+function createCarouselDiv(data, numImg) {
     // Cria o elemento div
     var div = document.createElement('div');
 
@@ -279,9 +279,14 @@ function createCarouselDiv(data) {
     // Cria a div "card-wrapper"
     var cardWrapperDiv = document.createElement('div');
     cardWrapperDiv.className = 'card-wrapper';
-    for (var i = 0; i < data.length; i++) {
-        var cardDiv = createCardDiv(data[i].endereco, 'openFullscreen(this)');
-        cardWrapperDiv.appendChild(cardDiv);
+    for (var i = 0; i < numImg; i++) {
+        if (data[i].endereco != null) {
+            var cardDiv = createCardDiv(data[i].endereco, 'openFullscreen(this)');
+            cardWrapperDiv.appendChild(cardDiv);
+        }
+        else {
+            numImg++
+        }
     }
 
     // Adiciona a div "card-wrapper" à div do primeiro item

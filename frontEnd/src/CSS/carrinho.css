@@ -1,0 +1,252 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #202020;
+}
+
+/*Definindo largura correta para a logo */
+#logo_Reyouse {
+  width: 90px;
+  height: 90px;
+}
+
+/*Definindo cor para a navbar */
+.navbar {
+  background-color: #1B2838;
+  width: 100%;
+}
+
+.navbar-collapse form[role="search"] button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #f7f7f7;
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 300px;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-header,
+.navbar-form,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.navbar-collapse form[role="search"] {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+
+
+/* Carrinho*/
+
+#itemCarrinho {
+  background-color: #f7f7f7;
+  color: #1B2838;
+  border: 0px;
+}
+
+#bannerJogo {
+  width: 140px;
+}
+
+#conteudoJogo,
+h5 {
+  font-weight: 600;
+  color: #202020;
+}
+
+#pagamento {
+  background-color: #1B2838;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+#pagamento h5 {
+  color: #F8AF40;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+
+}
+
+#dropdownCartoesCadastrados {
+  background-color: #f7f7f7;
+  color: #1B2838;
+}
+
+#valorProduto h5 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #1B2838;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#btnFinalizarCompra {
+  background-color: #F8AF40;
+  color: #1B2838;
+  font-weight: 800;
+}
+
+.cvv-input {
+  width: 100px;
+  font-size: 16px;
+}
+
+#btnSalvarFormaDePagamento {
+  background-color: #F8AF40;
+  color: #1B2838;
+  font-weight: 800;
+
+}
+
+/*Estilização dos icones SVG das plataformas de videogame */
+.game-card_cardIcon {
+
+  display: flex !important;
+}
+
+.game-card_cardIconWrapper__382_2 {
+  display: -moz-box;
+  display: flex;
+  width: auto;
+  height: 18px;
+  -moz-box-align: center;
+  align-items: center;
+  float: left;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+
+
+
+/*Propriedades do rodapé */
+footer {
+  background-color: #1B2838;
+}
+
+.blocoVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.redes {
+  position: relative;
+  z-index: 1;
+  top: 0.9cm;
+}
+
+.redes a:nth-child(2) {
+  margin: 0 1em 0 1em;
+}
+
+#socialMedia,
+#btnDuvida {
+  background-color: #F7F7F7;
+  color: #171A21;
+  font-size: x-large;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
+}
+
+#btnDuvida {
+  position: relative;
+  top: 3.4cm;
+  left: 1cm;
+}
+
+#socialMedia:hover,
+#btnDuvida:hover {
+  background-color: #171A21;
+  color: #F7F7F7;
+}
+
+.fa-question {
+  margin: 0 7px 0 7px;
+}
+
+#conteudoModal {
+  background-color: #1B2838;
+}
+
+#btnFechar {
+  background-color: #F7F7F7;
+}
+
+a {
+  color: inherit;
+}
+
+footer #logo {
+  width: 18%;
+  position: relative;
+  bottom: 10px;
+}
+
+/* Estilizando modal */
+#conteudoModal {
+  background-color: #171A21;
+}
+
+#conteudoModal h1 {
+  color: #F8AF40;
+  font-weight: bold;
+}
+
+#btnFechar,
+.campoModal {
+  background-color: #F7F7F7;
+}
+
+.campoModal {
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.modal-header,
+.campoModal {
+  margin-bottom: 15px;
+}
+
+.campoModal a {
+  text-decoration: none;
+  text-align: center;
+}
+
+#conteudoModal .row {
+  display: flex;
+  justify-content: center;
+}

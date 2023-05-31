@@ -158,13 +158,13 @@ function pesquisaCatalogo() {
             contentDiv.appendChild(price);
 
             var aICon = document.createElement("a");
-            aICon.setAttribute("href", "./carrinho.html");
+            aICon.id = 'cartAdd'
 
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
             cartIcon.setAttribute("id", "cardCart")
-            cartIcon.style.cursor = "auto";
+            cartIcon.style.cursor = "pointer";
 
             aICon.appendChild(cartIcon)
 
@@ -182,6 +182,7 @@ function pesquisaCatalogo() {
 
             // Adiciona a coluna à linha
             row.appendChild(col);
+
           }
 
           var elementoReferencia = document.getElementById("rodape");
@@ -193,6 +194,7 @@ function pesquisaCatalogo() {
 
           elementoReferencia.insertAdjacentElement("beforebegin", jogosCatalogo);
           jogosCatalogo.appendChild(row);
+
         }
       }
 
@@ -202,6 +204,7 @@ function pesquisaCatalogo() {
       const cardTitle = document.querySelectorAll("#tituloCard");
       const cardProco = document.querySelectorAll("#cardPreco");
       const cardClick = document.querySelectorAll("#numProduto");
+      const cardCart = document.querySelectorAll('#cartAdd')
 
       cardTitle.forEach((title, index) => {
         if (data[index]) {
@@ -214,7 +217,7 @@ function pesquisaCatalogo() {
                 if (item.nome === "Xbox") {
 
                   const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                  criarDiv(divPai);
+                  createXboxElement(divPai);
 
                 } else if (item.nome === "PC") {
                   const pcElement = createPCElement();
@@ -222,17 +225,17 @@ function pesquisaCatalogo() {
                   parentElement.parentNode.insertBefore(pcElement, parentElement.nextSibling);
                   if (date.length === 1) {
                     const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                    criarDiv2(divPai);
+                    createXboxElement2(divPai);
                   }
 
                 } else if (item.nome === "Playstation") {
 
                   const divPai = document.querySelectorAll('.game-card_cardIcon.align-items-start.mt-10.d-flex')[index];
-                  createGameCard(divPai);
-
+                  createPlayElement(divPai);
                 }
               });
             });
+
         }
       });
 
@@ -254,6 +257,16 @@ function pesquisaCatalogo() {
           fullCard.id = data[index].idAnuncio;
           fullCard.addEventListener("click", function () {
             handleClick(fullCard.id);
+          });
+        }
+      });
+
+      cardCart.forEach((id, index) => {
+        if (data[index]) {
+          id.id = data[index].idAnuncio;
+          id.addEventListener("click", function (event) {
+            event.stopPropagation();
+            chamarFuncao(id.id, id);
           });
         }
       });
@@ -297,7 +310,7 @@ function createPCElement() {
   return div;
 }
 
-function criarDiv(divPai) {
+function createXboxElement(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -345,7 +358,7 @@ function criarDiv(divPai) {
   divPai.appendChild(divFilha);
 }
 
-function criarDiv2(divPai) {
+function createXboxElement2(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -393,7 +406,7 @@ function criarDiv2(divPai) {
   divPai.appendChild(divFilha);
 }
 
-function createGameCard(divPai) {
+function createPlayElement(divPai) {
   var divFilha = document.createElement('div');
   divFilha.className = 'game-card_cardIconWrapper__382_2 mr-10';
 
@@ -403,13 +416,13 @@ function createGameCard(divPai) {
   divInterna1.style.height = "9px";
 
   var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("width", "40");
-  svg.setAttribute("height", "40");
+  svg.setAttribute("width", "25");
+  svg.setAttribute("height", "25");
   svg.setAttribute("fill", "#7E838A");
   svg.setAttribute("viewBox", "0 0 32 32");
 
   var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", "M8.063 15.555c0.572-0.005 1.034-0.47 1.034-1.043s-0.462-1.038-1.033-1.043h-7.014c-0.025-0.001-0.045-0.021-0.045-0.047 0 0 0-0 0-0v0-0.595c0 0 0 0 0-0 0-0.025 0.020-0.045 0.045-0.045 0 0 0 0 0 0h7.689c0.934 0.026 1.682 0.79 1.682 1.729s-0.747 1.702-1.68 1.729l-0.002 0h-5.319c-0.575 0-1.041 0.466-1.041 1.041 0 0 0 0.001 0 0.001v-0 1.891c0 0.025-0.020 0.045-0.045 0.045 0 0 0 0 0 0h-1.283c-0 0-0 0-0 0-0.025 0-0.045-0.020-0.045-0.045 0-0.002 0-0.003 0-0.005l-0 0v-1.891c0.004-0.952 0.776-1.722 1.728-1.722 0.001 0 0.001 0 0.002 0h-0zM21.617 15.197v-2.37c0-0.025 0.020-0.045 0.045-0.045h9.132c0.025 0 0.046 0.020 0.047 0.045v0.595c-0.001 0.025-0.021 0.046-0.047 0.047h-7.759c-0.025 0-0.045 0.020-0.045 0.045 0 0 0 0 0 0v0 1.544c0 0.001 0 0.002 0 0.003 0 0.273 0.221 0.494 0.494 0.494 0 0 0.001 0 0.001 0h5.777c0.969 0.052 1.734 0.851 1.734 1.828s-0.766 1.775-1.73 1.827l-0.005 0h-7.599c0 0 0 0-0 0-0.025 0-0.045-0.020-0.045-0.045 0 0 0 0 0-0v0-0.592c0-0.025 0.020-0.045 0.045-0.045h6.911c0.010 0 0.022 0 0.034 0 0.632 0 1.145-0.512 1.145-1.145s-0.512-1.145-1.145-1.145c-0.015 0-0.030 0-0.045 0.001l0.002-0h-5.907c-0.575 0-1.041-0.466-1.041-1.041 0-0 0-0.001 0-0.001v0zM14.063 19.21c0.954 0 1.728-0.774 1.728-1.728v0-2.972c0-0.575 0.466-1.041 1.041-1.041 0 0 0.001 0 0.001 0h3.354c0.025-0.001 0.045-0.021 0.045-0.047 0 0 0-0 0-0v0-0.595c0-0.025-0.020-0.045-0.045-0.045h-4.041c-0 0-0.001 0-0.001 0-0.954 0-1.728 0.774-1.728 1.728v0 2.975c0 0.575-0.466 1.042-1.041 1.042h-3.307c-0.025 0-0.045 0.020-0.045 0.045v0 0.595c0 0.025 0.020 0.045 0.045 0.045 0 0 0 0 0 0v0z");
+  path.setAttribute("d", "M3.262 24.248c-2.374-0.681-2.767-2.084-1.69-2.899 0.776-0.51 1.668-0.954 2.612-1.288l0.087-0.027 7.017-2.516v2.89l-5.030 1.839c-0.881 0.339-1.031 0.79-0.299 1.032 0.365 0.093 0.783 0.147 1.214 0.147 0.615 0 1.204-0.109 1.749-0.308l-0.035 0.011 2.422-0.882v2.592c-0.15 0.037-0.32 0.055-0.487 0.091-0.775 0.136-1.667 0.214-2.577 0.214-1.778 0-3.486-0.298-5.078-0.846l0.11 0.033zM18.049 24.544l7.868-2.843c0.893-0.322 1.032-0.781 0.307-1.022-0.363-0.089-0.779-0.14-1.208-0.14-0.622 0-1.22 0.108-1.774 0.305l0.037-0.011-5.255 1.874v-2.983l0.3-0.106c1.050-0.349 2.284-0.62 3.557-0.761l0.083-0.008c0.468-0.050 1.010-0.078 1.559-0.078 1.877 0 3.677 0.331 5.343 0.939l-0.108-0.035c2.309 0.751 2.549 1.839 1.969 2.589-0.559 0.557-1.235 0.998-1.988 1.282l-0.039 0.013-10.677 3.883v-2.869zM12.231 4.248v21.927l4.892 1.576v-18.39c0-0.862 0.38-1.438 0.992-1.238 0.795 0.225 0.95 1.017 0.95 1.881v7.342c3.050 1.491 5.451-0.003 5.451-3.939 0-4.045-1.407-5.842-5.546-7.282-1.785-0.648-4.040-1.294-6.347-1.805l-0.389-0.072z");
 
   svg.appendChild(path);
 
@@ -448,7 +461,7 @@ function removerDivs() {
   var div2 = document.getElementById('cardErro');
 
   if (divs.length > 0) {
-    divs.forEach(function(div) {
+    divs.forEach(function (div) {
       while (div.firstChild) {
         div.firstChild.remove();
       }
@@ -472,5 +485,47 @@ dropdownItems.forEach(item => {
     dropdownButton.textContent = `Categoria: ${item.textContent}`;
   });
 });
+
+function chamarFuncao(idProduto, id) {
+  var valid = true
+  const idPerfil = localStorage.getItem('idPerfil');
+  if (idPerfil) {
+    fetch(`https://reyouseback.azurewebsites.net/vercarrinho/${idPerfil}`)
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].idAnuncio == idProduto) {
+            alert('Produto já presente no carrinho')
+            valid = false
+            break
+          }
+        }
+        if (valid) {
+          fetch(`https://reyouseback.azurewebsites.net/addcarrinho/${idPerfil}/${idProduto}`)
+            .then(response => response.text())
+            .then(data => {
+              if (data == `Anúncio ${idProduto} adicionado ao carrinho.`) {
+                alert('Produto adicionado no carrinho');
+                const filho = id.querySelector('#cardCart');
+                filho.className += 'fa-solid fa-check';
+              }
+            })
+            .catch(error => {
+              console.error('Ocorreu um erro:', error);
+            });
+        }
+        else {
+          const filho = id.querySelector('#cardCart');
+          filho.className += 'fa-solid fa-check';
+        }
+      })
+      .catch(error => {
+        console.error('Ocorreu um erro:', error);
+      });
+
+  } else {
+    window.location.href = './telaAutenticacao.html'
+  }
+}
 
 pesquisaCatalogo();
