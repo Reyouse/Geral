@@ -195,7 +195,7 @@ header #logo{
   .box-anuncio{
     padding: 20px 30px 20px 30px !important;
   }
-  #conservacao{
+  #conservacao, #plataforma_check{
     font-family: 'Quicksand', sans-serif;
     color: #f7f7f7;
     font-size: 18px;
