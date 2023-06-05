@@ -331,7 +331,7 @@ main h1{
   .redes {
     position: relative;
     z-index: 1;
-    top: 0.3cm;
+    top: 1.2cm;
   }
   
   .redes a:nth-child(2) {
@@ -355,7 +355,7 @@ main h1{
   
   #btnDuvida {
     position: relative;
-    top: 2.8cm;
+    top: 4cm;
     left: 0.8cm;
   }
   
@@ -375,8 +375,7 @@ main h1{
   }
   
   footer #logo {
-    width: 12%;
-    margin-bottom: 1cm;
+    width: 18%;
   }
   
   
