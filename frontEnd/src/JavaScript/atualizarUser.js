@@ -93,6 +93,7 @@ function createNav() {
         var dropdownLiItem = document.createElement('li');
         var dropdownLink = document.createElement('a');
         dropdownLink.id = "idOpcoes"
+        dropdownLink.style.cursor = "pointer"
 
         if (i === 3) {
             dropdownLink.onclick = sairUser;

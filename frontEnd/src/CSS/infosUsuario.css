@@ -221,7 +221,8 @@ header #logo {
   padding: 20px 30px 20px 30px !important;
 }
 
-#conservacao {
+#conservacao,
+#plataforma_check {
   font-family: 'Quicksand', sans-serif;
   color: #f7f7f7;
   font-size: 18px;
@@ -285,10 +286,9 @@ p {
 }
 
 /* Rodapé */
-
 footer {
+  margin-top: 100px;
   background-color: #1B2838;
-  margin-top: 50px;
 }
 
 .blocoVertical {
