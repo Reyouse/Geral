@@ -24,29 +24,36 @@
   }
   
   /* Corpo */
-  .row {
+h1{
+    color: #F7F7F7;
+    text-align: center;
+    position: relative;
+    top: 1cm;
+}
+
+.row {
     display: flex;
     justify-content: center;
-  }
+}
   
-  .infosJogo {
+.infosJogo {
     display: flex;
     align-items: center;
     text-align: justify;
     margin: 3cm 0cm 4cm 0cm;
     height: 8cm;
-  }
+}
   
-  #bannerJogo,
-  #conteudosJogo,
-  #btnPlataforma {
+#bannerJogo,
+#conteudosJogo,
+#btnPlataforma {
     background-color: #F7F7F7;
-  }
+}
 
-  #conteudosJogo,
-  #bannerJogo{
+#conteudosJogo,
+#bannerJogo{
     height: 12.7cm;
-  }
+}
   
   #conteudosJogo {
     padding: 30px 0px 9px 0px;
