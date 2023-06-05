@@ -9,6 +9,6 @@ $(document).ready(function () {
 
 const btnConfirmar = document.getElementById('postConfirm')
 btnConfirmar.addEventListener('click', ()=>{
-    window.location.href = 'index.html';
+    window.location.href = 'infosUsuario.html';
 });
 
