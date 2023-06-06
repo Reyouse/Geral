@@ -1,5 +1,6 @@
 const idPerfil = localStorage.getItem('idPerfil');
 var valorTotal = 0
+var produtos = []
 
 function createShoppingItem() {
     // Cria os elementos HTML
@@ -91,6 +92,7 @@ function carregar() {
                 var item = createShoppingItem();
                 var divParent = document.querySelector(".col-lg-7");
                 divParent.appendChild(item);
+                produtos.push(data[i].idAnuncio)
             }
 
             const imgCard = document.querySelectorAll("#bannerJogo")
@@ -171,23 +173,8 @@ function carregar() {
                 }
             })
 
-            var segundoParagrafo = document.querySelector('.mb-2:nth-of-type(2)');
-            segundoParagrafo.textContent = "R$ " + valorTotal.toFixed(2).toString()
-
-            // Calcular Frete
-                //
-            //
-
-            const subtotalElement = document.querySelector('.d-flex:nth-of-type(1) p:nth-of-type(2)');
-            const entregaElement = document.querySelector('.d-flex:nth-of-type(2) p:nth-of-type(2)');
-            const totalCompraElement = document.querySelector('#totalCompra p:nth-of-type(2)');
-
-            const subtotalValue = parseFloat(subtotalElement.textContent.replace('R$ ', ''));
-            const entregaValue = parseFloat(entregaElement.textContent.replace('R$ ', ''));
-
-            const totalValue = subtotalValue + entregaValue;
-
-            totalCompraElement.textContent = `R$ ${totalValue.toFixed(2)}`;
+            var totalCompraElement = document.querySelector('#totalCompra p:nth-of-type(2)');
+            totalCompraElement.textContent = "R$ " + valorTotal.toFixed(2).toString()
         })
         .catch(error => {
             console.error('Ocorreu um erro:', error);
@@ -340,7 +327,6 @@ function remover(id) {
         .then(response => response.text())
         .then(data => {
             if (data == `Anuncio ${id} removido`) {
-                alert('Item removido com sucesso')
                 window.location.reload()
             }
         })
@@ -382,11 +368,6 @@ function cartoes() {
                 document.getElementById('typeTextCvc').focus();
                 return;
             }
-
-            console.log(titular)
-            console.log(numeroCartao)
-            console.log(validade)
-            console.log(cvv)
 
             numeroCartao = numeroCartao.replace(/\s/g, "");
 
@@ -543,9 +524,6 @@ function adicionarOpcoesDropdown(data) {
 }
 
 function selecionarCartao(index, data) {
-    console.log(data)
-    console.log(index)
-    console.log(data[index])
     document.getElementById('typeName').value = data[index].nomeCartao
     document.getElementById('typeText').value = data[index].numeroCartao.replace(/(\d{4})/g, '$1 ').trim()
     var validade = data[index].validade;
@@ -559,7 +537,49 @@ function selecionarCartao(index, data) {
     document.getElementById('typeTextCvc').value = data[index].cvv
 }
 
+document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
+    var titular = document.getElementById('typeName').value.trim();
+    var numero = document.getElementById('typeText').value.trim();
+    var validade = document.getElementById('typeExp').value.trim();
+    var cvv = document.getElementById('typeTextCvc').value.trim();
 
+    if (titular.length < 4 || numero.length < 19 || validade.length < 7 || cvv.length < 3) {
+        alert('Por favor, preencha todos os campos corretamente.');
+        return;
+    }
+
+    suaFuncaoDePagamento();
+});
+
+function suaFuncaoDePagamento() {
+    var data = new Date();
+
+    var dia = data.getDate();
+    var mes = data.getMonth() + 1; // Os meses começam a partir de zero, então somamos 1
+    var ano = data.getFullYear();
+
+    for (var i = 0; i < produtos.length; i++) {
+        remover(produtos[i])
+        fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[i]}/${ano}-${mes}-${dia}/${idPerfil}`)
+            .then(response => response.text())
+            .then(data => {
+                if (data = 'Compra finalizada com sucesso') {
+                    console.log(data);
+                    alert("Compra Bem Sucedida!")
+                    var divs = document.querySelectorAll('div[id="itemCarrinho"]');
+                    for (var i = 0; i < divs.length; i++) {
+                        divs[i].parentNode.removeChild(divs[i]);
+                    }
+                }
+                else {
+                    alert('ERROR')
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro:', error);
+            });
+    }
+}
 
 campos()
 cartoes()
