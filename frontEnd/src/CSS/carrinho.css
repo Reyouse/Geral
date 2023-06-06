@@ -3,64 +3,6 @@ body {
   background-color: #202020;
 }
 
-/*Definindo largura correta para a logo */
-#logo_Reyouse {
-  width: 90px;
-  height: 90px;
-}
-
-/*Definindo cor para a navbar */
-.navbar {
-  background-color: #1B2838;
-  width: 100%;
-}
-
-.navbar-collapse form[role="search"] button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: #f7f7f7;
-}
-
-.form-control {
-  border-radius: 20px;
-  width: 300px;
-  outline: none;
-  box-shadow: none;
-}
-
-.form-control:focus {
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.navbar-header,
-.navbar-form,
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-icon {
-  font-size: 24px;
-  color: #fff;
-  margin-right: 10px;
-}
-
-.navbar-collapse form[role="search"] {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-button {
-  border: none;
-  background: none;
-  padding: 0;
-}
-
-
-
 /* Carrinho*/
 
 #itemCarrinho {
@@ -249,4 +191,9 @@ footer #logo {
 #conteudoModal .row {
   display: flex;
   justify-content: center;
+}
+
+#typeTextCvc {
+  width: 100px;
+  font-size: 16px;
 }
