@@ -24,6 +24,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins&family=Quicksand:wght@300;400&family=Roboto&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../CSS/carrinho.css">
+  <link rel="stylesheet" href="../CSS/headerUser.css">
   <title>Carrinho</title>
 </head>
 
@@ -32,30 +33,23 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a href="./index.html"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png" alt="Reyouse"></a>
+        <a href="#" style="margin-right: 100px;"><img id="logo_Reyouse" src="../imgs/LogoReyouse-Controle.png"
+            alt="Reyouse"></a>
+        <div id="loginOuCadastro" class="navbar-right">
+          <a href="./telaAutenticacao.html" class="btn" style="color: #f7f7f7;">Faça seu login <br> ou cadastre-se</a>
+        </div>
       </div>
-
-      <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-          <button type="submit">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" id="myInput" aria-label="Search">
+          <button type="button" onclick="pesquisar()">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <ul class="navbar-nav ms-auto">
-          <button>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-user navbar-icon"></i>
-              </a>
-            </li>
-          </button>
-          <button class="cart-button" data-bs-toggle="cart-aside" data-bs-target="#cart-aside">
-            <li class="nav-item">
-              <i class="fas fa-shopping-cart navbar-icon"></i>
-            </li>
-          </button>
-        </ul>
       </div>
     </div>
   </nav>
@@ -83,7 +77,7 @@
                           data-bs-toggle="dropdown" aria-expanded="false">
                           Cartões cadastrados
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownCartoesCadastrados">
+                        <ul id="dropdowns" class="dropdown-menu" aria-labelledby="dropdownCartoesCadastrados">
                           <li> <a class="dropdown-item" href="#"> <i class="fab fa-cc-mastercard fa-1x me-2"></i>
                               Crédito Inter Mastercard</a></li>
                           <li> <a class="dropdown-item" href="#"> <i class="fab fa-cc-visa fa-1x me-2"></i> Crédito
@@ -219,7 +213,7 @@
 
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="../JavaScript/backCarrinho.js"></script>
-
+  <script src="../JavaScript/atualizarUser.js"></script>
 </body>
 
 </html>
