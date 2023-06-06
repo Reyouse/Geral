@@ -1,4 +1,6 @@
 const idPerfil = localStorage.getItem('idPerfil');
+var valorTotal = 0
+var produtos = []
 
 function createShoppingItem() {
     // Cria os elementos HTML
@@ -35,8 +37,6 @@ function createShoppingItem() {
     pPhysical.setAttribute("class", "small mb-0");
     pPhysical.innerText = "Físico";
 
-
-    // Constrói a estrutura do HTML
     divContent.appendChild(h5Title);
     divContent.appendChild(pPhysical);
 
@@ -92,6 +92,7 @@ function carregar() {
                 var item = createShoppingItem();
                 var divParent = document.querySelector(".col-lg-7");
                 divParent.appendChild(item);
+                produtos.push(data[i].idAnuncio)
             }
 
             const imgCard = document.querySelectorAll("#bannerJogo")
@@ -143,8 +144,10 @@ function carregar() {
 
             preCard.forEach((preco, index) => {
                 if (data[index]) {
-                    const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString().replace('.', ',');
+                    const precoFormatado = "R$ " + data[index].preco.toFixed(2).toString();
                     preco.textContent = precoFormatado;
+                    valorTotal += data[index].preco
+
                 }
             });
 
@@ -170,6 +173,8 @@ function carregar() {
                 }
             })
 
+            var totalCompraElement = document.querySelector('#totalCompra p:nth-of-type(2)');
+            totalCompraElement.textContent = "R$ " + valorTotal.toFixed(2).toString()
         })
         .catch(error => {
             console.error('Ocorreu um erro:', error);
@@ -322,7 +327,6 @@ function remover(id) {
         .then(response => response.text())
         .then(data => {
             if (data == `Anuncio ${id} removido`) {
-                alert('Item removido com sucesso')
                 window.location.reload()
             }
         })
@@ -331,4 +335,252 @@ function remover(id) {
         });
 }
 
+function cartoes() {
+
+    var botao = document.getElementById('btnSalvarFormaDePagamento');
+    if (botao) {
+        botao.addEventListener('click', function () {
+            var titular = document.getElementById('typeName').value.trim();
+            var numeroCartao = document.getElementById('typeText').value.trim();
+            var validade = document.getElementById('typeExp').value.trim();
+            var cvv = document.getElementById('typeTextCvc').value.trim();
+
+            if (titular.length < 3) {
+                alert('Erro no campo "Titular"');
+                document.getElementById('typeName').focus();
+                return;
+            }
+
+            if (numeroCartao.length !== 19) {
+                alert('Erro no campo "Número do Cartão"');
+                document.getElementById('typeText').focus();
+                return;
+            }
+
+            if (validade.length !== 7) {
+                alert('Erro no campo "Validade"');
+                document.getElementById('typeExp').focus();
+                return;
+            }
+
+            if (cvv.length !== 3) {
+                alert('Erro no campo "CVV"');
+                document.getElementById('typeTextCvc').focus();
+                return;
+            }
+
+            numeroCartao = numeroCartao.replace(/\s/g, "");
+
+            var partes = validade.split('/');
+            var novoValor = partes[1] + '-' + partes[0] + '-01';
+
+            var val = true
+
+            fetch(`https://reyouseback.azurewebsites.net/formaspagamento/${idPerfil}`)
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].numeroCartao == numeroCartao) {
+                            alert("Cartao já cadastrado!");
+                            val = false
+                            break
+                        }
+                    }
+                    if (val == true) {
+                        if (titular != '' && numeroCartao != '' && cvv != '' && validade != '') {
+                            fetch(`https://reyouseback.azurewebsites.net/salvapagamento/${idPerfil}/${titular}/${numeroCartao}/${cvv}/${novoValor}`)
+                                .then(response => response.text())
+                                .then(data => {
+                                    if (data == 'Cartão registrado com sucesso') {
+                                        alert(data)
+                                    }
+                                    else {
+                                        alert(data)
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Ocorreu um erro:', error);
+                                });
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Ocorreu um erro:', error);
+                });
+        }
+        )
+    }
+    fetch(`https://reyouseback.azurewebsites.net/formaspagamento/${idPerfil}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                adicionarOpcoesDropdown(data)
+            }
+            else {
+                var div = document.querySelector('.dropdown');
+                if (div) {
+                    div.parentNode.removeChild(div);
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
+}
+
+function campos() {
+
+    var typeNameInput = document.getElementById('typeName');
+    typeNameInput.addEventListener('input', function () {
+        var value = typeNameInput.value;
+        var formattedValue = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+        if (formattedValue.length > 80) {
+            formattedValue = formattedValue.slice(0, 80);
+        }
+        typeNameInput.value = formattedValue;
+    });
+
+
+    var typeTextInput = document.getElementById('typeText');
+    typeTextInput.addEventListener('input', function () {
+        var value = typeTextInput.value;
+        var formattedValue = value.replace(/\D/g, '');
+        formattedValue = formattedValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+        typeTextInput.value = formattedValue;
+    });
+
+    var typeExpInput = document.getElementById('typeExp');
+    typeExpInput.addEventListener('input', function () {
+        var value = typeExpInput.value;
+        var formattedValue = value.replace(/\D/g, '');
+        formattedValue = formattedValue.replace(/^(\d{2})(\d{1,2})/, function (match, p1, p2) {
+            if (p1 === '00') {
+                p1 = '01';
+            } else if (p1 > 12) {
+                p1 = '12';
+            } else if (p1.length === 1) {
+                p1 = '0' + p1;
+            }
+            return p1 + '/' + p2;
+        });
+        var lastCharacter = value[value.length - 1];
+        if (lastCharacter && lastCharacter !== '/' && value.length >= 7) {
+            var yearDigits = formattedValue.substr(3);
+            var year = parseInt(yearDigits);
+            if (year < 2023) {
+                formattedValue = formattedValue.substr(0, 3) + '2023';
+            }
+        }
+        typeExpInput.value = formattedValue;
+    });
+
+    const cvvInput = document.getElementById("typeTextCvc");
+    cvvInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+    });
+}
+
+function adicionarOpcoesDropdown(data) {
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+
+    dropdownMenu.innerHTML = '';
+
+    for (var i = 0; i < data.length; i++) {
+        // Cria o elemento li
+        var li = document.createElement('li');
+
+        var a = document.createElement('a');
+        a.classList.add('dropdown-item');
+        a.href = '#';
+        (function (index) {
+            a.onclick = function () {
+                selecionarCartao(index, data);
+            };
+        })(i);
+
+        var icon = document.createElement('i');
+        if (data[i].numeroCartao[0] == 5) {
+            icon.classList.add('fab', 'fa-cc-mastercard', 'fa-1x', 'me-2');
+        }
+        else if (data[i].numeroCartao[0] == 3) {
+            icon.classList.add('fab', 'fa-cc-amex', 'fa-1x', 'me-2');
+        }
+        else if (data[i].numeroCartao[0] == 4) {
+            icon.classList.add('fab', 'fa-cc-visa', 'fa-1x', 'me-2');
+        }
+        else if (data[i].numeroCartao[0] == 6) {
+            icon.classList.add('fab', 'fa-cc-discover', 'fa-1x', 'me-2');
+        }
+
+        var texto = document.createTextNode('Cartão ' + (i + 1));
+
+        a.appendChild(icon);
+        a.appendChild(texto);
+
+        li.appendChild(a);
+
+        dropdownMenu.appendChild(li);
+    }
+}
+
+function selecionarCartao(index, data) {
+    document.getElementById('typeName').value = data[index].nomeCartao
+    document.getElementById('typeText').value = data[index].numeroCartao.replace(/(\d{4})/g, '$1 ').trim()
+    var validade = data[index].validade;
+    var partes = validade.split('-');
+    var mes = partes[1];
+    var ano = partes[0];
+
+    var formatoValidade = mes + '/' + ano;
+    document.getElementById('typeExp').value = formatoValidade;
+
+    document.getElementById('typeTextCvc').value = data[index].cvv
+}
+
+document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
+    var titular = document.getElementById('typeName').value.trim();
+    var numero = document.getElementById('typeText').value.trim();
+    var validade = document.getElementById('typeExp').value.trim();
+    var cvv = document.getElementById('typeTextCvc').value.trim();
+
+    if (titular.length < 4 || numero.length < 19 || validade.length < 7 || cvv.length < 3) {
+        alert('Por favor, preencha todos os campos corretamente.');
+        return;
+    }
+
+    suaFuncaoDePagamento();
+});
+
+function suaFuncaoDePagamento() {
+    var data = new Date();
+
+    var dia = data.getDate();
+    var mes = data.getMonth() + 1; // Os meses começam a partir de zero, então somamos 1
+    var ano = data.getFullYear();
+
+    for (var i = 0; i < produtos.length; i++) {
+        remover(produtos[i])
+        fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[i]}/${ano}-${mes}-${dia}/${idPerfil}`)
+            .then(response => response.text())
+            .then(data => {
+                if (data = 'Compra finalizada com sucesso') {
+                    console.log(data);
+                    alert("Compra Bem Sucedida!")
+                    var divs = document.querySelectorAll('div[id="itemCarrinho"]');
+                    for (var i = 0; i < divs.length; i++) {
+                        divs[i].parentNode.removeChild(divs[i]);
+                    }
+                }
+                else {
+                    alert('ERROR')
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro:', error);
+            });
+    }
+}
+
+campos()
+cartoes()
 carregar()

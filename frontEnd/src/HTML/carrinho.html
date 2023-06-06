@@ -125,11 +125,13 @@
                         </div>
                         <div class="col-md-5">
                           <div style="margin-left: 10px;" class="form-outline form-white">
-                            <input type="password" id="typeText" class="form-control form-control-lg cvv-input"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <input type="password" id="typeTextCvc" class="form-control form-control-lg cvv-input"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3"
+                              pattern="[0-9]{3}" />
                             <label style="margin-left: 5px;" class="form-label" for="typeText">CVV</label>
                           </div>
                         </div>
+
                         <div style="margin-top: 10px;" class="col-md-12">
                           <button id="btnSalvarFormaDePagamento" type="button" class="btn btn-block btn-small">
                             <div class="d-flex justify-content-between">
@@ -139,18 +141,6 @@
                         </div>
                       </div>
                     </form>
-
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Subtotal</p>
-                      <p class="mb-2">R$ 100,00</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Entrega</p>
-                      <p class="mb-2">R$ 20,00</p>
-                    </div>
 
                     <hr class="my-4">
 
