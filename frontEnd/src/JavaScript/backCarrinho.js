@@ -481,7 +481,7 @@ function campos() {
 }
 
 function adicionarOpcoesDropdown(data) {
-    var dropdownMenu = document.querySelector('.dropdown-menu');
+    var dropdownMenu = document.querySelector('#dropdowns');
 
     dropdownMenu.innerHTML = '';
 
