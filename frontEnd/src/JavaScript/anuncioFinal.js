@@ -64,11 +64,12 @@ function confirmar() {
     var novaCapa = capa.replace(/\//g, '*');
     var novoBanner = banner.replace(/\//g, '*');
     var novasPrints = prints.replace(/\//g, '*');
+    tituloDoJogo = tituloDoJogo.replace(/[,./'"?]/g, '');
 
     fetch(`https://reyouseback.azurewebsites.net/${tipoCad}/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/NULL/${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estado}`)
         .then(response => response.text())
         .then(data => {
-            if (data = 'Anuncio cadastrado com sucesso!') {
+            if (data == 'Anuncio cadastrado com sucesso!') {
                 alert('Enviado')
                 limparLocalStorage()
                 window.location.href = './infosUsuario.html'
