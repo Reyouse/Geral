@@ -11,7 +11,7 @@ function botaoHabilitar() {
         var preco = document.getElementById("preco").value.trim()
         var plataformaSelecionada = document.querySelector('input[name="plataforma_jogo"]:checked').value.trim()
         var conservacaoSelecionada = document.querySelector('input[name="estado_conservacao"]:checked').value.trim()
-        if(nomeJogo != '') {
+        if (nomeJogo != '') {
             publicar(nomeJogo, preco, plataformaSelecionada, conservacaoSelecionada)
         }
         else {
@@ -103,26 +103,48 @@ function validarPreco() {
 
 function publicar(nome, preco, plataforma, conservacao) {
 
-    if(plataforma == 'XBOX') {
+    if (plataforma == 'XBOX') {
         plataforma = 'Xbox'
     }
-    else if(plataforma == 'PlayStation') {
+    else if (plataforma == 'PlayStation') {
         plataforma = 'Playstation'
     }
+
+    preco = preco.replace(',', '.');
+    preco = preco.replace('R$', ''); // Remove the currency symbol
+    preco = decodeURIComponent(preco.replace(/%C2%A0/g, ''));
+    var numericValue = parseFloat(preco);
+
     fetch(`https://reyouseback.azurewebsites.net/pesquisaigdb/${nome}`)
         .then(response => response.json())
         .then(data => {
             if (data[0]) {
-                var capa = encodeURIComponent(data[0].capa);
+                var nomeDoJogo = nome
+                var valid = false
+                for (var i = 0; i < data.length; i++) {
+                    if (nomeDoJogo == data[i].nome) {
+                        valid = true;
+                        break
+                    }
+                }
+                if (valid) {
+                    var descricao = data[0].descricao;
+                    descricao = descricao.replace(/['"*,/?]/g, '');
+                    var imagemCapa = data[0].capa.replace(/\//g, "*");
 
-                fetch(`https://reyouseback.azurewebsites.net/cadastramidiafisica/`)
-                    .then(response => response.json())
-                    .then(data => {
-                        
-                    })
-                    .catch(error => {
-                        console.error('Ocorreu um erro:', error);
-                    });
+                    var banner = "**i.imgur.com*YavjSRr.jpg"
+                    if (JSON.stringify(data[0].banner) != '{}' && (JSON.stringify(data[0].banner) != '{ }')) {
+                        banner = data[0].banner.replace(/\//g, "*")
+                    }
+
+                    var print = data[0].screenshots;
+                    var stringPrint = print.join(',');
+                    stringPrint = stringPrint.replace(/['"*]/g, '');
+                    stringPrint = stringPrint.replace(/\//g, '*');
+                    const idPerfil = localStorage.getItem('idPerfil');
+
+                    
+                }
             }
             else {
                 alert('Nome de Jogo Invalido!');

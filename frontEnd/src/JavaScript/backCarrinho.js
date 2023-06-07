@@ -559,7 +559,6 @@ function suaFuncaoDePagamento() {
     var ano = data.getFullYear();
 
     for (var i = 0; i < produtos.length; i++) {
-        remover(produtos[i])
         fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[i]}/${ano}-${mes}-${dia}/${idPerfil}`)
             .then(response => response.text())
             .then(data => {
@@ -570,6 +569,7 @@ function suaFuncaoDePagamento() {
                     for (var i = 0; i < divs.length; i++) {
                         divs[i].parentNode.removeChild(divs[i]);
                     }
+                    
                 }
                 else {
                     alert('ERROR')
@@ -578,6 +578,7 @@ function suaFuncaoDePagamento() {
             .catch(error => {
                 console.error('Ocorreu um erro:', error);
             });
+            remover(produtos[i])
     }
 }
 
