@@ -110,6 +110,19 @@ function publicar(nome, preco, plataforma, conservacao) {
         plataforma = 'Playstation'
     }
 
+    if (conservacao == 'excelente') {
+        conservacao = 'Excelente'
+    }
+    else if (conservacao == 'muito_bom') {
+        conservacao = 'Muito Bom'
+    }
+    else if (conservacao == 'bom') {
+        conservacao = 'Bom'
+    }
+    else if (conservacao == 'regular') {
+        conservacao = 'Regular'
+    }
+
     preco = preco.replace(',', '.');
     preco = preco.replace('R$', ''); // Remove the currency symbol
     preco = decodeURIComponent(preco.replace(/%C2%A0/g, ''));
@@ -121,29 +134,41 @@ function publicar(nome, preco, plataforma, conservacao) {
             if (data[0]) {
                 var nomeDoJogo = nome
                 var valid = false
+                var j = 0
                 for (var i = 0; i < data.length; i++) {
                     if (nomeDoJogo == data[i].nome) {
+                        j = i
                         valid = true;
                         break
                     }
                 }
                 if (valid) {
-                    var descricao = data[0].descricao;
-                    descricao = descricao.replace(/['"*,/?]/g, '');
-                    var imagemCapa = data[0].capa.replace(/\//g, "*");
+                    var descricao = data[j].descricao;
+                    var imagemCapa = data[j].capa
 
-                    var banner = "**i.imgur.com*YavjSRr.jpg"
-                    if (JSON.stringify(data[0].banner) != '{}' && (JSON.stringify(data[0].banner) != '{ }')) {
-                        banner = data[0].banner.replace(/\//g, "*")
+                    var banner = "//i.imgur.com/H0aPSFh.jpeg"
+                    console.log(data[j].banner)
+                    if (JSON.stringify(data[j].banner) != '{}' && (JSON.stringify(data[j].banner) != '{ }')) {
+                        banner = data[j].banner
                     }
 
-                    var print = data[0].screenshots;
+                    var print = data[j].screenshots;
                     var stringPrint = print.join(',');
-                    stringPrint = stringPrint.replace(/['"*]/g, '');
-                    stringPrint = stringPrint.replace(/\//g, '*');
-                    const idPerfil = localStorage.getItem('idPerfil');
+                    stringPrint = stringPrint
 
-                    
+                    localStorage.setItem('nomeDoJogo', nomeDoJogo);
+                    localStorage.setItem('nomeDaPlataforma', plataforma)
+                    localStorage.setItem('descricao', descricao);
+                    localStorage.setItem('capa', imagemCapa)
+                    localStorage.setItem('banner', banner)
+                    localStorage.setItem('prints', stringPrint)
+                    localStorage.setItem('preco', numericValue)
+                    localStorage.setItem('estado', conservacao)
+                    console.log(banner)
+                    window.location.href = '../HTML/anuncioFinal.html';
+                }
+                else {
+                    alert('Nome de Jogo Invalido!')
                 }
             }
             else {

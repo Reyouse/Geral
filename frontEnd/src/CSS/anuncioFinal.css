@@ -8,7 +8,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
   }
   
   main,
@@ -152,7 +151,7 @@ main h1{
     height: auto;
   }
 
-  #postConfirm,
+  #postConfirms,
   #postCancel{
     position: relative;
     bottom: 10px;
@@ -160,12 +159,12 @@ main h1{
     font-weight: 700;
   }
 
-  #postConfirm:hover,
+  #postConfirms:hover,
   #postCancel:hover{
     border-color: #171A21;
   }
 
-  #postConfirm{
+  #postConfirms{
     background-color: #00a000;
     border-color:#008000;
   }
