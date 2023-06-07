@@ -61,7 +61,7 @@ function createShoppingItem() {
     aTrash.setAttribute("style", "color: #1B2838;");
     aTrash.setAttribute("id", "lixo")
     aTrash.addEventListener("click", function () {
-        remover(aTrash.getAttribute("id"));
+        remover(aTrash.getAttribute("id"), true);
     });
 
     var iTrash = document.createElement("i");
@@ -322,12 +322,17 @@ function createPlayElement(divPai) {
     divPai.appendChild(divFilha);
 }
 
-function remover(id) {
+function remover(id, valid) {
     fetch(`https://reyouseback.azurewebsites.net/removecarrinho/${idPerfil}/${id}`)
         .then(response => response.text())
         .then(data => {
-            if (data == `Anuncio ${id} removido`) {
-                window.location.reload()
+            if (data != `Anuncio ${id} removido`) {
+                alert(data)
+            }
+            else {
+                if (valid) {
+                    window.location.reload()
+                }
             }
         })
         .catch(error => {
@@ -558,26 +563,44 @@ function suaFuncaoDePagamento() {
     var mes = data.getMonth() + 1; // Os meses começam a partir de zero, então somamos 1
     var ano = data.getFullYear();
 
-    for (var i = 0; i < produtos.length; i++) {
-        fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[i]}/${ano}-${mes}-${dia}/${idPerfil}`)
+    function processarCompra(index) {
+        if (index >= produtos.length) {
+            location.reload();
+            return;
+        }
+
+        var numero = produtos[index];
+        fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[index]}/${ano}-${mes}-${dia}/${idPerfil}`)
             .then(response => response.text())
             .then(data => {
                 if (data == 'Compra finalizada com sucesso') {
-                    alert("Compra Bem Sucedida!")
-                    var divs = document.querySelectorAll('div[id="itemCarrinho"]');
-                    for (var i = 0; i < divs.length; i++) {
-                        divs[i].parentNode.removeChild(divs[i]);
-                    }
-                }
-                else {
-                    alert('ERROR')
+                    fetch(`https://reyouseback.azurewebsites.net/anuncio/${numero}`)
+                        .then(responsess => responsess.json())
+                        .then(datass => {
+                            var nameGame = datass[0].titulo;
+                            fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${numero}`)
+                                .then(responses => responses.json())
+                                .then(datas => {
+                                    alert('Jogo: ' + nameGame + '\n' + "Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
+                                    remover(numero, false);
+                                    setTimeout(() => {
+                                        processarCompra(index + 1);
+                                    }, 1000);
+                                })
+                                .catch(error => {
+                                    console.error('Ocorreu um erro:', error);
+                                });
+                        })
+                        .catch(error => {
+                            console.error('Ocorreu um erro:', error);
+                        });
                 }
             })
             .catch(error => {
                 console.error('Ocorreu um erro:', error);
             });
-            remover(produtos[i])
     }
+    processarCompra(0);
 }
 
 campos()

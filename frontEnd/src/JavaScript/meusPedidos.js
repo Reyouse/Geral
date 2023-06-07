@@ -160,6 +160,18 @@ function carregar() {
                         button2.type = 'submit';
                         button2.className = 'btn';
                         button2.innerHTML = 'Forma de acesso não funcionou';
+                        button2.name = data[i].idAnuncio
+
+                        button2.addEventListener('click', handleClick2);
+
+                        var button3 = document.createElement('button');
+                        button3.id = 'btnDados';
+                        button3.type = 'submit';
+                        button3.className = 'btn';
+                        button3.innerHTML = 'Abrir Disputa';
+                        button3.name = data[i].idAnuncio
+
+                        button3.addEventListener('click', handleClick3);
 
                         function handleClick(event) {
                             var buttonId = event.target.name;
@@ -179,9 +191,27 @@ function carregar() {
                             }
 
                         }
+                        function handleClick2(event) {
+                            var buttonId = event.target.name;
+                            fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${buttonId}`)
+                                .then(responses => responses.json())
+                                .then(datas => {
+                                    alert("Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
+
+                                })
+                                .catch(error => {
+                                    console.error('Ocorreu um erro:', error);
+                                })
+                        }
+
+                        function handleClick3(event) {
+                            var buttonId = event.target.name;
+                            alert('Funcionalidade em Produção')
+                        }
 
                         buttonsDiv.appendChild(button1);
                         buttonsDiv.appendChild(button2);
+                        buttonsDiv.appendChild(button3);
                         divPedidosAnuncios.appendChild(buttonsDiv);
                     }
                 }
