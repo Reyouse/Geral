@@ -221,7 +221,8 @@ header #logo {
   padding: 20px 30px 20px 30px !important;
 }
 
-#conservacao {
+#conservacao,
+#plataforma_check {
   font-family: 'Quicksand', sans-serif;
   color: #f7f7f7;
   font-size: 18px;
@@ -285,10 +286,9 @@ p {
 }
 
 /* Rodapé */
-
 footer {
+  margin-top: 100px;
   background-color: #1B2838;
-  margin-top: 50px;
 }
 
 .blocoVertical {
@@ -391,4 +391,23 @@ footer #logo {
 #conteudoModal .row {
   display: flex;
   justify-content: center;
+}
+
+#btnDados2 {
+  font-size: 14px;
+  background-color: #202020;
+  color: #F7F7F7;
+  border-radius: 20px;
+  padding: 10px 25px 10px 25px;
+  margin-right: 10px;
+  border: 1px solid #F7F7F7;
+}
+
+#btnDados2:hover {
+  background-color: #202020;
+  color: #F8AF40;
+  border-radius: 20px;
+  padding: 10px 25px 10px 25px;
+  margin-right: 10px;
+  border: 1px solid #F8AF40;
 }
