@@ -18,7 +18,6 @@ function vendaFisica() {
             else {
                 alert('Nome de Jogo Invalido!')
             }
-            console.log(nomeJogo, preco, plataformaSelecionada, conservacaoSelecionada)
         }
 
         function checkFormValidity() {
@@ -145,12 +144,14 @@ function vendaFisica() {
                     }
                     if (valid) {
                         var descricao = data[j].descricao;
-                        var imagemCapa = data[j].capa
 
-                        var banner = "//i.imgur.com/H0aPSFh.jpeg"
-                        console.log(data[j].banner)
+                        var banner = "NULL"
                         if (JSON.stringify(data[j].banner) != '{}' && (JSON.stringify(data[j].banner) != '{ }')) {
                             banner = data[j].banner
+                        }
+                        var imagemCapa = "//i.imgur.com/YavjSRr.jpg"
+                        if (JSON.stringify(data[j].capa) != '{}' && (JSON.stringify(data[j].capa) != '{ }')) {
+                            imagemCapa = data[j].capa
                         }
 
                         var print = data[j].screenshots;
@@ -165,7 +166,6 @@ function vendaFisica() {
                         localStorage.setItem('prints', stringPrint)
                         localStorage.setItem('preco', numericValue)
                         localStorage.setItem('estado', conservacao)
-                        console.log(banner)
                         window.location.href = '../HTML/anuncioFinal.html';
                     }
                     else {
@@ -324,11 +324,14 @@ function vendaDigital() {
                     }
                     if (valid) {
                         var descricao = data[j].descricao;
-                        var imagemCapa = data[j].capa
 
-                        var banner = "//i.imgur.com/H0aPSFh.jpeg"
+                        var banner = "NULL"
                         if (JSON.stringify(data[j].banner) != '{}' && (JSON.stringify(data[j].banner) != '{ }')) {
                             banner = data[j].banner
+                        }
+                        var imagemCapa = "//i.imgur.com/YavjSRr.jpg"
+                        if (JSON.stringify(data[j].capa) != '{}' && (JSON.stringify(data[j].capa) != '{ }')) {
+                            imagemCapa = data[j].capa
                         }
 
                         var print = data[j].screenshots;

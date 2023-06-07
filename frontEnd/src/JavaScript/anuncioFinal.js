@@ -65,12 +65,11 @@ function confirmar() {
     var novoBanner = banner.replace(/\//g, '*');
     var novasPrints = prints.replace(/\//g, '*');
 
-    fetch(`https://reyouseback.azurewebsites.net/${tipoCad}/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/ /${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estado}`)
+    fetch(`https://reyouseback.azurewebsites.net/${tipoCad}/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/NULL/${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estado}`)
         .then(response => response.text())
         .then(data => {
             if (data = 'Anuncio cadastrado com sucesso!') {
                 alert('Enviado')
-                console.log(novoBanner)
                 limparLocalStorage()
                 window.location.href = './infosUsuario.html'
             }
