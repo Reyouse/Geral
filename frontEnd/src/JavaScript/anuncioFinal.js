@@ -17,7 +17,14 @@ var banner = localStorage.getItem('banner')
 var prints = localStorage.getItem('prints')
 var idPerfil = localStorage.getItem('idPerfil')
 var preco = localStorage.getItem('preco')
-var estadoDeConservacao = localStorage.getItem('estado')
+if(localStorage.getItem('acesso')) {
+    var estado = localStorage.getItem('acesso')
+    var tipoCad = 'cadastramidiavirtual'
+}
+else {
+    var estado = localStorage.getItem('estado')
+    var tipoCad = 'cadastramidiafisica'
+}
 
 function infoJogo() {
 
@@ -57,13 +64,14 @@ function confirmar() {
     var novaCapa = capa.replace(/\//g, '*');
     var novoBanner = banner.replace(/\//g, '*');
     var novasPrints = prints.replace(/\//g, '*');
-    
-    fetch(`https://reyouseback.azurewebsites.net/cadastramidiafisica/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/ /${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estadoDeConservacao}`)
+
+    fetch(`https://reyouseback.azurewebsites.net/${tipoCad}/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/ /${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estado}`)
         .then(response => response.text())
         .then(data => {
             if (data = 'Anuncio cadastrado com sucesso!') {
                 alert('Enviado')
                 console.log(novoBanner)
+                limparLocalStorage()
                 window.location.href = './infosUsuario.html'
             }
             else {
@@ -73,6 +81,18 @@ function confirmar() {
         .catch(error => {
             console.error('Ocorreu um erro:', error);
         });
+}
+
+function limparLocalStorage() {
+    localStorage.removeItem('nomeDaPlataforma');
+    localStorage.removeItem('nomeDoJogo');
+    localStorage.removeItem('descricao');
+    localStorage.removeItem('capa');
+    localStorage.removeItem('banner');
+    localStorage.removeItem('prints');
+    localStorage.removeItem('preco');
+    localStorage.removeItem('estado');
+    localStorage.removeItem('acesso');
 }
 
 infoJogo()
