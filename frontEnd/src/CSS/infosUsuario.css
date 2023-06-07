@@ -411,3 +411,22 @@ footer #logo {
   margin-right: 10px;
   border: 1px solid #F8AF40;
 }
+
+#btnDadosConfirmar {
+  font-size: 14px;
+  background-color: #202020;
+  color: #F7F7F7;
+  border-radius: 20px;
+  padding: 10px 25px 10px 25px;
+  margin-right: 10px;
+  border: 1px solid #F7F7F7;
+}
+
+#btnDadosConfirmar:hover {
+  background-color: #202020;
+  color: #F8AF40;
+  border-radius: 20px;
+  padding: 10px 25px 10px 25px;
+  margin-right: 10px;
+  border: 1px solid #F8AF40;
+}
