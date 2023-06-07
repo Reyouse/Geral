@@ -562,14 +562,12 @@ function suaFuncaoDePagamento() {
         fetch(`https://reyouseback.azurewebsites.net/compra/${produtos[i]}/${ano}-${mes}-${dia}/${idPerfil}`)
             .then(response => response.text())
             .then(data => {
-                if (data = 'Compra finalizada com sucesso') {
-                    console.log(data);
+                if (data == 'Compra finalizada com sucesso') {
                     alert("Compra Bem Sucedida!")
                     var divs = document.querySelectorAll('div[id="itemCarrinho"]');
                     for (var i = 0; i < divs.length; i++) {
                         divs[i].parentNode.removeChild(divs[i]);
                     }
-                    
                 }
                 else {
                     alert('ERROR')
