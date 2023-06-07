@@ -141,7 +141,7 @@ button:hover {
 
 #btnDuvida {
     position: relative;
-    top: 2cm;
+    top: 2.5cm;
 }
 
 #socialMedia:hover,
@@ -167,7 +167,7 @@ a {
 }
 
 footer #logo {
-    width: 12%;
+    width: 14%;
 }
 
 /* Estilizando modal */
