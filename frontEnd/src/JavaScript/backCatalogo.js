@@ -165,7 +165,7 @@ function pesquisaCatalogo() {
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
             cartIcon.setAttribute("id", "cardCart");
             cartIcon.setAttribute("data-bs-toggle", "modal");
-            cartIcon.setAttribute("data-bs-target", "#exampleModal");
+            cartIcon.setAttribute("data-bs-target", "#exampleModal1");
             cartIcon.style.cursor = "pointer";
 
             aICon.appendChild(cartIcon)
