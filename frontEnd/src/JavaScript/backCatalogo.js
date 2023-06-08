@@ -163,7 +163,9 @@ function pesquisaCatalogo() {
             // Cria o ícone do carrinho
             var cartIcon = document.createElement("i");
             cartIcon.setAttribute("class", "add-to-cart fas fa-shopping-cart");
-            cartIcon.setAttribute("id", "cardCart")
+            cartIcon.setAttribute("id", "cardCart");
+            cartIcon.setAttribute("data-bs-toggle", "modal");
+            cartIcon.setAttribute("data-bs-target", "#exampleModal");
             cartIcon.style.cursor = "pointer";
 
             aICon.appendChild(cartIcon)
@@ -495,7 +497,7 @@ function chamarFuncao(idProduto, id) {
       .then(data => {
         for (let i = 0; i < data.length; i++) {
           if (data[i].idAnuncio == idProduto) {
-            alert('Produto já presente no carrinho')
+            //alert('Produto já presente no carrinho')
             valid = false
             break
           }
@@ -505,7 +507,7 @@ function chamarFuncao(idProduto, id) {
             .then(response => response.text())
             .then(data => {
               if (data == `Anúncio ${idProduto} adicionado ao carrinho.`) {
-                alert('Produto adicionado no carrinho');
+                //alert('Produto adicionado no carrinho');
                 const filho = id.querySelector('#cardCart');
                 filho.className += 'fa-solid fa-check';
               }

@@ -77,7 +77,7 @@
 
               <div id="precoECarrinho" style="display: flex; justify-content: space-between; padding-right: 1.8cm;">
                 <span id="precoJogo"><b></b></span>
-                <button id="cartAdd" style="border: none; background-color: #F7F7F7;">
+                <button id="cartAdd" style="border: none; background-color: #F7F7F7;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i style="font-size: 30px; color:  #1B2838;" class="fa-solid fa-cart-plus"></i>
                 </button>
                 <button id="cartCheck" style="border: none; background-color: #F7F7F7; display: none;">
@@ -85,6 +85,18 @@
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal mensagem de produto adicionado ao carrinho -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div style="background-color: #1B2838; border: 2px solid #171A21;" class="modal-content">
+          <div class="modal-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; row-gap: 20px;">
+            <h5 style="color: #F8AF40;" class="modal-title">Produto adicionado ao carrinho!</h5>
+            <button type="button" class="btn btn-primary" id="postConfirms" class="btn-close" data-bs-dismiss="modal" aria-label="Close">OK</button>
           </div>
         </div>
       </div>
