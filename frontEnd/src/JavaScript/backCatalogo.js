@@ -497,6 +497,8 @@ function chamarFuncao(idProduto, id) {
       .then(data => {
         for (let i = 0; i < data.length; i++) {
           if (data[i].idAnuncio == idProduto) {
+            var modalCart = document.getElementById('modalCarrinho')
+            modalCart.innerText = 'Produto Já Presente No Carrinho!'
             //alert('Produto já presente no carrinho')
             valid = false
             break
@@ -519,6 +521,9 @@ function chamarFuncao(idProduto, id) {
         else {
           const filho = id.querySelector('#cardCart');
           filho.className += 'fa-solid fa-check';
+          filho.removeAttribute("data-bs-toggle");
+          filho.removeAttribute("data-bs-target");
+
         }
       })
       .catch(error => {
