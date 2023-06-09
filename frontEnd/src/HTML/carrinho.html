@@ -143,23 +143,35 @@
                       <p style="color: #F8AF40; font-weight: 600; font-size: 19px;" class="mb-2">R$ 120,00</p>
                     </div>
 
-                    <button id="btnFinalizarCompra" type="button" class="btn btn-block btn-lg">
+                    <button id="btnFinalizarCompra" type="button" class="btn btn-block btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                       <div class="d-flex justify-content-between">
                         <span>Finalizar compra</span>
                       </div>
                     </button>
-
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
+
+    <!-- Modal que exibe as informações da compra -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #1B2838; border: 2px solid #171A21;" class="modal-content">
+        <div class="modal-body" style="display: flex; flex-direction: column; justify-content: start; align-items: start; row-gap: 15px;">
+          <h5 style="color: #F8AF40;" class="modal-title">Nome do jogo: </h5>
+          <h5 style="color: #F8AF40;" class="modal-title">E-mail: </h5>
+          <h5 style="color: #F8AF40;" class="modal-title">Celular: </h5>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <button type="button" class="btn btn-primary" id="postConfirms" class="btn-close" style="font-weight: bold;" data-bs-dismiss="modal" aria-label="Close">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
 
   <footer id="rodape">

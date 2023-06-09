@@ -581,7 +581,7 @@ function suaFuncaoDePagamento() {
                             fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${numero}`)
                                 .then(responses => responses.json())
                                 .then(datas => {
-                                    alert('Jogo: ' + nameGame + '\n' + "Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
+                                    //alert('Jogo: ' + nameGame + '\n' + "Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
                                     remover(numero, false);
                                     setTimeout(() => {
                                         processarCompra(index + 1);
