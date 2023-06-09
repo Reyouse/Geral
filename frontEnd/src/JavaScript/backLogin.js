@@ -6,10 +6,10 @@ function login() {
         .then(response => response.text())
         .then(data => {
             if (data == "Usuário não existe") {
-                alert(data)
+                //alert(data)
             }
             else if (data == "Senha incorreta") {
-                alert(data)
+                //alert(data)
             }
             else {
                 fetch(`https://reyouseback.azurewebsites.net/login/${nome}/${senha}`)
