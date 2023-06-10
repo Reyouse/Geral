@@ -64,20 +64,43 @@ function vendaFisica() {
 
                 var url = "https://reyouseback.azurewebsites.net/pesquisaigdb/" + searchTerm;
 
+                $(".spinner-border").removeClass("d-none");
+                $("#naoAchouF").addClass("d-none");
+
+                if (searchTerm === "") {
+                    $("#naoAchouF").removeClass("d-none");
+                    $(".spinner-border").addClass("d-none");
+                    return;
+                }
+
                 $.ajax({
                     url: url,
                     dataType: "json",
                     success: function (data) {
-                        var options = data.map(function (item) {
-                            return item.nome; // Extrai o nome do jogo do objeto JSON
-                        });
+                        $(".spinner-border").addClass("d-none");
 
-                        response(options);
+                        if (data.length === 0) {
+                            $("#naoAchouF").removeClass("d-none");
+                        } else {
+                            $("#naoAchouF").addClass("d-none");
+                            var options = data.map(function (item) {
+                                return item.nome;
+                            });
+
+                            response(options);
+                        }
+                    },
+                    error: function () {
+                        $(".spinner-border").addClass("d-none");
+                        $("#naoAchouF").removeClass("d-none");
                     }
                 });
             }
         });
     });
+
+
+
 
     function validarPrecoF() {
         const inputPreco = document.getElementById("precoF");
@@ -193,15 +216,35 @@ function vendaDigital() {
 
                 var url = "https://reyouseback.azurewebsites.net/pesquisaigdb/" + searchTerm;
 
+                $(".spinner-border").removeClass("d-none");
+                $("#naoAchouD").addClass("d-none");
+
+                if (searchTerm === "") {
+                    $("#naoAchouD").removeClass("d-none");
+                    $(".spinner-border").addClass("d-none");
+                    return;
+                }
+
                 $.ajax({
                     url: url,
                     dataType: "json",
                     success: function (data) {
-                        var options = data.map(function (item) {
-                            return item.nome; // Extrai o nome do jogo do objeto JSON
-                        });
+                        $(".spinner-border").addClass("d-none");
 
-                        response(options);
+                        if (data.length === 0) {
+                            $("#naoAchouD").removeClass("d-none");
+                        } else {
+                            $("#naoAchouD").addClass("d-none");
+                            var options = data.map(function (item) {
+                                return item.nome;
+                            });
+
+                            response(options);
+                        }
+                    },
+                    error: function () {
+                        $(".spinner-border").addClass("d-none");
+                        $("#naoAchouD").removeClass("d-none");
                     }
                 });
             }
