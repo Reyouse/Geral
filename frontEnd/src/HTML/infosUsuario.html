@@ -111,7 +111,13 @@
           <form id="formF" class="box-container boxx-anuncio">
             <div class="mb-3">
               <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
-              <input type="text" id="nome_jogoF" class="form-control" name="nome_jogo" required>
+              <div class="d-flex align-items-center">
+                <input type="text" id="nome_jogoF" class="form-control" name="nome_jogo" required>
+                <div class="spinner-border text-warning d-none" role="status" style="margin-left: 10px;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="d-none" id="naoAchouF" style="background-color: #F8AF40; color: #252525; margin-left: 10px; margin-top: 13px; border-radius: 7px;padding: 3px;">Jogo Não Encontrado</p>
+              </div>     
             </div>
 
             <div class="mb-3">
@@ -165,7 +171,13 @@
           <form id="formD" class="box-container boxx-anuncio">
             <div class="mb-3">
               <label id="infosAnuncio" for="nome_jogo" class="form-label">Nome do Jogo:</label>
-              <input type="text" id="nome_jogoD" class="form-control" name="nome_jogo" required>
+              <div class="d-flex align-items-center">
+                <input type="text" id="nome_jogoD" class="form-control" name="nome_jogo" required>
+                <div class="spinner-border text-warning d-none" role="status" style="margin-left: 10px;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="d-none" id="naoAchouD" style="background-color: #F8AF40; color: #252525; margin-left: 10px; margin-top: 13px; border-radius: 7px;padding: 3px;">Jogo Não Encontrado</p>
+              </div>  
             </div>
 
             <div class="mb-3">
