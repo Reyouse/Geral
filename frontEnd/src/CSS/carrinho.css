@@ -198,6 +198,7 @@ footer #logo {
   font-size: 16px;
 }
 
+#postConfirmss,
 #postConfirms{
   position: relative;
   bottom: 10px;
@@ -207,6 +208,11 @@ footer #logo {
   border-color:#008000;
 }
 
+#postConfirmss:hover,
 #postConfirms:hover{
   border-color: #171A21;
+}
+
+.modal-body {
+  align-items: center !important;
 }
