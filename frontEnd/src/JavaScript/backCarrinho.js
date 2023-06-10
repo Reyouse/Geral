@@ -398,6 +398,7 @@ function cartoes() {
                                 .then(data => {
                                     if (data == 'Cartão registrado com sucesso') {
                                         alert(data)
+                                        window.location.reload()
                                     }
                                     else {
                                         alert(data)
@@ -563,6 +564,25 @@ function suaFuncaoDePagamento() {
     var mes = data.getMonth() + 1; // Os meses começam a partir de zero, então somamos 1
     var ano = data.getFullYear();
 
+    function mostrarModal(nameGame, email, celular) {
+        return new Promise((resolve) => {
+            // Preencha o conteúdo do modal
+            document.getElementById("modalNome").textContent = "Nome do jogo: " + nameGame;
+            document.getElementById("modalEmail").textContent = "E-mail: " + email;
+            document.getElementById("modalCelular").textContent = "Celular: " + celular;
+
+            // Mostrar o modal
+            var modal = new bootstrap.Modal(document.getElementById('exampleModal1'));
+            modal.show();
+
+            // Aguardar o usuário pressionar o botão "OK"
+            document.getElementById("postConfirms").addEventListener("click", () => {
+                modal.hide();
+                resolve();
+            });
+        });
+    }
+
     function processarCompra(index) {
         if (index >= produtos.length) {
             location.reload();
@@ -581,11 +601,17 @@ function suaFuncaoDePagamento() {
                             fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${numero}`)
                                 .then(responses => responses.json())
                                 .then(datas => {
-                                    //alert('Jogo: ' + nameGame + '\n' + "Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
-                                    remover(numero, false);
-                                    setTimeout(() => {
-                                        processarCompra(index + 1);
-                                    }, 1000);
+                                    // Mostrar o modal e esperar pela confirmação do usuário
+                                    mostrarModal(nameGame, datas[0].email, datas[0].celular)
+                                        .then(() => {
+                                            remover(numero, false);
+                                            setTimeout(() => {
+                                                processarCompra(index + 1);
+                                            }, 1000);
+                                        })
+                                        .catch(error => {
+                                            console.error('Ocorreu um erro:', error);
+                                        });
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro:', error);
