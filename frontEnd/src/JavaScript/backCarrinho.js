@@ -585,9 +585,9 @@ function suaFuncaoDePagamento() {
     function mostrarModal(nameGame, email, celular) {
         return new Promise((resolve) => {
             // Preencha o conteúdo do modal
-            document.getElementById("modalNome").textContent = "Nome do jogo: " + nameGame;
-            document.getElementById("modalEmail").textContent = "E-mail: " + email;
-            document.getElementById("modalCelular").textContent = "Celular: " + celular;
+            document.getElementById("modalNome").innerHTML = `<span style="color: #f8af40">Nome do jogo:</span> ` + nameGame;
+            document.getElementById("modalEmail").innerHTML = `<span style="color: #f8af40">E-mail:</span> ` + email;
+            document.getElementById("modalCelular").innerHTML = `<span style="color: #f8af40">Celular:</span> ` + celular;
 
             // Mostrar o modal
             var modal = new bootstrap.Modal(document.getElementById('exampleModal1'));
