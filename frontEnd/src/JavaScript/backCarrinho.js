@@ -327,7 +327,7 @@ function remover(id, valid) {
         .then(response => response.text())
         .then(data => {
             if (data != `Anuncio ${id} removido`) {
-                alert(data)
+
             }
             else {
                 if (valid) {
@@ -351,26 +351,35 @@ function cartoes() {
             var cvv = document.getElementById('typeTextCvc').value.trim();
 
             if (titular.length < 3) {
-                alert('Erro no campo "Titular"');
-                document.getElementById('typeName').focus();
+                // Mostrar o modal
+                var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                var modalH = document.getElementById('modalError')
+                modalH.textContent = 'ERRO NO CAMPO "TITULAR"'
+                modal.show();
                 return;
             }
 
-            if (numeroCartao.length !== 19) {
-                alert('Erro no campo "Número do Cartão"');
-                document.getElementById('typeText').focus();
+            else if (numeroCartao.length !== 19) {
+                var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                var modalH = document.getElementById('modalError')
+                modalH.textContent = 'ERRO NO CAMPO "NÚMERO DO CARTÃO"'
+                modal.show();
                 return;
             }
 
-            if (validade.length !== 7) {
-                alert('Erro no campo "Validade"');
-                document.getElementById('typeExp').focus();
+            else if (validade.length !== 7) {
+                var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                var modalH = document.getElementById('modalError')
+                modalH.textContent = 'ERRO NO CAMPO "VALIDADE"'
+                modal.show();
                 return;
             }
 
-            if (cvv.length !== 3) {
-                alert('Erro no campo "CVV"');
-                document.getElementById('typeTextCvc').focus();
+            else if (cvv.length !== 3) {
+                var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                var modalH = document.getElementById('modalError')
+                modalH.textContent = 'ERRO NO CAMPO "CVV"'
+                modal.show();
                 return;
             }
 
@@ -386,7 +395,10 @@ function cartoes() {
                 .then(data => {
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].numeroCartao == numeroCartao) {
-                            alert("Cartao já cadastrado!");
+                            var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                            var modalH = document.getElementById('modalError')
+                            modalH.textContent = 'CARTÃO JÁ CADASTRADO!'
+                            modal.show();
                             val = false
                             break
                         }
@@ -397,7 +409,11 @@ function cartoes() {
                                 .then(response => response.text())
                                 .then(data => {
                                     if (data == 'Cartão registrado com sucesso') {
-                                        alert(data)
+                                        var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+                                        var modalH = document.getElementById('modalError')
+                                        modalH.textContent = 'CARTÃO REGISTRADO COM SUCESSO!'
+                                        modal.show();
+                                        window.location.reload()
                                     }
                                     else {
                                         alert(data)
@@ -549,7 +565,10 @@ document.getElementById('btnFinalizarCompra').addEventListener('click', function
     var cvv = document.getElementById('typeTextCvc').value.trim();
 
     if (titular.length < 4 || numero.length < 19 || validade.length < 7 || cvv.length < 3) {
-        alert('Por favor, preencha todos os campos corretamente.');
+        var modal = new bootstrap.Modal(document.getElementById('exampleModal2'));
+        var modalH = document.getElementById('modalError')
+        modalH.textContent = 'POR FAVOR, PREENCHA TODOS OS CAMPOS CORRETAMENTE!'
+        modal.show();
         return;
     }
 
@@ -562,6 +581,25 @@ function suaFuncaoDePagamento() {
     var dia = data.getDate();
     var mes = data.getMonth() + 1; // Os meses começam a partir de zero, então somamos 1
     var ano = data.getFullYear();
+
+    function mostrarModal(nameGame, email, celular) {
+        return new Promise((resolve) => {
+            // Preencha o conteúdo do modal
+            document.getElementById("modalNome").innerHTML = `<span style="color: #f8af40">Nome do jogo:</span> ` + nameGame;
+            document.getElementById("modalEmail").innerHTML = `<span style="color: #f8af40">E-mail:</span> ` + email;
+            document.getElementById("modalCelular").innerHTML = `<span style="color: #f8af40">Celular:</span> ` + celular;
+
+            // Mostrar o modal
+            var modal = new bootstrap.Modal(document.getElementById('exampleModal1'));
+            modal.show();
+
+            // Aguardar o usuário pressionar o botão "OK"
+            document.getElementById("postConfirms").addEventListener("click", () => {
+                modal.hide();
+                resolve();
+            });
+        });
+    }
 
     function processarCompra(index) {
         if (index >= produtos.length) {
@@ -581,11 +619,17 @@ function suaFuncaoDePagamento() {
                             fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${numero}`)
                                 .then(responses => responses.json())
                                 .then(datas => {
-                                    alert('Jogo: ' + nameGame + '\n' + "Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
-                                    remover(numero, false);
-                                    setTimeout(() => {
-                                        processarCompra(index + 1);
-                                    }, 1000);
+                                    // Mostrar o modal e esperar pela confirmação do usuário
+                                    mostrarModal(nameGame, datas[0].email, datas[0].celular)
+                                        .then(() => {
+                                            remover(numero, false);
+                                            setTimeout(() => {
+                                                processarCompra(index + 1);
+                                            }, 1000);
+                                        })
+                                        .catch(error => {
+                                            console.error('Ocorreu um erro:', error);
+                                        });
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro:', error);

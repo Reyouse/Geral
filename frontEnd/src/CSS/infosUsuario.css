@@ -430,3 +430,33 @@ footer #logo {
   margin-right: 10px;
   border: 1px solid #F8AF40;
 }
+
+#postConfirms,
+#postConfirmss,
+#postConfirms2,
+#postCancel {
+  position: relative;
+  bottom: 10px;
+  border: 2px solid;
+  font-weight: 700;
+}
+
+#postConfirms:hover,
+#postConfirmss:hover,
+#postConfirms:hover,
+#postCancel:hover {
+  border-color: #171A21;
+}
+
+#postConfirms,
+#postConfirmss,
+#postConfirms2 {
+  background-color: #00a000;
+  border-color: #008000;
+}
+
+#postCancel {
+  background-color: #dc3545;
+  border-color: #B22222;
+  right: 22px;
+}
