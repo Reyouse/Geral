@@ -88,14 +88,14 @@ function createNav() {
     dropdownUl.className = 'dropdown-menu dropdown-menu-end';
 
     // Cria os elementos li e a para cada item do dropdown
-    var dropdownItems = ['Minha conta', 'Anunciar', 'Meus pedidos', 'Sair'];
+    var dropdownItems = ['Minha Conta', 'Anunciar', 'Meus Pedidos', 'Meus Anúncios', 'Sair'];
     for (var i = 0; i < dropdownItems.length; i++) {
         var dropdownLiItem = document.createElement('li');
         var dropdownLink = document.createElement('a');
         dropdownLink.id = "idOpcoes"
         dropdownLink.style.cursor = "pointer"
 
-        if (i === 3) {
+        if (i === 4) {
             dropdownLink.onclick = sairUser;
             dropdownLink.href = "./index.html";
         }
@@ -187,14 +187,17 @@ function pesquisar() {
 function buttonClicked(event) {
     var buttonText = event.target.textContent;
 
-    if (buttonText === 'Minha conta') {
+    if (buttonText === 'Minha Conta') {
         localStorage.setItem('opcao', 'my-account')
         window.location.href = './infosUsuario.html';
     } else if (buttonText === 'Anunciar') {
         localStorage.setItem('opcao', 'anuncio')
         window.location.href = './infosUsuario.html';
-    } else if (buttonText === 'Meus pedidos') {
+    } else if (buttonText === 'Meus Pedidos') {
         localStorage.setItem('opcao', 'my-orders')
+        window.location.href = './infosUsuario.html';
+    } else if (buttonText === 'Meus Anúncios') {
+        localStorage.setItem('opcao', 'my-adverts')
         window.location.href = './infosUsuario.html';
     }
 }
