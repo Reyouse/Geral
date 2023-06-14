@@ -414,7 +414,7 @@ function createPlayElement(divPai) {
 
   var divInterna1 = document.createElement("div");
   divInterna1.className = "d-inline-flex justify-content-center align-items-center";
-  divInterna1.style.width = "42px";
+  divInterna1.style.width = "25px";
   divInterna1.style.height = "9px";
 
   var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
