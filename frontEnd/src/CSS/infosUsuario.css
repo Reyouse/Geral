@@ -96,8 +96,6 @@ header #logo {
   border-radius: 20px !important;
 }
 
-
-
 /*Estilizando os containers */
 #welcome {
   cursor: default;
@@ -209,7 +207,6 @@ header #logo {
   background-color: #202020;
   color: #f7f7f7;
   border: 1px solid #F7F7F7;
-  cursor: pointer;
 }
 
 #anuncio-fisico,
@@ -433,7 +430,7 @@ footer #logo {
 
 #postConfirms,
 #postConfirmss,
-#postConfirms2,
+#postConfirmsss,
 #postCancel {
   position: relative;
   bottom: 10px;
@@ -443,14 +440,14 @@ footer #logo {
 
 #postConfirms:hover,
 #postConfirmss:hover,
-#postConfirms:hover,
+#postConfirmsss:hover,
 #postCancel:hover {
   border-color: #171A21;
 }
 
 #postConfirms,
 #postConfirmss,
-#postConfirms2 {
+#postConfirmsss{
   background-color: #00a000;
   border-color: #008000;
 }
@@ -459,4 +456,8 @@ footer #logo {
   background-color: #dc3545;
   border-color: #B22222;
   right: 22px;
+}
+
+.modal-header {
+  display: block;
 }
