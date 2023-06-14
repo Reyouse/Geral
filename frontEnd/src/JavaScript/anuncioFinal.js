@@ -70,15 +70,14 @@ function confirmar() {
         .then(response => response.text())
         .then(data => {
             if (data == 'Anuncio cadastrado com sucesso!') {
-                alert('Enviado')
-                limparLocalStorage()
-                window.location.href = './infosUsuario.html'
+                limparLocalStorage();
             }
             else {
                 alert('ERROR')
             }
         })
         .catch(error => {
+            alert('ERROR')
             console.error('Ocorreu um erro:', error);
         });
 }
@@ -94,5 +93,10 @@ function limparLocalStorage() {
     localStorage.removeItem('estado');
     localStorage.removeItem('acesso');
 }
+
+var botaoOkay = document.getElementById('postConfirms2')
+botaoOkay.addEventListener('click', ()=>{
+    window.location.href = "./infosUsuario.html";
+});
 
 infoJogo()

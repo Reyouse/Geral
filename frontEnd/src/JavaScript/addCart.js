@@ -9,7 +9,8 @@ function minhaFuncao() {
             .then(data => {
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].idAnuncio == idProduto) {
-                        alert('Produto já presente no carrinho')
+                        var modalCart = document.getElementById('modalCarrinho')
+                        modalCart.innerText = 'Produto Já Presente No Carrinho!'
                         valid = false
                         break
                     }
@@ -19,7 +20,6 @@ function minhaFuncao() {
                         .then(response => response.text())
                         .then(data => {
                             if (data == `Anúncio ${idProduto} adicionado ao carrinho.`) {
-                                alert('Produto adicionado no carrinho');
                             }
                         })
                         .catch(error => {
@@ -27,8 +27,7 @@ function minhaFuncao() {
                         });
                 }
                 else {
-                    $('#cartAdd').show();
-                    $('#cartCheck').hide();
+
                 }
             })
             .catch(error => {

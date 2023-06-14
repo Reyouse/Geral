@@ -16,7 +16,11 @@ function vendaFisica() {
                 publicarF(nomeJogo, preco, plataformaSelecionada, conservacaoSelecionada)
             }
             else {
-                alert('Nome de Jogo Invalido!')
+                var modal = document.querySelector('.modalSenhaIncorreta');
+                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
+                var modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
             }
         }
 
@@ -64,20 +68,43 @@ function vendaFisica() {
 
                 var url = "https://reyouseback.azurewebsites.net/pesquisaigdb/" + searchTerm;
 
+                $(".spinner-border").removeClass("d-none");
+                $("#naoAchouF").addClass("d-none");
+
+                if (searchTerm === "") {
+                    $("#naoAchouF").removeClass("d-none");
+                    $(".spinner-border").addClass("d-none");
+                    return;
+                }
+
                 $.ajax({
                     url: url,
                     dataType: "json",
                     success: function (data) {
-                        var options = data.map(function (item) {
-                            return item.nome; // Extrai o nome do jogo do objeto JSON
-                        });
+                        $(".spinner-border").addClass("d-none");
 
-                        response(options);
+                        if (data.length === 0) {
+                            $("#naoAchouF").removeClass("d-none");
+                        } else {
+                            $("#naoAchouF").addClass("d-none");
+                            var options = data.map(function (item) {
+                                return item.nome;
+                            });
+
+                            response(options);
+                        }
+                    },
+                    error: function () {
+                        $(".spinner-border").addClass("d-none");
+                        $("#naoAchouF").removeClass("d-none");
                     }
                 });
             }
         });
     });
+
+
+
 
     function validarPrecoF() {
         const inputPreco = document.getElementById("precoF");
@@ -169,11 +196,19 @@ function vendaFisica() {
                         window.location.href = '../HTML/anuncioFinal.html';
                     }
                     else {
-                        alert('Nome de Jogo Invalido!')
+                        var modal = document.querySelector('.modalSenhaIncorreta');
+                        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                        modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
+                        var modalInstance = new bootstrap.Modal(modal);
+                        modalInstance.show();
                     }
                 }
                 else {
-                    alert('Nome de Jogo Invalido!');
+                    var modal = document.querySelector('.modalSenhaIncorreta');
+                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                    modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
+                    var modalInstance = new bootstrap.Modal(modal);
+                    modalInstance.show();
                 }
             })
             .catch(error => {
@@ -193,15 +228,35 @@ function vendaDigital() {
 
                 var url = "https://reyouseback.azurewebsites.net/pesquisaigdb/" + searchTerm;
 
+                $(".spinner-border").removeClass("d-none");
+                $("#naoAchouD").addClass("d-none");
+
+                if (searchTerm === "") {
+                    $("#naoAchouD").removeClass("d-none");
+                    $(".spinner-border").addClass("d-none");
+                    return;
+                }
+
                 $.ajax({
                     url: url,
                     dataType: "json",
                     success: function (data) {
-                        var options = data.map(function (item) {
-                            return item.nome; // Extrai o nome do jogo do objeto JSON
-                        });
+                        $(".spinner-border").addClass("d-none");
 
-                        response(options);
+                        if (data.length === 0) {
+                            $("#naoAchouD").removeClass("d-none");
+                        } else {
+                            $("#naoAchouD").addClass("d-none");
+                            var options = data.map(function (item) {
+                                return item.nome;
+                            });
+
+                            response(options);
+                        }
+                    },
+                    error: function () {
+                        $(".spinner-border").addClass("d-none");
+                        $("#naoAchouD").removeClass("d-none");
                     }
                 });
             }
@@ -250,10 +305,18 @@ function vendaDigital() {
                 if (emailRegex.test(email)) {
                     publicarD(nomeJogo, preco, plataformaSelecionada, email, senha);
                 } else {
-                    alert("O email é inválido");
+                    var modal = document.querySelector('.modalSenhaIncorreta');
+                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                    modalH.innerHTML = '<b>O E-MAIL É INVÁLIDO!</b>';
+                    var modalInstance = new bootstrap.Modal(modal);
+                    modalInstance.show();
                 }
             } else {
-                alert('Preencha todos os campos obrigatórios!');
+                var modal = document.querySelector('.modalSenhaIncorreta');
+                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                modalH.innerHTML = '<b>PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS!</b>';
+                var modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
             }
         }
 
@@ -349,11 +412,19 @@ function vendaDigital() {
                         window.location.href = '../HTML/anuncioFinal.html';
                     }
                     else {
-                        alert('Nome de Jogo Invalido!')
+                        var modal = document.querySelector('.modalSenhaIncorreta');
+                        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                        modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
+                        var modalInstance = new bootstrap.Modal(modal);
+                        modalInstance.show();
                     }
                 }
                 else {
-                    alert('Nome de Jogo Invalido!');
+                    var modal = document.querySelector('.modalSenhaIncorreta');
+                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                    modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
+                    var modalInstance = new bootstrap.Modal(modal);
+                    modalInstance.show();
                 }
             })
             .catch(error => {

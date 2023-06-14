@@ -175,20 +175,25 @@ function carregar() {
 
                         function handleClick(event) {
                             var buttonId = event.target.name;
-                            var confirmation = confirm("Tem certeza que recebeu o produto?");
-                            if (confirmation) {
+
+                            // Abrir o modal
+                            $('#exampleModal2').modal('show');
+
+                            // Evento de clique no botão de confirmação
+                            $('#postConfirmss').click(function () {
                                 fetch(`https://reyouseback.azurewebsites.net/confirmarecebimento/${buttonId}`)
                                     .then(responses => responses.text())
                                     .then(datas => {
                                         if (datas == `Anuncio ${buttonId} marcado como recebido`) {
                                             window.location.reload();
                                         }
-                                        console.log(datas)
+                                        console.log(datas);
                                     })
                                     .catch(error => {
                                         console.error('Ocorreu um erro:', error);
-                                    })
-                            }
+                                    });
+                            });
+
 
                         }
                         function handleClick2(event) {
@@ -196,8 +201,11 @@ function carregar() {
                             fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${buttonId}`)
                                 .then(responses => responses.json())
                                 .then(datas => {
-                                    alert("Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
-
+                                    var modal = document.querySelector('.modalSenhaIncorreta');
+                                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                                    modalH.innerHTML = `<b>Email: ${datas[0].email}</b><h5 style="color: #F8AF40;" class="modal-title"><b>Celular: ${datas[0].celular}</b></h5>`;
+                                    var modalInstance = new bootstrap.Modal(modal);
+                                    modalInstance.show();
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro:', error);
@@ -251,20 +259,24 @@ function carregar() {
 
                     function handleClick(event) {
                         var buttonId = event.target.name;
-                        var confirmation = confirm("Tem certeza que recebeu o produto?");
-                        if (confirmation) {
+
+                        // Abrir o modal
+                        $('#exampleModal2').modal('show');
+
+                        // Evento de clique no botão de confirmação
+                        $('#postConfirmss').click(function () {
                             fetch(`https://reyouseback.azurewebsites.net/confirmarecebimento/${buttonId}`)
                                 .then(responses => responses.text())
                                 .then(datas => {
                                     if (datas == `Anuncio ${buttonId} marcado como recebido`) {
                                         window.location.reload();
                                     }
-                                    console.log(datas)
+                                    console.log(datas);
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro:', error);
-                                })
-                        }
+                                });
+                        });
                     }
 
                     function handleClick2(event) {
@@ -272,7 +284,11 @@ function carregar() {
                         fetch(`https://reyouseback.azurewebsites.net/contatovendedor/${buttonId}`)
                             .then(responses => responses.json())
                             .then(datas => {
-                                alert("Email: " + datas[0].email + '\n' + "Celular: " + datas[0].celular);
+                                var modal = document.querySelector('.modalSenhaIncorreta');
+                                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                                modalH.innerHTML = `<b>Email: ${datas[0].email}</b><h5 style="color: #F8AF40;" class="modal-title"><b>Celular: ${datas[0].celular}</b></h5>`;
+                                var modalInstance = new bootstrap.Modal(modal);
+                                modalInstance.show();
 
                             })
                             .catch(error => {
@@ -313,20 +329,18 @@ function carregar() {
                     .then(responses => responses.json())
                     .then(datas => {
                         var emailCampo = document.querySelector('#emailCampo' + element);
-                        let inputString = datas[0].formaDeAcesso
+                        let inputString = datas[0].formaDeAcesso;
                         let emailMatch = inputString.match(/(.*?)(?= -)/);
-                        let senhaMatch = inputString.match(/- (\d+)/);
+                        let senhaMatch = inputString.match(/- (\w+)/);
 
                         if (emailMatch && senhaMatch) {
                             let email = emailMatch[1];
                             let senha = senhaMatch[1];
                             let outputString = `E-mail: ${email} <br> Senha: ${senha}`;
-                            emailCampo.innerHTML = outputString
+                            emailCampo.innerHTML = outputString;
                         } else {
-                            emailCampo.innerHTML = datas[0].formaDeAcesso
+                            emailCampo.innerHTML = datas[0].formaDeAcesso;
                         }
-
-
                     })
                     .catch(error => {
                         console.error('Ocorreu um erro:', error);

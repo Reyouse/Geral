@@ -152,6 +152,7 @@ main h1{
   }
 
   #postConfirms,
+  #postConfirms2,
   #postCancel{
     position: relative;
     bottom: 10px;
@@ -160,11 +161,12 @@ main h1{
   }
 
   #postConfirms:hover,
+  #postConfirms:hover,
   #postCancel:hover{
     border-color: #171A21;
   }
 
-  #postConfirms{
+  #postConfirms, #postConfirms2{
     background-color: #00a000;
     border-color:#008000;
   }

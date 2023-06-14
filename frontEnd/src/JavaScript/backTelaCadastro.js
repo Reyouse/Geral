@@ -23,29 +23,49 @@ function validarCampos() {
         celular === "" ||
         sexoUsuario === ""
     ) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false;
     }
 
     // Verificar se a senha e a confirmação de senha são iguais
     if (senha.length > 20) {
-        alert("Senha muito grande, por favor, escolha outra")
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>SENHA MUITO GRANDE, POR FAVOR, ESCOLHA OUTRA!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false
     }
 
     if (senha !== confirmarSenha) {
-        alert("A senha e a confirmação de senha não correspondem.");
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>A SENHA E A CONFIRMAÇÃO DE SENHA NÃO CORRESPONDEM!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false;
     }
 
     // Valida E-mail
     if (email.length > 45) {
-        alert("E-mail muito grande, por favor, insira outro");
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>E-MAIL MUITO GRANDE, POR FAVOR, INSIRA OUTRO!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false
     }
 
     if (!validarEmail(email)) {
-        alert("Por favor, digite um e-mail válido.");
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>POR FAVOR, DIGITE UM E-MAIL VÁLIDO!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false
     }
 
@@ -57,20 +77,32 @@ function validarCampos() {
     var celularRegex = /^[0-9]{11}$/;
     celular = celular.replace("(", "").replace(")", "").replace("-", "")
     if (!celularRegex.test(celular)) {
-        alert("Por favor, digite um número de celular válido (apenas números).");
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>POR FAVOR, DIGITE UM NÚMERO DE CELULAR VÁLIDO (APENAS NÚMEROS)!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false;
     }
 
     // Valida Username
 
     if (username.length > 20) {
-        alert("Nome de usuário muito grande, por favor, escolha outro")
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>NOME DE USUÁRIO MUITO GRANDE, POR FAVOR, ESCOLHA OUTRO!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false
     }
 
     // Valida Nome
     if (nomeCompleto > 60) {
-        alert("Nome muito grande!")
+        var modal = document.querySelector('.modalSenhaIncorreta');
+        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+        modalH.innerHTML = '<b>NOME MUITO GRANDE, POR FAVOR, RETIRE NOMES COMPOSTOS!</b>'
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
         return false
     }
 
@@ -88,21 +120,33 @@ function validarCampos() {
         .then(response => response.text())
         .then(data => {
             if (!(data === "Email disponível")) {
-                alert("Email indisponível");
+                var modal = document.querySelector('.modalSenhaIncorreta');
+                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                modalH.innerHTML = '<b>E-MAIL INDISPONÍVEL, POR FAVOR, INSIRA OUTRO!</b>'
+                var modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
                 return false;
             }
             fetch('https://reyouseback.azurewebsites.net/valida-cpf/' + cpf)
                 .then(response => response.text())
                 .then(data => {
                     if (!(data === "CPF válido")) {
-                        alert("CPF inválido");
+                        var modal = document.querySelector('.modalSenhaIncorreta');
+                        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                        modalH.innerHTML = '<b>CPF INVÁLIDO, POR FAVOR, CONFIRA E INSIRA NOVAMENTE!</b>'
+                        var modalInstance = new bootstrap.Modal(modal);
+                        modalInstance.show();
                         return false;
                     }
                     fetch('https://reyouseback.azurewebsites.net/verifica-cpf/' + cpf)
                         .then(response => response.text())
                         .then(data => {
                             if (!(data === "CPF disponível")) {
-                                alert("CPF indisponível");
+                                var modal = document.querySelector('.modalSenhaIncorreta');
+                                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                                modalH.innerHTML = '<b>CPF INDISPONÍVEL, POR FAVOR, INSIRA OUTRO!</b>'
+                                var modalInstance = new bootstrap.Modal(modal);
+                                modalInstance.show();
                                 return false;
                             }
                             fetch('https://reyouseback.azurewebsites.net/verifica-username/' + username)
@@ -110,14 +154,28 @@ function validarCampos() {
                                 .then(data => {
                                     console.log(data);
                                     if (!(data === "Nome de usuário disponível")) {
-                                        alert(data);
+                                        var modal = document.querySelector('.modalSenhaIncorreta');
+                                        var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                                        modalH.innerHTML = '<b>NOME DE USUÁRIO INDISPONÍVEL, POR FAVOR, INSIRA OUTRO!</b>'
+                                        var modalInstance = new bootstrap.Modal(modal);
+                                        modalInstance.show();
                                         return false;
                                     }
                                     fetch(`https://reyouseback.azurewebsites.net/cadastro/${username}/${email}/${senha}/${nomeCompleto}/${cpf}/${celular}/${sexoUsuario}`)
                                         .then(response => response.text())
                                         .then(data => {
                                             if (data === `Usuário ${username} cadastrado com sucesso.`) {
-                                                window.location.href = '../HTML/telaAutenticacao.html';
+                                                var modal = document.querySelector('.modalSenhaIncorreta');
+                                                var modalH = document.querySelector('.modalSenhaIncorreta h5');
+                                                modalH.innerHTML = '<b>USUÁRIO CRIADO COM SUCESSO</b>';
+                                                var modalInstance = new bootstrap.Modal(modal);
+                                                modalInstance.show();
+
+                                                var btnOK = document.getElementById('postConfirms');
+                                                btnOK.addEventListener('click', function () {
+                                                    window.location.href = '../HTML/telaAutenticacao.html';
+                                                });
+
                                             }
                                             else {
                                                 alert(data)
