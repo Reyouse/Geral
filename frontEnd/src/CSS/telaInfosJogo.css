@@ -265,18 +265,18 @@ footer {
   height: auto;
 }
 
-#postConfirms{
-    position: relative;
-    bottom: 10px;
-    border: 2px solid;
-    font-weight: 700;
-    background-color: #00a000;
-    border-color:#008000;
-  }
+#postConfirms {
+  position: relative;
+  bottom: 10px;
+  border: 2px solid;
+  font-weight: 700;
+  background-color: #00a000;
+  border-color: #008000;
+}
 
-  #postConfirms:hover{
-    border-color: #171A21;
-  }
+#postConfirms:hover {
+  border-color: #171A21;
+}
 
 /* Rodapé */
 .blocoVertical {
