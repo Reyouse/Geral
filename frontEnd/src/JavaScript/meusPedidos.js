@@ -76,7 +76,6 @@ function carregar() {
                 }
 
                 var dataFormatada = dia + "/" + mes + "/" + ano;
-                var dataFormatada = dia + "/" + mes + "/" + ano;
 
                 dataCompra.textContent = `Data da compra: ${dataFormatada}`;
 
