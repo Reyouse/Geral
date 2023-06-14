@@ -101,8 +101,6 @@ function imagensJogo(produto) {
 function criarEstruturaPlay() {
     // Cria a div principal
     var divPrincipal = document.createElement("div");
-    divPrincipal.style.marginRight = "15px";
-    divPrincipal.style.marginLeft = "15px";
     divPrincipal.className = "plataforma align-items-start";
 
     // Cria o botão
@@ -217,7 +215,6 @@ function criarEstruturaXbox() {
 function criarEstruturaPC() {
     // Cria a div externa
     var divExterna = document.createElement("div");
-    divExterna.setAttribute("style", "margin-right: 15px;");
     divExterna.setAttribute("class", "plataforma");
 
     // Cria o botão

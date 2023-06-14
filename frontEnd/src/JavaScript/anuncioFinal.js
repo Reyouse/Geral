@@ -17,7 +17,7 @@ var banner = localStorage.getItem('banner')
 var prints = localStorage.getItem('prints')
 var idPerfil = localStorage.getItem('idPerfil')
 var preco = localStorage.getItem('preco')
-if(localStorage.getItem('acesso')) {
+if (localStorage.getItem('acesso')) {
     var estado = localStorage.getItem('acesso')
     var tipoCad = 'cadastramidiavirtual'
 }
@@ -95,7 +95,7 @@ function limparLocalStorage() {
 }
 
 var botaoOkay = document.getElementById('postConfirms2')
-botaoOkay.addEventListener('click', ()=>{
+botaoOkay.addEventListener('click', () => {
     window.location.href = "./infosUsuario.html";
 });
 
