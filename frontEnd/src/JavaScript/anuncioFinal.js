@@ -5,7 +5,12 @@ $(document).ready(function () {
         event.preventDefault();
         $('#postJogo').hide();
         $('#postCheck').show();
-        confirmar()
+        if(alterar == 'sim') {
+            alterarAnun()
+        }
+        else {
+            confirmar()
+        }
     });
 });
 
@@ -17,6 +22,12 @@ var banner = localStorage.getItem('banner')
 var prints = localStorage.getItem('prints')
 var idPerfil = localStorage.getItem('idPerfil')
 var preco = localStorage.getItem('preco')
+
+var alterar = localStorage.getItem('alterar')
+var idAlterar = localStorage.getItem('idAlterar')
+var tipoJogo = localStorage.getItem('tipoJogo')
+
+
 if (localStorage.getItem('acesso')) {
     var estado = localStorage.getItem('acesso')
     var tipoCad = 'cadastramidiavirtual'
@@ -82,6 +93,45 @@ function confirmar() {
         });
 }
 
+function alterarAnun() {
+    var descricaoSemPontuacao = descricao.replace(/[,./'"?]/g, '');
+    var novaCapa = capa.replace(/\//g, '*');
+    var novoBanner = banner.replace(/\//g, '*');
+    var novasPrints = prints.replace(/\//g, '*');
+    tituloDoJogo = tituloDoJogo.replace(/[,./'"?]/g, '')
+
+    var estadoDeCon = 'null'
+    var formaDeAcesso = 'null'
+
+    if (estado == 'Excelente' || estado == 'Muito Bom' || estado == 'Bom' || estado == 'Regular') {
+        estadoDeCon = estado
+    } else {
+        formaDeAcesso = estado
+    }
+
+    if (tipoJogo == 'Fisica') {
+        tipoJogo = 'fisica'
+    }
+    else if (tipoJogo == 'Virtual') {
+        tipoJogo = 'virtual'
+    }
+
+    fetch(`https://reyouseback.azurewebsites.net/alteraanuncio/${idAlterar}/${tipoJogo}/${NomePlataforma}/${tituloDoJogo}/${descricaoSemPontuacao}/null/${novaCapa}/${novoBanner}/${novasPrints}/${idPerfil}/${preco}/${estadoDeCon}/${formaDeAcesso}`)
+        .then(response => response.text())
+        .then(data => {
+            if (data == 'Anuncio cadastrado com sucesso!') {
+                limparLocalStorage();
+            }
+            else {
+                alert('ERROR')
+            }
+        })
+        .catch(error => {
+            alert('ERROR')
+            console.error('Ocorreu um erro:', error);
+        });
+}
+
 function limparLocalStorage() {
     localStorage.removeItem('nomeDaPlataforma');
     localStorage.removeItem('nomeDoJogo');
@@ -92,6 +142,10 @@ function limparLocalStorage() {
     localStorage.removeItem('preco');
     localStorage.removeItem('estado');
     localStorage.removeItem('acesso');
+
+    localStorage.removeItem('alterar');
+    localStorage.removeItem('idAlterar');
+    localStorage.removeItem('tipoJogo');
 }
 
 var botaoOkay = document.getElementById('postConfirms2')

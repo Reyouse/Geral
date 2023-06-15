@@ -232,78 +232,76 @@
 
         <div style="align-items: center; align-content: center;" class="content-container" id="editar-anuncio-fisico">
           <h1 style="color: #F8AF40; margin-bottom: 20px;">Editar Anúncio</h1>
-          <form class="box-container boxx-anuncio">
+          <form id="formFi" class="box-container boxx-anuncio">
             <div class="mb-3">
-              <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
-              <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
-              <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+              <label id="infosAnuncio" for="precoFi" class="form-label">Preço:</label>
+              <input type="text" id="precoFi" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
             </div>
 
             <div class="mb-3">
-              <label id="infosAnuncio" for="plataforma_jogo" class="form-label">Plataforma:</label><br>
+              <label id="infosAnuncio" for="plataforma_jogoFi" class="form-label">Plataforma:</label><br>
               <div class="form-check form-check">
-                <input type="radio" id="XBOX" class="form-check-input" name="plataforma_jogo" value="XBOX">
+                <input type="radio" id="XBOX" class="form-check-input" name="plataforma_jogoFi" value="XBOX">
                 <label id="plataforma_check" for="XBOX" class="form-check-label">XBOX</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="PlayStation" class="form-check-input" name="plataforma_jogo"
+                <input type="radio" id="PlayStation" class="form-check-input" name="plataforma_jogoFi"
                   value="PlayStation">
                 <label id="plataforma_check" for="XBOX" class="form-check-label">PlayStation</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="PC" class="form-check-input" name="plataforma_jogo" value="PC">
+                <input type="radio" id="PC" class="form-check-input" name="plataforma_jogoFi" value="PC">
                 <label id="plataforma_check" for="PC" class="form-check-label">PC</label>
               </div>
             </div>
 
             <div class="mb-3">
-              <label id="infosAnuncio" for="estado_conservacao" class="form-label">Estado de Conservação:</label><br>
+              <label id="infosAnuncio" for="estado_conservacaos" class="form-label">Estado de Conservação:</label><br>
               <div class="form-check form-check">
-                <input type="radio" id="excelente" class="form-check-input" name="estado_conservacao" value="excelente">
+                <input type="radio" id="excelente" class="form-check-input" name="estado_conservacaos" value="excelente">
                 <label id="conservacao" for="excelente" class="form-check-label">Excelente</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="muito_bom" class="form-check-input" name="estado_conservacao" value="muito_bom">
+                <input type="radio" id="muito_bom" class="form-check-input" name="estado_conservacaos" value="muito_bom">
                 <label id="conservacao" for="muito_bom" class="form-check-label">Muito Bom</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="bom" class="form-check-input" name="estado_conservacao" value="bom">
+                <input type="radio" id="bom" class="form-check-input" name="estado_conservacaos" value="bom">
                 <label id="conservacao" for="bom" class="form-check-label">Bom</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="regular" class="form-check-input" name="estado_conservacao" value="regular">
+                <input type="radio" id="regular" class="form-check-input" name="estado_conservacaos" value="regular">
                 <label id="conservacao" for="regular" class="form-check-label">Regular</label>
               </div>
             </div>
 
-            <button id="btnDados" type="submit" class="btn">Alterar</button>
+            <button id="btnDados4" type="submit" class="btn" disabled="true">Alterar</button>
           </form>
         </div>
 
         <!--AQUI ESTÃO OS CONTEUDOS PARA EDITAR UM ANUNCIO DIGITAL-->
         <div style="align-items: center; align-content: center;" class="content-container" id="editar-anuncio-digital">
           <h1 style="color: #F8AF40; margin-bottom: 20px;">Editar Anúncio</h1>
-          <form class="box-container boxx-anuncio">
+          <form id="formDi" class="box-container boxx-anuncio">
 
             <div class="mb-3">
-              <label id="infosAnuncio" for="preco" class="form-label">Preço:</label>
-              <input type="text" id="preco" class="form-control" name="preco" required pattern="R\$ \d+(,\d{1,2})?">
-              <small class="form-text text-muted">Formato esperado: R$ X,XX (use vírgula para separar centavos)</small>
+              <label id="infosAnuncio" for="precoDi" class="form-label">Preço:</label>
+              <input type="text" id="precoDi" class="form-control" name="preco">
             </div>
 
             <div class="mb-3">
-              <label id="infosAnuncio" for="plataforma_jogo" class="form-label">Plataforma:</label><br>
+              <label id="infosAnuncio" for="plataforma_jogoDi" class="form-label">Plataforma:</label><br>
               <div class="form-check form-check">
-                <input type="radio" id="XBOX" class="form-check-input" name="plataforma_jogo" value="XBOX">
+                <input type="radio" id="XBOX" class="form-check-input" name="plataforma_jogoDi" value="XBOX">
                 <label id="plataforma_check" for="XBOX" class="form-check-label">XBOX</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="PlayStation" class="form-check-input" name="plataforma_jogo"
+                <input type="radio" id="PlayStation" class="form-check-input" name="plataforma_jogoDi"
                   value="PlayStation">
                 <label id="plataforma_check" for="XBOX" class="form-check-label">PlayStation</label>
               </div>
               <div class="form-check form-check">
-                <input type="radio" id="PC" class="form-check-input" name="plataforma_jogo" value="PC">
+                <input type="radio" id="PC" class="form-check-input" name="plataforma_jogoDi" value="PC">
                 <label id="plataforma_check" for="PC" class="form-check-label">PC</label>
               </div>
             </div>
@@ -311,15 +309,15 @@
             <div class="mb-3">
               <h4 style="color: #F8AF40;">Informações de acesso:</h4>
               <label id="infosAnuncio" for="preco" class="form-label">E-mail</label>
-              <input type="email" id="email" class="form-control" name="email">
+              <input type="email" id="emails" class="form-control" name="email">
               <small class="form-text text-muted">Formato esperado: xxxx@xxxx.com</small>
             </div>
             <div class="mb-3">
               <label id="infosAnuncio" for="preco" class="form-label">Senha</label>
-              <input type="text" id="senha" class="form-control" name="senha">
+              <input type="text" id="senhas" class="form-control" name="senha">
             </div>
 
-            <button id="btnDados" type="submit" class="btn">Alterar</button>
+            <button id="btnDados3" type="submit" class="btn" disabled="true">Alterar</button>
           </form>
         </div>
 
