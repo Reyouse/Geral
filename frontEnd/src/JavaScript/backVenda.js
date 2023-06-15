@@ -103,9 +103,6 @@ function vendaFisica() {
         });
     });
 
-
-
-
     function validarPrecoF() {
         const inputPreco = document.getElementById("precoF");
 
