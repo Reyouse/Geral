@@ -1,9 +1,11 @@
 function criarDiv() {
 
+    var jogos = []
     fetch(`https://reyouseback.azurewebsites.net/historicovenda/${idPerfil}`)
         .then(response => response.json())
         .then(data => {
             for (var i = 0; i < data.length; i++) {
+                jogos.push(data[i].idAnuncio)
                 var dataObj = new Date(data[i].dataCompra);
                 var dia = dataObj.getDate() + 1
                 var mes = dataObj.getMonth() + 1; // Os meses são indexados de 0 a 11
@@ -66,11 +68,17 @@ function criarDiv() {
                 date.className = "mb-0";
                 date.textContent = `Data de anúncio: ${dataFormatada}`;
 
+                var contato = document.createElement("p");
+                contato.className = "mb-0"
+                contato.id = "cont" + data[i].idAnuncio
+                contato.textContent = ``
+
                 // Adicionando os elementos na hierarquia correta
                 divStart.appendChild(img);
                 divContent.appendChild(title);
                 divContent.appendChild(mediaType);
                 divContent.appendChild(date);
+                divContent.appendChild(contato);
                 divLeft.appendChild(divStart);
                 divLeft.appendChild(divContent);
                 divFlexContainer.appendChild(divLeft);
@@ -209,11 +217,27 @@ function criarDiv() {
                 // Adicionando a div criada como última filha
                 advertsContainer.appendChild(divContainer);
             }
+            jogos.forEach((index) => {
+                fetch(`https://reyouseback.azurewebsites.net/contatocomprador/${index}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data != "") {
+                            var contatos = document.getElementById("cont" + index)
+                            contatos.innerHTML = `E-mail: ${data[0].email} <br> Telefone: ${data[0].celular}`;
+                            console.log(1)
+                        }
+                    })
+                    .catch(error => {
+                        alert('ERROR')
+                        console.error('Ocorreu um erro:', error);
+                    });
+            });
         })
         .catch(error => {
             alert('ERROR')
             console.error('Ocorreu um erro:', error);
         });
+
 }
 
 function mudarDigital(nomeJogo, idJogo, tipoJogo) {
