@@ -63,21 +63,35 @@ function criarDiv() {
                 mediaType.className = "mb-0";
                 mediaType.textContent = `Tipo de mídia: ${data[i].tipo}`;
 
-                // Criação da data de anúncio p
-                var date = document.createElement("p");
-                date.className = "mb-0";
-                date.textContent = `Data de anúncio: ${dataFormatada}`;
+                if (data[i].entregue == 'sim' && data[i].comprado == 'sim') {
+                    // Criação da data de anúncio p
+                    var date = document.createElement("p");
+                    date.className = "mb-0";
+                    date.textContent = `Data de Venda: ${dataFormatada}`;
+                    
+                    var contato = document.createElement("p");
+                    contato.className = "mb-0"
+                    contato.id = "cont" + data[i].idAnuncio
+                    contato.textContent = ``
 
-                var contato = document.createElement("p");
-                contato.className = "mb-0"
-                contato.id = "cont" + data[i].idAnuncio
-                contato.textContent = ``
+                    // Adicionando os elementos na hierarquia correta
+                    divStart.appendChild(img);
+                    divContent.appendChild(title);
+                    divContent.appendChild(mediaType);
+                    divContent.appendChild(date);
+                }
+                else {
+                    var contato = document.createElement("p");
+                    contato.className = "mb-0"
+                    contato.id = "cont" + data[i].idAnuncio
+                    contato.textContent = ``
 
-                // Adicionando os elementos na hierarquia correta
-                divStart.appendChild(img);
-                divContent.appendChild(title);
-                divContent.appendChild(mediaType);
-                divContent.appendChild(date);
+                    // Adicionando os elementos na hierarquia correta
+                    divStart.appendChild(img);
+                    divContent.appendChild(title);
+                    divContent.appendChild(mediaType);
+                }
+
                 divContent.appendChild(contato);
                 divLeft.appendChild(divStart);
                 divLeft.appendChild(divContent);
@@ -97,7 +111,7 @@ function criarDiv() {
                 price.className = "mb-0";
                 price.textContent = `R$ ${precoFormatado}`;
 
-                if (data[i].entregue == 'nao') {
+                if (data[i].entregue == 'nao' && data[i].comprado == 'nao') {
                     // Criação do botão de edição
                     var editButton = document.createElement("button");
                     editButton.className = "btn btn-link";
@@ -149,7 +163,7 @@ function criarDiv() {
                 // Adicionando os elementos na hierarquia correta
                 divCardBody.appendChild(divFlexContainer);
                 divContainer.appendChild(divCardBody);
-                if (data[i].entregue == 'nao') {
+                if (data[i].entregue == 'nao' && data[i].comprado == 'nao') {
                     // Criação do ícone de lixeira
                     var trashIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                     trashIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
@@ -224,11 +238,9 @@ function criarDiv() {
                         if (data != "") {
                             var contatos = document.getElementById("cont" + index)
                             contatos.innerHTML = `E-mail: ${data[0].email} <br> Telefone: ${data[0].celular}`;
-                            console.log(1)
                         }
                     })
                     .catch(error => {
-                        alert('ERROR')
                         console.error('Ocorreu um erro:', error);
                     });
             });
