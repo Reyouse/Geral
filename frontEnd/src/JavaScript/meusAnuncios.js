@@ -68,7 +68,7 @@ function criarDiv() {
                     var date = document.createElement("p");
                     date.className = "mb-0";
                     date.textContent = `Data de Venda: ${dataFormatada}`;
-                    
+
                     var contato = document.createElement("p");
                     contato.className = "mb-0"
                     contato.id = "cont" + data[i].idAnuncio
@@ -163,6 +163,53 @@ function criarDiv() {
                 // Adicionando os elementos na hierarquia correta
                 divCardBody.appendChild(divFlexContainer);
                 divContainer.appendChild(divCardBody);
+
+                if (data[i].entregue == 'nao' && data[i].comprado == 'sim') {
+                    var buttonsDiv = document.createElement('div');
+                    buttonsDiv.style.marginBottom = '20px';
+                    buttonsDiv.style.marginLeft = '20px';
+                    buttonsDiv.className = 'd-flex flex-row align-items-center';
+
+                    var buttonC = document.createElement('button');
+                    buttonC.id = 'btnCancelar';
+                    buttonC.type = 'submit';
+                    buttonC.className = 'btn';
+                    buttonC.innerHTML = 'Cancelar Venda';
+                    buttonC.name = data[i].idAnuncio
+
+                    buttonC.addEventListener('click', handleClickC);
+
+                    function handleClickC(event) {
+                        var buttonId = event.target.name;
+                        var cancelarVenda = document.getElementById('cancelarVenda');
+                        cancelarVenda.innerText = "Tem certeza que deseja cancelar essa venda?"
+                        // Abrir o modal
+                        $('#exampleModal3').modal('show');
+
+                        // Evento de clique no botão de confirmação
+                        $('#postConfirmr').click(function () {
+                            fetch(`https://reyouseback.azurewebsites.net/cancelarvenda/${buttonId}`)
+                                .then(responses => responses.text())
+                                .then(datas => {
+                                    if (datas == 'Venda cancelada com sucesso') {
+                                        var divs = document.querySelectorAll(`div[name="${buttonId}"]`);
+                                        divs.forEach(div => {
+                                            div.parentNode.removeChild(div);
+                                        });
+                                    }
+                                    else {
+                                        alert('ERROR')
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Ocorreu um erro:', error);
+                                });
+                        });
+                    }
+                    buttonsDiv.appendChild(buttonC);
+                    divContainer.appendChild(buttonsDiv);
+                }
+
                 if (data[i].entregue == 'nao' && data[i].comprado == 'nao') {
                     // Criação do ícone de lixeira
                     var trashIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
