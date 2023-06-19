@@ -6,6 +6,17 @@ header #logo {
   width: 42%;
 }
 
+#removerQuebra{
+  display: inline;
+}
+
+#formaAcesso {
+  height: 100px;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  white-space: pre-wrap;
+}
+
 #btnPesquisar {
   border: none;
   color: #F7F7F7;
