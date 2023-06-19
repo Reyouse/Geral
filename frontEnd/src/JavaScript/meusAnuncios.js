@@ -238,11 +238,9 @@ function criarDiv() {
                         if (data != "") {
                             var contatos = document.getElementById("cont" + index)
                             contatos.innerHTML = `E-mail: ${data[0].email} <br> Telefone: ${data[0].celular}`;
-                            console.log(1)
                         }
                     })
                     .catch(error => {
-                        alert('ERROR')
                         console.error('Ocorreu um erro:', error);
                     });
             });
