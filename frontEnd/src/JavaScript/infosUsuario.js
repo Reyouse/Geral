@@ -39,4 +39,49 @@ function showContainer(containerId) {
   container.classList.add('active');
 }
 
+function attUser() {
+  fetch(`https://reyouseback.azurewebsites.net/dadosperfil/${idPerfil}`)
+  .then(response => response.json())
+  .then(data => {
+      var element = document.getElementById('welcome');
+      element.innerText = "Olá, " + data[0].nomeUsuario
+
+      var nameUser = document.getElementById('nameUser')
+      nameUser.innerHTML = `<b>Nome de usuário: </b>${data[0].nomeUsuario}`
+
+      var nameFull = document.getElementById('nameFull')
+      nameFull.innerHTML = `<b>Nome completo: </b>${data[0].nomePerfil}`
+
+      var sexo = 'Indefinido'
+      if(data[0].sexo == 'M') {
+        sexo = 'Masculino'
+      } else if (data[0].sexo == 'F') {
+        sexo = 'Feminino'
+      }
+
+      var campoSexo = document.getElementById('campoSexo')
+      campoSexo.innerHTML = `<b>Sexo: </b>${sexo}`
+
+      var campoEmail = document.getElementById('campoEmail')
+      campoEmail.innerHTML = `<b>E-mail: </b>${data[0].email}`
+
+      var cpf1 = data[0].cpf
+      let cpfFormatado = cpf1.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+      var cpf = document.getElementById('cpf')
+      cpf.innerHTML = `<b>CPF: </b>${cpfFormatado}`
+
+      let phoneNumber = data[0].celular
+      let formattedPhoneNumber = `(${phoneNumber.substring(0, 2)}) ${phoneNumber.substring(2)}`;
+
+      var tel = document.getElementById('telefone')
+      tel.innerHTML = `<b>Celular: </b>${formattedPhoneNumber}`
+  })
+  .catch(error => {
+      alert('ERROR')
+      console.error('Ocorreu um erro:', error);
+  });
+}
+
+attUser()
+
 addClickListeners()
