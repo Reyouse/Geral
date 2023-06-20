@@ -192,10 +192,7 @@ function criarDiv() {
                                 .then(responses => responses.text())
                                 .then(datas => {
                                     if (datas == 'Venda cancelada com sucesso') {
-                                        var divs = document.querySelectorAll(`div[name="${buttonId}"]`);
-                                        divs.forEach(div => {
-                                            div.parentNode.removeChild(div);
-                                        });
+                                        window.location.reload();
                                     }
                                     else {
                                         alert('ERROR')
