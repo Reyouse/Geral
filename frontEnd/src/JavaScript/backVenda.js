@@ -294,20 +294,10 @@ function vendaDigital() {
             var nomeJogo = document.getElementById("nome_jogoD").value.trim();
             var preco = document.getElementById("precoD").value.trim();
             var plataformaSelecionada = document.querySelector('input[name="plataforma_jogoD"]:checked').value.trim();
-            var email = document.getElementById("email").value.trim();
-            var senha = document.getElementById("senha").value.trim();
+            var senha = document.getElementById("formaAcesso").value.trim();
 
-            if (nomeJogo !== '' && email !== '' && senha !== '') {
-                var emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-                if (emailRegex.test(email)) {
-                    publicarD(nomeJogo, preco, plataformaSelecionada, email, senha);
-                } else {
-                    var modal = document.querySelector('.modalSenhaIncorreta');
-                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
-                    modalH.innerHTML = '<b>O E-MAIL É INVÁLIDO!</b>';
-                    var modalInstance = new bootstrap.Modal(modal);
-                    modalInstance.show();
-                }
+            if (nomeJogo !== '' && senha !== '') {
+                publicarD(nomeJogo, preco, plataformaSelecionada, senha);
             } else {
                 var modal = document.querySelector('.modalSenhaIncorreta');
                 var modalH = document.querySelector('.modalSenhaIncorreta h5');
@@ -354,7 +344,7 @@ function vendaDigital() {
         btnDados2.addEventListener('click', submitForm);
     }
 
-    function publicarD(nome, preco, plataforma, email, senha) {
+    function publicarD(nome, preco, plataforma, senha) {
 
         if (plataforma == 'XBOX') {
             plataforma = 'Xbox'
@@ -405,7 +395,7 @@ function vendaDigital() {
                         localStorage.setItem('banner', banner)
                         localStorage.setItem('prints', stringPrint)
                         localStorage.setItem('preco', numericValue)
-                        localStorage.setItem('acesso', `${email} - ${senha}`)
+                        localStorage.setItem('acesso', `${senha}`)
                         window.location.href = '../HTML/anuncioFinal.html';
                     }
                     else {
