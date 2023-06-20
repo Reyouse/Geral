@@ -17,6 +17,12 @@ header #logo {
   white-space: pre-wrap;
 }
 
+@supports (-moz-appearance: none) {
+  #formaAcesso {
+    writing-mode: initial;
+  }
+}
+
 #btnPesquisar {
   border: none;
   color: #F7F7F7;
