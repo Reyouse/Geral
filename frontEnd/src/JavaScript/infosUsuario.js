@@ -41,8 +41,8 @@ function showContainer(containerId) {
 
 function attUser() {
   fetch(`https://reyouseback.azurewebsites.net/dadosperfil/${idPerfil}`)
-  .then(response => response.json())
-  .then(data => {
+    .then(response => response.json())
+    .then(data => {
       var element = document.getElementById('welcome');
       element.innerText = "Olá, " + data[0].nomeUsuario
 
@@ -53,7 +53,7 @@ function attUser() {
       nameFull.innerHTML = `<b>Nome completo: </b>${data[0].nomePerfil}`
 
       var sexo = 'Indefinido'
-      if(data[0].sexo == 'M') {
+      if (data[0].sexo == 'M') {
         sexo = 'Masculino'
       } else if (data[0].sexo == 'F') {
         sexo = 'Feminino'
@@ -75,13 +75,41 @@ function attUser() {
 
       var tel = document.getElementById('telefone')
       tel.innerHTML = `<b>Celular: </b>${formattedPhoneNumber}`
-  })
-  .catch(error => {
+    })
+    .catch(error => {
       alert('ERROR')
       console.error('Ocorreu um erro:', error);
-  });
+    });
+}
+
+function attSaldo() {
+  fetch(`https://reyouseback.azurewebsites.net/valorvendido/${idPerfil}`)
+    .then(response => response.json())
+    .then(data => {
+      const elemento = document.querySelector('[name="valorVenda"]');
+      let valorFormatado = data[0].valorVendido.toString().replace('.', ',');
+
+      // Verifica se o valor possui duas casas decimais
+      if (valorFormatado.indexOf(',') === -1) {
+        valorFormatado += ',00'; // Adiciona duas casas decimais se não existirem
+      } else {
+        const decimais = valorFormatado.split(',')[1];
+        if (decimais.length === 1) {
+          valorFormatado += '0'; // Adiciona um zero se houver apenas uma casa decimal
+        }
+      }
+
+      // Adiciona o prefixo "R$"
+      valorFormatado = 'R$ ' + valorFormatado;
+
+      elemento.textContent = valorFormatado
+    })
+    .catch(error => {
+      alert('ERROR')
+      console.error('Ocorreu um erro:', error);
+    });
 }
 
 attUser()
-
+attSaldo()
 addClickListeners()

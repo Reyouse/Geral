@@ -6,6 +6,17 @@ header #logo {
   width: 42%;
 }
 
+#removerQuebra{
+  display: inline;
+}
+
+#formaAcesso {
+  height: 100px;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  white-space: pre-wrap;
+}
+
 #btnPesquisar {
   border: none;
   color: #F7F7F7;
@@ -447,7 +458,8 @@ footer #logo {
   border: 1px solid #F8AF40;
 }
 
-#btnDadosConfirmar {
+#btnDadosConfirmar,
+#btnCancelar {
   font-size: 14px;
   background-color: #202020;
   color: #F7F7F7;
@@ -457,7 +469,8 @@ footer #logo {
   border: 1px solid #F7F7F7;
 }
 
-#btnDadosConfirmar:hover {
+#btnDadosConfirmar:hover,
+#btnCancelar:hover {
   background-color: #202020;
   color: #F8AF40;
   border-radius: 20px;
@@ -469,6 +482,7 @@ footer #logo {
 #postConfirms,
 #postConfirmss,
 #postConfirmsss,
+#postConfirmr,
 #postCancel {
   position: relative;
   bottom: 10px;
@@ -479,13 +493,15 @@ footer #logo {
 #postConfirms:hover,
 #postConfirmss:hover,
 #postConfirmsss:hover,
+#postConfirmr:hover,
 #postCancel:hover {
   border-color: #171A21;
 }
 
 #postConfirms,
 #postConfirmss,
-#postConfirmsss{
+#postConfirmsss,
+#postConfirmr{
   background-color: #00a000;
   border-color: #008000;
 }
