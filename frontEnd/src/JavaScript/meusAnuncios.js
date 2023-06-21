@@ -242,7 +242,7 @@ function criarDiv() {
 
                             $('#exampleModal3').modal('show');
 
-                            $('#postConfirmsss').click(function () {
+                            $('#postConfirmr').click(function () {
                                 fetch(`https://reyouseback.azurewebsites.net/excluianuncio/${numID}`)
                                     .then(response => response.text())
                                     .then(data => {
@@ -331,20 +331,10 @@ function mudarDigital(nomeJogo, idJogo, tipoJogo) {
 
             var preco = document.getElementById("precoDi").value.trim();
             var plataformaSelecionada = document.querySelector('input[name="plataforma_jogoDi"]:checked').value.trim();
-            var email = document.getElementById("emails").value.trim();
-            var senha = document.getElementById("senhas").value.trim();
+            var senha = document.getElementById("formaAcessos").value.trim();
 
-            if (email !== '' && senha !== '') {
-                var emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-                if (emailRegex.test(email)) {
-                    publicarD(preco, plataformaSelecionada, email, senha);
-                } else {
-                    var modal = document.querySelector('.modalSenhaIncorreta');
-                    var modalH = document.querySelector('.modalSenhaIncorreta h5');
-                    modalH.innerHTML = '<b>O E-MAIL É INVÁLIDO!</b>';
-                    var modalInstance = new bootstrap.Modal(modal);
-                    modalInstance.show();
-                }
+            if (senha != '') {
+                publicarD(preco, plataformaSelecionada, senha);
             } else {
                 var modal = document.querySelector('.modalSenhaIncorreta');
                 var modalH = document.querySelector('.modalSenhaIncorreta h5');
@@ -391,7 +381,7 @@ function mudarDigital(nomeJogo, idJogo, tipoJogo) {
         btnDados3.addEventListener('click', submitForm);
     }
 
-    function publicarD(preco, plataforma, email, senha) {
+    function publicarD(preco, plataforma, senha) {
         if (plataforma == 'XBOX') {
             plataforma = 'Xbox'
         }
@@ -440,7 +430,7 @@ function mudarDigital(nomeJogo, idJogo, tipoJogo) {
                         localStorage.setItem('banner', banner)
                         localStorage.setItem('prints', stringPrint)
                         localStorage.setItem('preco', numericValue)
-                        localStorage.setItem('acesso', `${email} - ${senha}`)
+                        localStorage.setItem('acesso', `${senha}`)
                         localStorage.setItem('alterar', 'sim')
                         localStorage.setItem('idAlterar', idJogo)
                         localStorage.setItem('tipoJogo', tipoJogo)
@@ -599,7 +589,6 @@ function mudarFisica(nomeJogo, idJogo, tipoJogo) {
                             break
                         }
                     }
-                    if (valid) {
                         var descricao = data[j].descricao;
 
                         var banner = "NULL"
@@ -627,14 +616,7 @@ function mudarFisica(nomeJogo, idJogo, tipoJogo) {
                         localStorage.setItem('idAlterar', idJogo)
                         localStorage.setItem('tipoJogo', tipoJogo)
                         window.location.href = '../HTML/anuncioFinal.html';
-                    }
-                    else {
-                        var modal = document.querySelector('.modalSenhaIncorreta');
-                        var modalH = document.querySelector('.modalSenhaIncorreta h5');
-                        modalH.innerHTML = '<b>NOME DE JOGO INVALIDO!</b>';
-                        var modalInstance = new bootstrap.Modal(modal);
-                        modalInstance.show();
-                    }
+
                 }
                 else {
                     var modal = document.querySelector('.modalSenhaIncorreta');
